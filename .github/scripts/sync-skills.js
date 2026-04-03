@@ -76,7 +76,7 @@ function getSkillsWithMetadata() {
  * Update skill count in description
  */
 function updateSkillCount(description, count) {
-  return description.replace(/\d+ marketing skills/, `${count} marketing skills`);
+  return description.replace(/\d+ clinical skills/, `${count} clinical skills`);
 }
 
 /**

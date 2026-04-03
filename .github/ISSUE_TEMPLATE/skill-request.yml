@@ -1,5 +1,5 @@
 name: Skill Request
-description: Request a new marketing skill
+description: Request a new clinical radiology skill
 title: "Skill Request: [skill-name]"
 labels: ["enhancement"]
 body:
@@ -12,7 +12,7 @@ body:
     id: skill-name
     attributes:
       label: Suggested skill name
-      description: Lowercase, hyphens only (e.g., "landing-page-audit")
+      description: Lowercase, hyphens only (e.g., "ct-brain-analysis")
       placeholder: "my-skill-name"
     validations:
       required: true
@@ -54,12 +54,14 @@ body:
       label: Category
       description: Which category does this skill fit into?
       options:
-        - CRO (Conversion Rate Optimization)
-        - Copywriting
-        - SEO
-        - Paid Ads
-        - Growth / Strategy
-        - Analytics
+        - Clinical Documentation
+        - Patient Communication
+        - Workflow Coordination
+        - Analytics / Quality
+        - Research / Evidence
+        - Platform Integration
+        - AI Assistants
+        - Dataset Management
         - Other
     validations:
       required: true
@@ -69,6 +71,6 @@ body:
     attributes:
       label: Related existing skills
       description: Are there existing skills this relates to or differs from?
-      placeholder: "Similar to page-cro but focused on..."
+      placeholder: "Similar to pacs-workflow but focused on..."
     validations:
       required: false
