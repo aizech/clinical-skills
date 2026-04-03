@@ -29,7 +29,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Generate llms.txt
         run: |
@@ -42,6 +42,7 @@ jobs:
           name: llms.txt
           path: public/llms.txt
           retention-days: 7
+          overwrite: true
 
       - name: Show generated content
         run: |

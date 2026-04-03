@@ -20,13 +20,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Run security baseline check
         run: node .github/scripts/security-baseline.js security-report.json
@@ -42,6 +40,7 @@ jobs:
           name: security-report
           path: security-report.json
           retention-days: 30
+          overwrite: true
 
       - name: Commit security report
         if: github.event_name == 'push'
@@ -59,6 +58,7 @@ jobs:
         with:
           name: security-report
           path: .
+          overwrite: true
 
       - name: Display skill statuses
         run: |
