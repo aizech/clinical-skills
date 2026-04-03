@@ -2,7 +2,7 @@ name: Security Baseline Check
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - 'skills/**'
       - 'tools/integrations/**'
