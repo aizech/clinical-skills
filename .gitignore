@@ -4,6 +4,10 @@ PLAN*.md
 # Dependencies
 node_modules/
 
+# Build artifacts
+security-report.json
+*.log
+
 # Environment variables / secrets
 .env
 .env.*
