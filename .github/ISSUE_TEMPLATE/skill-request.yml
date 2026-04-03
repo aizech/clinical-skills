@@ -74,3 +74,12 @@ body:
       placeholder: "Similar to pacs-workflow but focused on..."
     validations:
       required: false
+
+  - type: checkboxes
+    id: requirements
+    attributes:
+      label: Before submitting
+      options:
+        - label: "I understand skills require evals.json and SKILL.md"
+        - label: "This benefits radiology AI broadly (not just my use case)"
+        - label: "I am willing to help test/implement this skill"

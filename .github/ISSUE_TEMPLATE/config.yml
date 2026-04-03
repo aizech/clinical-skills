@@ -1,8 +1,11 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Contributing Guide
+    url: https://github.com/aizech/clinical-skills/blob/main/CLAUDE.md
+    about: Read the contributing guide before submitting issues or PRs
   - name: Agent Skills Specification
     url: https://agentskills.io/specification.md
-    about: Learn the skill format before creating or requesting a skill
-  - name: Contributing Guide
-    url: https://github.com/aizech/clinical-skills/blob/main/CONTRIBUTING.md
-    about: How to contribute a new skill to this repository
+    about: Learn the skill format specification
+  - name: Discussions
+    url: https://github.com/aizech/clinical-skills/discussions
+    about: General questions and community discussions

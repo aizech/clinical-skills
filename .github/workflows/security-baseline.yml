@@ -1,0 +1,72 @@
+name: Security Baseline Check
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'skills/**'
+      - 'tools/integrations/**'
+      - 'tools/clis/**'
+      - '.github/scripts/security-baseline.js'
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight
+  workflow_dispatch:
+
+jobs:
+  security-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run security baseline check
+        run: node .github/scripts/security-baseline.js security-report.json
+
+      - name: Display summary
+        run: |
+          echo "Security Report Summary:"
+          cat security-report.json | jq '.summary'
+
+      - name: Upload security report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-report
+          path: security-report.json
+          retention-days: 30
+
+      - name: Commit security report
+        if: github.event_name == 'push'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "ci: update security report"
+          add: "security-report.json"
+
+  report:
+    needs: security-baseline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download security report
+        uses: actions/download-artifact@v4
+        with:
+          name: security-report
+          path: .
+
+      - name: Display skill statuses
+        run: |
+          echo "Skill Security Status:"
+          cat security-report.json | jq -r '.skills[] | "\(.name) (\(.category)): \(.securityStatus)"' | sort
+
+      - name: Check for failures
+        run: |
+          ERROR_COUNT=$(cat security-report.json | jq '.summary.errors')
+          if [ "$ERROR_COUNT" -gt 0 ]; then
+            echo "ERROR: Found $ERROR_COUNT security errors"
+            cat security-report.json | jq '.skills[] | select(.checks | .validFrontmatter == false) | {name, issues: .checks.frontmatter.issues}'
+            exit 1
+          fi
+          echo "All security checks passed!"
