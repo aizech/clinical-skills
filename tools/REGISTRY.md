@@ -21,10 +21,15 @@ Quick reference for AI agents to discover clinical imaging tools, AI platforms, 
 | dicomweb | DICOM | ✓ | ✓ | [dicomweb-standard.md](integrations/dicomweb-standard.md) |
 | ohif-viewer | DICOM | ✓ | - | [ohif-viewer.md](integrations/ohif-viewer.md) |
 | dicom-conformance | DICOM | ✓ | - | [dicom-conformance.md](integrations/dicom-conformance.md) |
-| **AI Detection Platforms** |||||
+| **EHR Systems** |||||
+| epic-radiant | EHR | ✓ | - | [epic-radiant.md](integrations/epic-radiant.md) |
+| cerner-powerchart | EHR | ✓ | - | [cerner-powerchart.md](integrations/cerner-powerchart.md) |
+| **AI Detection** |||||
 | aidoc | AI Detection | ✓ | - | [aidoc.md](integrations/aidoc.md) |
 | nvidia-clara | AI Detection | ✓ | - | [nvidia-clara.md](integrations/nvidia-clara.md) |
 | zebra-medical | AI Detection | ✓ | - | [zebra-medical.md](integrations/zebra-medical.md) |
+| maxq-ai | AI Detection | ✓ | - | [maxq-ai.md](integrations/maxq-ai.md) |
+| qure-ai | AI Detection | ✓ | - | [qure-ai.md](integrations/qure-ai.md) |
 | **AI Reporting** |||||
 | radai | AI Reporting | ✓ | - | [radai.md](integrations/radai.md) |
 | **LLM Platforms** |||||
@@ -36,10 +41,15 @@ Quick reference for AI agents to discover clinical imaging tools, AI platforms, 
 | nih-chestxray14 | Dataset | ✓ | ✓ | [nih-chestxray14.md](integrations/nih-chestxray14.md) |
 | physionet-mimic | Dataset | ✓ | - | [physionet-mimic.md](integrations/physionet-mimic.md) |
 | chexpert | Dataset | ✓ | - | [chexpert.md](integrations/chexpert.md) |
+| chexphoto | Dataset | ✓ | - | [chexphoto-dataset.md](integrations/chexphoto-dataset.md) |
 | luna16-dataset | Dataset | ✓ | - | [luna16-dataset.md](integrations/luna16-dataset.md) |
+| kits-dataset | Dataset | ✓ | - | [kits-dataset.md](integrations/kits-dataset.md) |
 | brats-dataset | Dataset | ✓ | - | [brats-dataset.md](integrations/brats-dataset.md) |
+| panda-dataset | Dataset | ✓ | - | [panda-dataset.md](integrations/panda-dataset.md) |
+| objcxr-dataset | Dataset | ✓ | - | [objcxr-dataset.md](integrations/objcxr-dataset.md) |
 | **Reference & Interop** |||||
 | pubmed-ncbi | Literature | ✓ | ✓ | [pubmed-ncbi.md](integrations/pubmed-ncbi.md) |
+| radiopaedia | Literature | - | - | [radiopaedia.md](integrations/radiopaedia.md) |
 | fhir-r4 | Interop | ✓ | - | [fhir-r4.md](integrations/fhir-r4.md) |
 | hl7-v2 | Interop | ✓ | - | [hl7-v2.md](integrations/hl7-v2.md) |
 | **Frameworks** |||||
@@ -59,6 +69,15 @@ Picture Archiving and Communication Systems for managing imaging data.
 | **Orthanc** | Research, small practices, learning | ✓ | REST |
 | **DCM4CHEE** | Enterprise, HL7 integration | ✓ | REST + DICOM |
 
+### EHR Integration
+
+Electronic Health Record systems with radiology modules.
+
+| Tool | Best For | FHIR Support | Notes |
+|------|----------|:------------:|-------|
+| **Epic Radiant** | Large health systems | R4 | Most common in US |
+| **Cerner PowerChart** | Enterprise healthcare | R4 | Oracle Health |
+
 ### DICOMweb Services
 
 RESTful DICOM operations for query, retrieve, and storage.
@@ -77,6 +96,8 @@ AI-powered medical imaging detection for triage and diagnosis assistance.
 | **Aidoc** | Hemorrhage, PE, C-spine | CT | ✓ |
 | **Nvidia Clara** | Multi-modal detection | CT, MRI, X-ray | ✓ |
 | **Zebra Medical** | Multi-finding, chest | X-ray, CT | ✓ |
+| **MaxQ AI** | Neuro, PE detection | CT | ✓ |
+| **Qure AI** | Chest, head analysis | X-ray, CT | ✓ |
 
 ### AI Reporting Platforms
 
@@ -106,8 +127,12 @@ Annotated medical imaging datasets for research and validation.
 | **NIH ChestX-ray14** | X-ray | ~112k | 14 chest pathologies |
 | **MIMIC-CXR** | X-ray | ~377k | ICU chest imaging |
 | **CheXpert** | X-ray | ~224k | Chest reporting |
+| **CheXphoto** | X-ray | ~65k | Augmented pairs |
 | **LUNA16** | CT | ~888 scans | Lung nodule detection |
-| **BraTS** | MRI | ~2k | Brain tumor segmentation |
+| **KiTS** | CT | ~300 cases | Kidney tumor |
+| **BraTS** | MRI | ~2k | Brain tumor |
+| **PANDA** | Histology | ~10k | Prostate grading |
+| **OBJ-CXR** | X-ray | ~12k | Pneumothorax |
 
 ### Reference & Interoperability
 
@@ -116,6 +141,7 @@ Literature search and healthcare data exchange standards.
 | Tool | Purpose | Access |
 |------|---------|--------|
 | **PubMed/NCBI** | Medical literature | Free API |
+| **Radiopaedia** | Case reference | Web-based |
 | **HL7 FHIR R4** | Imaging data exchange | Standard |
 | **HL7 v2** | Legacy messaging | EMR integration |
 
@@ -143,14 +169,11 @@ Python-based CLIs for clinical imaging operations.
 ### CLI Installation
 
 ```bash
-# Make executable
-chmod +x tools/clis/*.py
-
 # Run directly
 python tools/clis/dicom_qido.py --help
 
-# Or install globally
-pip install -e tools/clis/
+# Make executable
+chmod +x tools/clis/*.py
 ```
 
 ---
@@ -183,31 +206,26 @@ pip install -e tools/clis/
 
 ---
 
-## Integration Connectors
-
-### MCP Servers (Future)
-
-| Connector | Purpose |
-|-----------|---------|
-| `pacs-mcp/` | MCP server for PACS interaction |
-| `dicomweb-client/` | DICOMweb REST client |
-
-### Integration Docs by Category
+## Integration Docs by Category
 
 **PACS & DICOM:**
 - orthanc.md, dcm4chee.md, ohif-viewer.md
 - dicomweb-standard.md, dicom-conformance.md
 
+**EHR:**
+- epic-radiant.md, cerner-powerchart.md
+
 **AI Platforms:**
-- aidoc.md, nvidia-clara.md, zebra-medical.md, radai.md
-- medpalm-api.md, google-health.md, amazon-healthlake.md
+- aidoc.md, nvidia-clara.md, zebra-medical.md, maxq-ai.md, qure-ai.md
+- radai.md, medpalm-api.md, google-health.md, amazon-healthlake.md
 
 **Datasets:**
 - rsna-data.md, nih-chestxray14.md, physionet-mimic.md
-- chexpert.md, luna16-dataset.md, brats-dataset.md
+- chexpert.md, chexphoto-dataset.md, luna16-dataset.md
+- kits-dataset.md, brats-dataset.md, panda-dataset.md, objcxr-dataset.md
 
 **Reference & Interop:**
-- pubmed-ncbi.md, fhir-r4.md, hl7-v2.md
+- pubmed-ncbi.md, radiopaedia.md, fhir-r4.md, hl7-v2.md
 
 **Frameworks:**
 - monai-framework.md, itksnap.md
@@ -222,11 +240,15 @@ These tools are referenced by the agent skills:
 |-------|------------|
 | pacs-workflow | orthanc, dcm4chee, dicom_qido, fetch_study |
 | dicom-web-query | dicomweb, ohif, dicom_qido, dicom_wado |
-| ai-detection-pipeline | aidoc, nvidia-clara, zebra-medical |
+| ai-detection-pipeline | aidoc, nvidia-clara, zebra-medical, maxq-ai, qure-ai |
 | ai-report-assist | radai |
 | llm-radiology-use | medpalm-api, google-health |
 | pubmed-search | pubmed-ncbi, pubmed_search |
 | radiology-metrics | tat_analyzer, radiology_metrics |
 | image-quality-audit | image_qc |
-| radiology-dataset-guide | dataset_downloader, luna16, brats |
+| radiology-dataset-guide | rsna-data, nih-chestxray14, luna16, brats, kits |
 | dataset-preprocessing | monai, dicom_anonymizer |
+
+---
+
+**Total: 30 integration docs, 12 CLI tools**
