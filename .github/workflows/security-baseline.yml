@@ -44,7 +44,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "ci: update security report"
-          add: "security-report.json"
+          add_options: "security-report.json"
 
   report:
     needs: security-baseline
