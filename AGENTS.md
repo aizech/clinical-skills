@@ -217,7 +217,7 @@ Each skill follows Test-Driven Development:
 
 ```bash
 # Run evals for a skill
-./validate-skills.sh skills/skill-name
+.github/scripts/validate-skills.sh skills/skill-name
 ```
 
 ## Checking for Updates
