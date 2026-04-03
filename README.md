@@ -2,9 +2,16 @@
 
 A collection of AI agent skills focused on radiological analytics and healthcare tasks. Built for radiologists, healthcare IT professionals, and researchers who want AI coding agents to help with imaging workflows, clinical documentation, AI integration, and radiology research. Works with Claude Code, OpenAI Codex, Cursor, Windsurf, and any agent that supports the [Agent Skills spec](https://agentskills.io).
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Skills](https://img.shields.io/badge/skills-26-orange)
+![Integrations](https://img.shields.io/badge/integrations-34-purple)
+
+> ⚠️ **Security Notice**: These skills work with healthcare concepts. Never input patient-identifiable information (PHI). Use de-identified or synthetic data only.
+
 Built by [Corpus Analytica](https://corpusanalytica.com). Special skills created and verified by Corpus Analytica for healthcare and medical AI applications. Current focus: **Radiological Analytics**.
 
-**Contributions welcome!** Found a way to improve a skill or have a new one to add? [Open a PR](#contributing).
+**Contributions welcome!** Found a way to improve a skill or have a new one to add? [Open a PR](CONTRIBUTING.md).
 
 Run into a problem or have a question? [Open an issue](https://github.com/aizech/clinical-skills/issues) — we're happy to help.
 
@@ -18,8 +25,8 @@ Skills reference each other and build on shared context. The `radiology-context`
 
 ```
                             ┌──────────────────────────────────────┐
-                            │       radiology-context                │
-                            │   (read by all other skills first)    │
+                            │       radiology-context              │
+                            │   (read by all other skills first)   │
                             └──────────────────┬───────────────────┘
                                                │
     ┌──────────────┬─────────────┬─────────────┼─────────────┬──────────────┬──────────────┐
@@ -30,15 +37,15 @@ Skills reference each other and build on shared context. The `radiology-context`
 ├──────────┤ ├──────────┤ ├──────────┤ ├────────────┤ ├──────────┤ ├─────────────┤ ├───────────┤
 │modality  │ │report    │ │results   │ │pacs-work   │ │ai-report │ │pubmed-search│ │radiology  │
 │detect    │ │analysis  │ │letter    │ │dicom-web   │ │assist    │ │guideline    │ │metrics    │
-│imaging   │ │struct    │ │imaging   │ │hl7-fhir    │ │ai-detect│ │radiology    │ │image      │
+│imaging   │ │struct    │ │imaging   │ │hl7-fhir    │ │ai-detect │ │radiology    │ │image      │
 │study     │ │report    │ │referral  │ │filesystem  │ │pipeline  │ │research     │ │quality    │
 │review    │ │impression│ │followup  │ │            │ │llm-radiol│ │cross-ref    │ │audit      │
 │          │ │findings  │ │care-gap  │ │            │ │use       │ │linking      │ │report     │
 │          │ │extract   │ │closure   │ │            │ │ai-quality│ │             │ │quality    │
 │          │ │          │ │          │ │            │ │review    │ │             │ │review     │
 └────┬─────┘ └────┬─────┘ └────┬─────┘ └─────┬──────┘ └────┬─────┘ └──────┬──────┘ └─────┬─────┘
-     │            │            │              │             │              │              │
-     └────────────┴─────┬──────┴──────────────┴─────────────┴──────────────┴──────────────┘
+     │            │            │             │             │              │              │
+     └────────────┴─────┬──────┴─────────────┴─────────────┴──────────────┴──────────────┘
                         │
          Skills cross-reference each other:
            report-analysis ↔ structured-reporting ↔ findings-extraction
@@ -87,6 +94,14 @@ See each skill's **Related Skills** section for the full dependency map.
 | [dataset-preprocessing](skills/dataset/dataset-preprocessing/) | Prepare DICOM/images for AI training and analysis. Also use when the user needs to preprocess imaging data, convert formats, or prepare datasets. |
 | [model-validation](skills/dataset/model-validation/) | Validate AI model performance on local data. Also use for model testing, benchmark comparison, or clinical validation studies. |
 <!-- SKILLS:END -->
+
+## Quick Start
+
+1. **Install skills**: `npx skills add aizech/clinical-skills`
+2. **Load context first**: Ask your agent to "read radiology-context" (this sets up your clinical environment)
+3. **Use a skill**: "Analyze this CT report for pulmonary nodules"
+
+> **Tip**: Always load `radiology-context` before other skills. It configures your imaging environment and ensures other skills work correctly.
 
 ## Installation
 
@@ -171,6 +186,34 @@ You can also invoke skills directly:
 /pacs-workflow
 ```
 
+## CLI Tools
+
+The repository includes **12 command-line tools** for DICOM operations, metrics, and research:
+
+| Tool | Purpose |
+|------|---------|
+| `dicom_qido.py` | Query DICOM objects via QIDO-RS |
+| `dicom_wado.py` | Retrieve DICOM via WADO-RS |
+| `fetch_study.py` | Download complete imaging studies |
+| `pubmed_search.py` | Search medical literature |
+| `tat_analyzer.py` | Turnaround time metrics |
+| `radiology_metrics.py` | Dashboard KPI generation |
+
+See `tools/clis/` for all available tools.
+
+## Integration Registry
+
+Browse **30+ integration docs** covering PACS, EHR, AI platforms, datasets, and standards:
+
+| Category | Integrations |
+|----------|--------------|
+| **PACS** | Orthanc, dcm4chee, OHIF Viewer |
+| **EHR** | Epic Radiant, Cerner PowerChart |
+| **AI Platforms** | Aidoc, Nvidia Clara, Zebra Medical, RadAI |
+| **Datasets** | RSNA, NIH ChestX-ray14, MIMIC, CheXpert |
+
+See [tools/REGISTRY.md](tools/REGISTRY.md) for the complete catalog.
+
 ## Skill Categories
 
 ### Core (Always-Load)
@@ -224,6 +267,16 @@ You can also invoke skills directly:
 - `dataset-preprocessing` - Data preparation
 - `model-validation` - AI model testing
 - `filesystem-imaging` - Local data handling
+
+## Resources
+
+| Document | Purpose |
+|----------|---------|
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to add or improve skills |
+| [AGENTS.md](AGENTS.md) | Guidelines for AI agents working in this repo |
+| [CLAUDE.md](CLAUDE.md) | Claude Code specific contribution guide |
+| [CHANGELOG.md](CHANGELOG.md) | Version history and updates |
+| [tools/REGISTRY.md](tools/REGISTRY.md) | Full integration catalog |
 
 ## Contributing
 
