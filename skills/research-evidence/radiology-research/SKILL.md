@@ -1,6 +1,9 @@
-# Radiology Research Skill
+---
+name: radiology-research
+description: Access and synthesize medical imaging research literature. Use when user mentions "recent research on", "literature review", "published studies", "evidence for", or needs to find relevant research.
+---
 
-Access and synthesize medical imaging research literature.
+# Radiology Research Skill
 
 ## Triggers
 

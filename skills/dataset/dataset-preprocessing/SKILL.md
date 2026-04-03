@@ -1,6 +1,9 @@
-# Dataset Preprocessing Skill
+---
+name: dataset-preprocessing
+description: Provides preprocessing pipelines and techniques for radiology datasets used in AI development. Use when user mentions "preprocess radiology data", "DICOM preprocessing", "image normalization", "data augmentation", or needs to prepare datasets.
+---
 
-Provides preprocessing pipelines and techniques for radiology datasets used in AI development.
+# Dataset Preprocessing Skill
 
 ## Triggers
 

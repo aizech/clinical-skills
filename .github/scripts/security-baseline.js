@@ -327,6 +327,11 @@ function generateReport() {
         s.checks.secrets.issues.length +
         s.checks.phi.issues.length +
         s.checks.frontmatter.issues.length,
+      issues: [
+        ...s.checks.frontmatter.issues,
+        ...s.checks.secrets.issues,
+        ...s.checks.phi.issues
+      ],
       externalLinks: s.externalLinks.length,
       lastAudit: new Date().toISOString()
     }))

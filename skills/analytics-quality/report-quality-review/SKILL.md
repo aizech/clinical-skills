@@ -1,6 +1,9 @@
-# Report Quality Review Skill
+---
+name: report-quality-review
+description: Monitors and improves radiology report quality through systematic audit and feedback. Use when user mentions "report quality review", "discrepancy audit", "report completeness", "addendum analysis", or needs quality assurance.
+---
 
-Monitors and improves radiology report quality through systematic audit and feedback.
+# Report Quality Review Skill
 
 ## Triggers
 

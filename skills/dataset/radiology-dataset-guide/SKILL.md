@@ -1,6 +1,9 @@
-# Radiology Dataset Guide Skill
+---
+name: radiology-dataset-guide
+description: Guides researchers and developers through radiology dataset selection, access, and utilization for AI development. Use when user mentions "radiology dataset", "medical imaging data", "RSNA challenge", "MIMIC data access", or needs dataset guidance.
+---
 
-Guides researchers and developers through radiology dataset selection, access, and utilization for AI development.
+# Radiology Dataset Guide Skill
 
 ## Triggers
 

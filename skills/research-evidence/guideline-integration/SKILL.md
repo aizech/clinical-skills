@@ -1,6 +1,9 @@
-# Guideline Integration Skill
+---
+name: guideline-integration
+description: Access and apply professional radiology society guidelines. Use when user mentions "ACR criteria", "appropriateness rating", "guideline for", "society recommendation", "BI-RADS update", "dose reference levels", or "protocol guidelines".
+---
 
-Access and apply professional radiology society guidelines.
+# Guideline Integration Skill
 
 ## Triggers
 

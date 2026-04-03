@@ -1,6 +1,9 @@
-# Image Quality Audit Skill
+---
+name: image-quality-audit
+description: Assesses medical image quality against clinical standards and identifies optimization opportunities. Use when user mentions "image quality audit", "artifact review", "dose analysis", "protocol deviation", "quality metrics", "diagnostic adequacy", or "technique optimization".
+---
 
-Assesses medical image quality against clinical standards and identifies optimization opportunities.
+# Image Quality Audit Skill
 
 ## Triggers
 

@@ -1,6 +1,9 @@
-# Cross-Reference Linking Skill
+---
+name: cross-reference-linking
+description: Links current findings to priors, related literature, and correlated data. Use when user mentions "compare to priors", "find prior studies", "correlate with", "longitudinal comparison", or needs historical context.
+---
 
-Links current findings to priors, related literature, and correlated data.
+# Cross-Reference Linking Skill
 
 ## Triggers
 

@@ -1,6 +1,9 @@
-# Radiology Metrics Skill
+---
+name: radiology-metrics
+description: Retrieves and analyzes operational metrics from radiology information systems. Use when user mentions "radiology KPIs", "productivity metrics", "turnaround time analysis", "workload distribution", or needs operational analytics.
+---
 
-Retrieves and analyzes operational metrics from radiology information systems.
+# Radiology Metrics Skill
 
 ## Triggers
 

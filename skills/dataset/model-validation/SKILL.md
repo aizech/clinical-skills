@@ -1,6 +1,9 @@
-# Model Validation Skill
+---
+name: model-validation
+description: Designs and executes validation studies for radiology AI models to ensure clinical reliability and regulatory compliance. Use when user mentions "validate model performance", "external validation", "statistical analysis", "clinical validation", or needs model evaluation.
+---
 
-Designs and executes validation studies for radiology AI models to ensure clinical reliability and regulatory compliance.
+# Model Validation Skill
 
 ## Triggers
 
