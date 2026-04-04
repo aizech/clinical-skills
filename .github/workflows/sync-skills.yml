@@ -18,6 +18,12 @@ jobs:
         with:
           persist-credentials: true
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
       - name: Sync skills
         run: node .github/scripts/sync-skills.js
 

@@ -83,7 +83,7 @@ def print_dicom_info(file_path: Path, show_private: bool = False, tag_filter: Op
     for section_name, tags in sections.items():
         print(f"\n{section_name}:")
         found = False
-        for tag, keyword in tags:
+        for tag, keyword, _ in tags:
             if tag in ds:
                 found = True
                 value = format_value(ds[tag].value)
