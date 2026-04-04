@@ -14,7 +14,7 @@ ENV/
 env/
 
 # Build artifacts
-security-report.json
+#security-report.json
 *.log
 .pytest_cache/
 .coverage
