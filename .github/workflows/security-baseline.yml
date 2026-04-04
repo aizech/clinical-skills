@@ -34,7 +34,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'
 
       - name: Run security baseline check
         run: node .github/scripts/security-baseline.js security-report.json
