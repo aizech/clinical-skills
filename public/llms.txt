@@ -1,6 +1,6 @@
-# Clinical Skills for Radiology
+# Clinical Skills
 
-AI agent skills for radiological analytics by Corpus Analytica.
+AI agent skills for medical imaging and healthcare workflows by Corpus Analytica.
 
 ## About
 
@@ -151,4 +151,4 @@ See [CHANGELOG.md](CHANGELOG.md) for version history.
 
 ---
 
-Generated: 2026-04-04T10:55:17.990Z
+Generated: 2026-04-04T16:07:49.768Z
