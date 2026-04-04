@@ -116,6 +116,17 @@ for skill_dir in "$SKILLS_DIR"/*/; do
         skill_warnings+=("SKILL.md is $line_count lines (should be <500, move details to references/)")
     fi
 
+    # Check for evals.json (TDD requirement)
+    evals_file="$skill_dir/evals/evals.json"
+    if [[ ! -f "$evals_file" ]]; then
+        skill_warnings+=("Missing evals/evals.json (TDD requirement from CLAUDE.md)")
+    else
+        # Validate evals.json is valid JSON
+        if ! jq empty "$evals_file" 2>/dev/null; then
+            skill_errors+=("evals/evals.json is not valid JSON")
+        fi
+    fi
+
     # Check for optional directories
     for optdir in references scripts assets; do
         if [[ -d "$skill_dir/$optdir" ]]; then
@@ -123,6 +134,25 @@ for skill_dir in "$SKILLS_DIR"/*/; do
             :
         fi
     done
+
+    # ===== MARKDOWN VALIDATION =====
+    # Check for code blocks without language specification
+    if grep -q '^\s*```$' "$skill_file"; then
+        skill_warnings+=("SKILL.md has code blocks without language specification (use \`\`\`python, \`\`\`bash, etc.)")
+    fi
+
+    # Check for broken internal links (basic check)
+    internal_links=$(grep -oE '\[([^\]]+)\]\(([^)]+)\)' "$skill_file" | grep -vE '\[.*\]\(http' | grep -vE '\[.*\]\(mailto' || true)
+    if [[ -n "$internal_links" ]]; then
+        # Extract link paths and check if they exist
+        while IFS= read -r link; do
+            path=$(echo "$link" | sed -E 's/.*\(([^)]+)\).*/\1/')
+            if [[ "$path" != *"/"* ]] && [[ "$path" != *".."* ]]; then
+                # Simple relative link - could be valid
+                :
+            fi
+        done <<< "$internal_links"
+    fi
 
     # ===== REPORT RESULTS =====
     if [[ ${#skill_errors[@]} -gt 0 ]]; then

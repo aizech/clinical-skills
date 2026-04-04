@@ -274,6 +274,7 @@ See [tools/REGISTRY.md](tools/REGISTRY.md) for the complete catalog.
 |----------|---------|
 | [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) | Development setup, validation, testing guide |
 | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Common issues and solutions |
+| [docs/WORKFLOW_EXAMPLES.md](docs/WORKFLOW_EXAMPLES.md) | End-to-end workflow examples |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to add or improve skills |
 | [AGENTS.md](AGENTS.md) | Guidelines for AI agents working in this repo |
 | [CLAUDE.md](CLAUDE.md) | Claude Code specific contribution guide |
