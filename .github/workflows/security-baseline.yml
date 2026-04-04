@@ -9,6 +9,14 @@ on:
       - 'tools/clis/**'
       - 'docs/**'
       - '.github/scripts/security-baseline.js'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'tools/integrations/**'
+      - 'tools/clis/**'
+      - 'docs/**'
+      - '.github/scripts/security-baseline.js'
   schedule:
     - cron: '0 0 * * *'  # Daily at midnight
   workflow_dispatch:
