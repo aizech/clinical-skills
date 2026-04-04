@@ -1,0 +1,75 @@
+# Pre-commit hooks for clinical-skills
+# Install with: pre-commit install
+
+repos:
+  # Validate skill specification on SKILL.md changes
+  - repo: local
+    hooks:
+      - id: validate-skills
+        name: Validate Agent Skills
+        entry: ./scripts/validate-skills.sh
+        language: script
+        files: ^skills/.*SKILL\.md$
+        pass_filenames: false
+
+  # Security baseline check on skill/integration changes
+  - repo: local
+    hooks:
+      - id: security-baseline
+        name: Security Baseline Check
+        entry: node .github/scripts/security-baseline.js security-report.json
+        language: script
+        files: ^(skills/.*SKILL\.md|tools/integrations/.*\.md|tools/clis/.*\.py)$
+        pass_filenames: false
+
+  # Python formatting with black
+  - repo: https://github.com/psf/black
+    rev: 24.3.0
+    hooks:
+      - id: black
+        name: Format Python with Black
+        files: ^tools/clis/.*\.py$
+
+  # Python linting with ruff
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.0
+    hooks:
+      - id: ruff
+        name: Lint Python with Ruff
+        files: ^tools/clis/.*\.py$
+        args: [--fix]
+
+  # Markdown linting
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.39.0
+    hooks:
+      - id: markdownlint
+        name: Lint Markdown
+        files: ^(skills/.*\.md|tools/.*\.md|docs/.*\.md)$
+        args: [--fix]
+
+  # YAML linting
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        name: Lint YAML
+        files: ^(\.github/.*\.yml|\.claude-plugin/.*\.json)$
+        args: [-c, .yamllint.yml]
+
+  # Check for large files
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-added-large-files
+        name: Check for Large Files
+        args: [--maxkb=500]
+        files: .*
+
+  # Check for merge conflicts
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-merge-conflict
+        name: Check for Merge Conflicts
+        files: .*
