@@ -106,7 +106,72 @@ See each skill's **Related Skills** section for the full dependency map.
 
 ## Installation
 
-### Option 1: CLI Install (Recommended)
+### Claude Code (via Plugin Marketplace)
+
+Install via Claude Code's built-in plugin system:
+
+```bash
+# Add the marketplace
+/plugin marketplace add aizech/clinical-skills
+
+# Install all clinical skills
+/plugin install clinical-skills
+```
+
+### Cursor (via Plugin Marketplace)
+
+In Cursor Agent chat, install from marketplace:
+
+```text
+/add-plugin clinical-skills
+```
+
+or search for "clinical-skills" in the plugin marketplace.
+
+### Codex
+
+Tell Codex:
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/aizech/clinical-skills/refs/heads/main/.codex/INSTALL.md
+```
+
+**Detailed docs:** [.codex/INSTALL.md](.codex/INSTALL.md)
+
+### OpenCode
+
+Tell OpenCode:
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/aizech/clinical-skills/refs/heads/main/.opencode/INSTALL.md
+```
+
+**Detailed docs:** [.opencode/INSTALL.md](.opencode/INSTALL.md)
+
+### GitHub Copilot CLI
+
+```bash
+copilot plugin marketplace add aizech/clinical-skills-marketplace
+copilot plugin install clinical-skills@clinical-skills-marketplace
+```
+
+### Gemini CLI
+
+```bash
+gemini extensions install https://github.com/aizech/clinical-skills
+```
+
+To update:
+
+```bash
+gemini extensions update clinical-skills
+```
+
+### Manual Installation Options
+
+If the platform-specific methods above don't work for your setup, use these manual options:
+
+#### CLI Install
 
 Use [npx skills](https://github.com/vercel-labs/skills) to install skills directly:
 
@@ -123,19 +188,7 @@ npx skills add aizech/clinical-skills --list
 
 This automatically installs to your `.agents/skills/` directory (and symlinks into `.claude/skills/` for Claude Code compatibility).
 
-### Option 2: Claude Code Plugin
-
-Install via Claude Code's built-in plugin system:
-
-```bash
-# Add the marketplace
-/plugin marketplace add aizech/clinical-skills
-
-# Install all clinical skills
-/plugin install clinical-skills
-```
-
-### Option 3: Clone and Copy
+#### Clone and Copy
 
 Clone the entire repo and copy the skills folder:
 
@@ -144,7 +197,7 @@ git clone https://github.com/aizech/clinical-skills.git
 cp -r clinical-skills/skills/* .agents/skills/
 ```
 
-### Option 4: Git Submodule
+#### Git Submodule
 
 Add as a submodule for easy updates:
 
@@ -154,11 +207,27 @@ git submodule add https://github.com/aizech/clinical-skills.git .agents/clinical
 
 Then reference skills from `.agents/clinical-skills/skills/`.
 
-### Option 5: Fork and Customize
+#### Fork and Customize
 
 1. Fork this repository
 2. Customize skills for your specific needs
 3. Clone your fork into your projects
+
+### Verify Installation
+
+Start a new session in your chosen platform and ask for something that should trigger a clinical skill:
+
+```
+Analyze this CT report for pulmonary nodules
+```
+
+or
+
+```
+Query my PACS for recent chest CTs
+```
+
+The agent should automatically invoke the relevant clinical skill. Always load `radiology-context` first — it configures your clinical environment and ensures other skills work correctly.
 
 ## Usage
 
