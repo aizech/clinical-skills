@@ -22,6 +22,7 @@ const SKILLS_DIR = path.join(ROOT_DIR, 'skills');
 const OUTPUT_FILE = process.argv[2] || path.join(ROOT_DIR, 'security-report.json');
 
 // Patterns for secrets detection
+// Note: Environment variable references like ${VAR_NAME} are not secrets and are excluded
 const SECRET_PATTERNS = [
   { pattern: /api[_-]?key["\s:=]+['"]?[a-zA-Z0-9]{20,}/gi, name: 'API Key' },
   { pattern: /secret["\s:=]+['"]?[a-zA-Z0-9]{16,}/gi, name: 'Secret' },
@@ -30,7 +31,6 @@ const SECRET_PATTERNS = [
   { pattern: /bearer\s+[a-zA-Z0-9_\-\.]+/gi, name: 'Bearer Token' },
   { pattern: /ghp_[a-zA-Z0-9]{36}/g, name: 'GitHub Personal Access Token' },
   { pattern: /gho_[a-zA-Z0-9]{36}/g, name: 'GitHub OAuth Token' },
-  { pattern: /\${[A-Z_]+}/g, name: 'Environment Variable Reference' },
 ];
 
 // Patterns for PHI/sensitive data
@@ -63,7 +63,7 @@ function parseFrontmatter(content) {
     let value = line.slice(colonIndex + 1).trim();
 
     if ((value.startsWith('"') && value.endsWith('"')) ||
-        (value.startsWith("'") && value.endsWith("'"))) {
+      (value.startsWith("'") && value.endsWith("'"))) {
       value = value.slice(1, -1);
     }
 
@@ -83,12 +83,12 @@ function checkSecrets(content, filePath) {
     const matches = content.match(pattern);
     if (matches) {
       // Filter out env var references and placeholders
-      const realMatches = matches.filter(m => 
-        !m.includes('${') && 
+      const realMatches = matches.filter(m =>
+        !m.includes('${') &&
         !m.includes('PLACEHOLDER') &&
         !m.includes('YOUR_')
       );
-      
+
       if (realMatches.length > 0) {
         issues.push({
           type: 'secret',
@@ -141,14 +141,14 @@ function checkPHI(content, filePath) {
 function extractExternalLinks(content) {
   const urls = [];
   const matches = content.match(EXTERNAL_URL_PATTERN);
-  
+
   if (matches) {
     const seen = new Set();
     for (const url of matches) {
       // Skip GitHub raw content URLs
       if (url.includes('github.com') && url.includes('/raw/')) continue;
       if (url.includes('raw.githubusercontent.com')) continue;
-      
+
       const cleanUrl = url.replace(/[).,#].*$/, ''); // Remove anchors, params
       if (!seen.has(cleanUrl) && !cleanUrl.includes('localhost')) {
         seen.add(cleanUrl);
@@ -199,7 +199,7 @@ function checkFrontmatter(skillPath) {
 function analyzeSkill(skillPath, category) {
   const name = path.basename(skillPath);
   const skillMd = path.join(skillPath, 'SKILL.md');
-  
+
   const result = {
     name: name,
     category: category,
@@ -323,7 +323,7 @@ function generateReport() {
         noPhi: s.checks.phi.passed,
         validFrontmatter: s.checks.frontmatter.passed
       },
-      issueCount: 
+      issueCount:
         s.checks.secrets.issues.length +
         s.checks.phi.issues.length +
         s.checks.frontmatter.issues.length,

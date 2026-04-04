@@ -3,10 +3,25 @@ PLAN*.md
 
 # Dependencies
 node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
 
 # Build artifacts
 security-report.json
 *.log
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
 
 # Environment variables / secrets
 .env
