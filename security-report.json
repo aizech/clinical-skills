@@ -1,0 +1,404 @@
+{
+  "generated": "2026-04-03T12:22:42.264Z",
+  "repo": "aizech/clinical-skills",
+  "version": "1.0.0",
+  "skillsAudited": 26,
+  "summary": {
+    "totalSkills": 26,
+    "verifiedSkills": 24,
+    "issuesFound": 0,
+    "errors": 0,
+    "warnings": 0
+  },
+  "checks": {
+    "noSecrets": {
+      "passed": false
+    },
+    "noPhi": {
+      "passed": true
+    },
+    "validFrontmatter": {
+      "passed": true
+    }
+  },
+  "skills": [
+    {
+      "name": "ai-detection-pipeline",
+      "category": "ai-assistants",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 2,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "ai-quality-review",
+      "category": "ai-assistants",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "ai-report-assist",
+      "category": "ai-assistants",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 1,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "llm-radiology-use",
+      "category": "ai-assistants",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 3,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "image-quality-audit",
+      "category": "analytics-quality",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "radiology-metrics",
+      "category": "analytics-quality",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "report-quality-review",
+      "category": "analytics-quality",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "imaging-study-review",
+      "category": "clinical-documentation",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "radiology-report-analysis",
+      "category": "clinical-documentation",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "structured-reporting",
+      "category": "clinical-documentation",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "modality-detection",
+      "category": "core",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "radiology-context",
+      "category": "core",
+      "securityStatus": "warning",
+      "checks": {
+        "noSecrets": false,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 1,
+      "issues": [
+        {
+          "type": "secret",
+          "name": "Password",
+          "count": 1,
+          "example": "password\": \"env:ORTHANC_PASSWORD\""
+        }
+      ],
+      "externalLinks": 5,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "dataset-preprocessing",
+      "category": "dataset",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "model-validation",
+      "category": "dataset",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "radiology-dataset-guide",
+      "category": "dataset",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "patient-education-material",
+      "category": "patient-communication",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "patient-results-letter",
+      "category": "patient-communication",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "dicom-web-query",
+      "category": "platform-integration",
+      "securityStatus": "warning",
+      "checks": {
+        "noSecrets": false,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 1,
+      "issues": [
+        {
+          "type": "secret",
+          "name": "Bearer Token",
+          "count": 2,
+          "example": "Bearer Token"
+        }
+      ],
+      "externalLinks": 1,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "pacs-workflow",
+      "category": "platform-integration",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "pubmed-search",
+      "category": "platform-integration",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 3,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "cross-reference-linking",
+      "category": "research-evidence",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "guideline-integration",
+      "category": "research-evidence",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "radiology-research",
+      "category": "research-evidence",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "care-gap-closure",
+      "category": "workflow-coordination",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "followup-tracking",
+      "category": "workflow-coordination",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    },
+    {
+      "name": "imaging-referral",
+      "category": "workflow-coordination",
+      "securityStatus": "verified",
+      "checks": {
+        "noSecrets": true,
+        "noPhi": true,
+        "validFrontmatter": true
+      },
+      "issueCount": 0,
+      "issues": [],
+      "externalLinks": 0,
+      "lastAudit": "2026-04-03T12:22:42.265Z"
+    }
+  ]
+}

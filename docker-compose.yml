@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  cli-tools:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: clinical-skills-cli
+    volumes:
+      # Mount local directory for file access
+      - .:/app
+      # Mount data directory for DICOM files
+      - ./data:/data
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    working_dir: /app
+    stdin_open: true
+    tty: true
+
+  # Service for running tests
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: clinical-skills-test
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    working_dir: /app
+    command: pytest tools/clis/tests/ -v
