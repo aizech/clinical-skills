@@ -46,7 +46,7 @@ function parseFrontmatter(content) {
 
     // Remove quotes if present
     if ((value.startsWith('"') && value.endsWith('"')) ||
-        (value.startsWith("'") && value.endsWith("'"))) {
+      (value.startsWith("'") && value.endsWith("'"))) {
       value = value.slice(1, -1);
     }
 
@@ -277,11 +277,11 @@ See [CHANGELOG.md](CHANGELOG.md) for version history.
 Generated: ${new Date().toISOString()}
 `;
 
-  return content;
+  return { content, skills };
 }
 
 // Main execution
-const content = generateLlms();
+const { content, skills } = generateLlms();
 
 // Ensure output directory exists
 const outputDir = path.dirname(OUTPUT_FILE);
