@@ -1,0 +1,154 @@
+# Clinical Skills for Radiology
+
+AI agent skills for radiological analytics by Corpus Analytica.
+
+## About
+
+Clinical Skills provides specialized knowledge for AI agents working in healthcare and radiology contexts:
+- Radiology workflow automation (PACS queries, report analysis)
+- Clinical documentation (structured reporting, patient communication)
+- AI integration (detection pipelines, LLM assistance)
+- Quality assurance (metrics, audits, compliance)
+- Research support (literature search, dataset management)
+
+**Repository:** https://github.com/aizech/clinical-skills
+**License:** MIT
+
+## Skills
+
+### Core Skills
+
+- **modality-detection**: Auto-detect imaging modality (CT, MRI, X-ray, US, etc.) from user input, DICOM file headers, or file analysis. Also use when the user mentions "what modality", "detect from file", "identify imaging ty...
+- **radiology-context**: Establish and manage user's clinical radiology environment configuration - PACS, EHR, modality types, AI tools, and workflow settings. Also use when setting up or updating radiology workflow context,...
+
+### Clinical Documentation
+
+- **imaging-study-review**: Performs comprehensive review of imaging studies for clinical, QA, tumor board, or comparison purposes. Use when user mentions "review this study", "comprehensive review", "tumor board preparation", "...
+- **radiology-report-analysis**: Analyze structured/free-text radiology reports, extract key findings, measurements, and impressions. Also use when the user provides a report for review, summary, data extraction, critical findings id...
+- **structured-reporting**: Create and optimize structured radiology reports using standardized templates. Also use when the user mentions BI-RADS, LI-RADS, PI-RADS, TI-RADS, or needs to convert free-text reports to structured f...
+
+### Patient Communication
+
+- **patient-education-material**: Create patient education materials for imaging procedures and findings. Also use when developing handouts, FAQs, or educational content about radiology procedures, preparation, or conditions found on...
+- **patient-results-letter**: Generate patient-friendly radiology result communications in plain language. Also use when the user needs to explain findings to patients without medical jargon, write result letters, or create follow...
+
+### Workflow Coordination
+
+- **care-gap-closure**: Ensure recommended imaging is completed and close care gaps in radiology. Also use when optimizing imaging completion rates, tracking screening compliance, or identifying patients overdue for recommen...
+- **followup-tracking**: Track incidental findings, schedule follow-up imaging, and manage reminder workflows. Also use when the user mentions follow-up, incidental finding, reminder, or needs to track patients requiring foll...
+- **imaging-referral**: Create, optimize, and manage imaging referrals between providers. Also use when the user needs to improve referral quality, add relevant clinical information, or track referral status. For clinical de...
+
+### Platform Integration
+
+- **dicom-web-query**: Query and retrieve DICOM objects via DICOMweb REST API. Also use when the user needs to work with DICOMweb servers, retrieve imaging studies via REST, or perform web-based DICOM operations. For tradit...
+- **pacs-workflow**: Query PACS, retrieve studies, manage worklists, and integrate with PACS workflows. Also use when the user needs to interact with picture archiving systems, search for imaging studies, retrieve DICOM d...
+- **pubmed-search**: Evidence-based literature search for radiology. Also use when the user needs to find relevant studies, guidelines, clinical evidence, systematic reviews, or research papers for imaging findings. For g...
+
+### AI Assistants
+
+- **ai-detection-pipeline**: Integrate AI detection into PACS workflow. Also use when setting up, configuring, or optimizing AI detection systems for medical imaging. Also covers Aidoc, Nvidia Clara, Zebra Medical, MaxQ AI, and Q...
+- **ai-quality-review**: QA AI outputs, detect false positives/negatives, and validate AI results. Also use when evaluating AI system performance, reviewing AI-assisted findings, or conducting quality assurance on AI detectio...
+- **ai-report-assist**: Guidance for AI-assisted structured reporting tools. Also use when the user mentions AI reporting, automated templating, speech-to-report, or wants to configure or optimize AI-assisted radiology repor...
+- **llm-radiology-use**: Use LLM APIs for radiology tasks. Also use when integrating medical LLMs (MedPaLM, MedLM, Google Health, Amazon HealthLake) for report analysis, clinical reasoning, or radiology AI workflows.
+
+### Analytics & Quality
+
+- **image-quality-audit**: Assesses medical image quality against clinical standards and identifies optimization opportunities. Use when user mentions "image quality audit", "artifact review", "dose analysis", "protocol deviati...
+- **radiology-metrics**: Retrieves and analyzes operational metrics from radiology information systems. Use when user mentions "radiology KPIs", "productivity metrics", "turnaround time analysis", "workload distribution", or...
+- **report-quality-review**: Monitors and improves radiology report quality through systematic audit and feedback. Use when user mentions "report quality review", "discrepancy audit", "report completeness", "addendum analysis", o...
+
+### Research & Evidence
+
+- **cross-reference-linking**: Links current findings to priors, related literature, and correlated data. Use when user mentions "compare to priors", "find prior studies", "correlate with", "longitudinal comparison", or needs histo...
+- **guideline-integration**: Access and apply professional radiology society guidelines. Use when user mentions "ACR criteria", "appropriateness rating", "guideline for", "society recommendation", "BI-RADS update", "dose referenc...
+- **radiology-research**: Access and synthesize medical imaging research literature. Use when user mentions "recent research on", "literature review", "published studies", "evidence for", or needs to find relevant research.
+
+### Dataset Management
+
+- **dataset-preprocessing**: Provides preprocessing pipelines and techniques for radiology datasets used in AI development. Use when user mentions "preprocess radiology data", "DICOM preprocessing", "image normalization", "data a...
+- **model-validation**: Designs and executes validation studies for radiology AI models to ensure clinical reliability and regulatory compliance. Use when user mentions "validate model performance", "external validation", "s...
+- **radiology-dataset-guide**: Guides researchers and developers through radiology dataset selection, access, and utilization for AI development. Use when user mentions "radiology dataset", "medical imaging data", "RSNA challenge",...
+
+## Integration Tools
+
+Clinical Skills supports integration with various radiology platforms and tools.
+
+| Tool | Description |
+|------|-------------|
+| INTEGRATION_TEMPLATE |  |
+| aidoc |  |
+| amazon-healthlake |  |
+| brats-dataset |  |
+| cerner-powerchart |  |
+| chexpert |  |
+| chexphoto-dataset |  |
+| dcm4chee |  |
+| dicom-conformance |  |
+| dicomweb-standard |  |
+| epic-radiant |  |
+| fhir-r4 |  |
+| google-health |  |
+| hl7-v2 |  |
+| itksnap |  |
+| kits-dataset |  |
+| luna16-dataset |  |
+| maxq-ai |  |
+| medpalm-api |  |
+| monai-framework |  |
+| monai |  |
+| nih-chestxray14 |  |
+| nvidia-clara |  |
+| objcxr-dataset |  |
+| ohif-viewer |  |
+| orthanc |  |
+| panda-dataset |  |
+| physionet-mimic |  |
+| pubmed-ncbi |  |
+| qure-ai |  |
+| radai |  |
+| radiopaedia |  |
+| rsna-data |  |
+| zebra-medical |  |
+
+
+## CLI Tools
+
+Command-line tools for clinical imaging operations.
+
+| Tool | Description |
+|------|-------------|
+| dataset_downloader | !/usr/bin/env python3 |
+| dicom_anonymizer | !/usr/bin/env python3 |
+| dicom_info | !/usr/bin/env python3 |
+| dicom_qido | !/usr/bin/env python3 |
+| dicom_wado | !/usr/bin/env python3 |
+| fetch_study | !/usr/bin/env python3 |
+| image_qc | !/usr/bin/env python3 |
+| pubmed_search | !/usr/bin/env python3 |
+| radiology_metrics | !/usr/bin/env python3 |
+| structured_report | !/usr/bin/env python3 |
+| tat_analyzer | !/usr/bin/env python3 |
+| trial_matcher | !/usr/bin/env python3 |
+
+
+## Contributing
+
+See [CLAUDE.md](CLAUDE.md) for contribution guidelines.
+See [CHANGELOG.md](CHANGELOG.md) for version history.
+
+## Quick Reference
+
+### TDD Workflow
+1. Write evals in evals/evals.json first
+2. Implement skill to pass evals
+3. Run ./scripts/validate-skills.sh
+4. Submit PR with test results
+
+### Skill Naming
+- Lowercase with hyphens: `modality-detection`
+- name field must match directory name
+- description: 1-1024 chars with trigger phrases
+
+---
+
+Generated: 2026-04-04T10:55:17.990Z
