@@ -7,6 +7,7 @@ A collection of AI agent skills focused on medical imaging and healthcare workfl
 ![Skills](https://img.shields.io/badge/skills-26-orange)
 ![Integrations](https://img.shields.io/badge/integrations-34-purple)
 ![Tests](https://img.shields.io/badge/tests-85-brightgreen)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/aizech/clinical-skills)
 
 > ⚠️ **Security Notice**: These skills work with healthcare concepts. Never input patient-identifiable information (PHI). Use de-identified or synthetic data only.
 
@@ -378,6 +379,8 @@ See [tools/REGISTRY.md](tools/REGISTRY.md) for the complete catalog and integrat
 | [CLAUDE.md](CLAUDE.md) | Claude Code specific contribution guide |
 | [CHANGELOG.md](CHANGELOG.md) | Version history and updates |
 | [tools/REGISTRY.md](tools/REGISTRY.md) | Full integration catalog |
+| [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/aizech/clinical-skills) | DeepWiki documentation |
+
 
 ## Contributing
 
