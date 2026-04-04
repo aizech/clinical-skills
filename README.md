@@ -1,15 +1,16 @@
 # Clinical Skills for AI Agents
 
-A collection of AI agent skills focused on radiological analytics and healthcare tasks. Built for radiologists, healthcare IT professionals, and researchers who want AI coding agents to help with imaging workflows, clinical documentation, AI integration, and radiology research. Works with Claude Code, OpenAI Codex, Cursor, Windsurf, and any agent that supports the [Agent Skills spec](https://agentskills.io).
+A collection of AI agent skills focused on medical imaging and healthcare workflows. Built for radiologists, healthcare IT professionals, and researchers who want AI coding agents to help with imaging workflows, clinical documentation, AI integration, and radiology research. Works with Claude Code, OpenAI Codex, Cursor, Windsurf, and any agent that supports the [Agent Skills spec](https://agentskills.io).
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.0.1-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Skills](https://img.shields.io/badge/skills-26-orange)
 ![Integrations](https://img.shields.io/badge/integrations-34-purple)
+![Tests](https://img.shields.io/badge/tests-85-brightgreen)
 
 > ⚠️ **Security Notice**: These skills work with healthcare concepts. Never input patient-identifiable information (PHI). Use de-identified or synthetic data only.
 
-Built by [Corpus Analytica](https://corpusanalytica.com). Special skills created and verified by Corpus Analytica for healthcare and medical AI applications. Current focus: **Radiological Analytics**.
+Built by [Corpus Analytica](https://corpusanalytica.com). Special skills created and verified by Corpus Analytica for healthcare and medical AI applications.
 
 **Contributions welcome!** Found a way to improve a skill or have a new one to add? [Open a PR](CONTRIBUTING.md).
 
@@ -186,6 +187,26 @@ You can also invoke skills directly:
 /pacs-workflow
 ```
 
+## Development
+
+For development setup, testing, and Docker usage:
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run tests
+pytest tools/clis/tests/ -v
+
+# Run with Docker
+docker-compose run cli-tools python tools/clis/dicom_qido.py --help
+
+# Validate skills
+./scripts/validate-skills.sh
+```
+
+See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) for complete development guide.
+
 ## CLI Tools
 
 The repository includes **12 command-line tools** for DICOM operations, metrics, and research:
@@ -199,7 +220,12 @@ The repository includes **12 command-line tools** for DICOM operations, metrics,
 | `tat_analyzer.py` | Turnaround time metrics |
 | `radiology_metrics.py` | Dashboard KPI generation |
 
-See `tools/clis/` for all available tools.
+**Features:**
+- Comprehensive test suite (85 tests: 78 unit + 7 integration)
+- Shared utilities module for common functionality
+- Docker support for consistent environments
+- See `docs/CLI_API.md` for complete API documentation
+- See `tools/clis/` for all available tools and tests
 
 ## Integration Registry
 
@@ -212,7 +238,7 @@ Browse **30+ integration docs** covering PACS, EHR, AI platforms, datasets, and 
 | **AI Platforms** | Aidoc, Nvidia Clara, Zebra Medical, RadAI |
 | **Datasets** | RSNA, NIH ChestX-ray14, MIMIC, CheXpert |
 
-See [tools/REGISTRY.md](tools/REGISTRY.md) for the complete catalog.
+See [tools/REGISTRY.md](tools/REGISTRY.md) for the complete catalog and integration template.
 
 ## Skill Categories
 
@@ -272,6 +298,7 @@ See [tools/REGISTRY.md](tools/REGISTRY.md) for the complete catalog.
 
 | Document | Purpose |
 |----------|---------|
+| [VERSIONS.md](VERSIONS.md) | Current skill versions and update history |
 | [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) | Development setup, validation, testing guide |
 | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Common issues and solutions |
 | [docs/WORKFLOW_EXAMPLES.md](docs/WORKFLOW_EXAMPLES.md) | End-to-end workflow examples |
