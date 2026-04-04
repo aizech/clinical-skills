@@ -2,7 +2,7 @@
 
 ## Welcome to Clinical Skills
 
-Thank you for contributing to Clinical Skills for Radiology! This repository provides AI agent skills for radiological analytics, developed by [Corpus Analytica](https://github.com/aizech).
+Thank you for contributing to Clinical Skills! This repository provides AI agent skills for medical imaging and healthcare workflows, developed by [Corpus Analytica](https://github.com/aizech).
 
 ## Purpose
 
@@ -27,7 +27,9 @@ Please complete these steps before submitting:
 
 - [ ] **Search first** - Check existing issues and PRs (open and closed)
 - [ ] **One change per PR** - Each PR should address one skill or improvement
-- [ ] **Test locally** - Run `./scripts/validate-skills.sh` before submitting
+- [ ] **Test locally** - Run validation scripts before submitting
+  - Skills: `./scripts/validate-skills.sh`
+  - CLI tools: `pytest tools/clis/tests/ -v`
 - [ ] **Human review** - Ensure a human has reviewed your changes
 - [ ] **Clear description** - Explain what problem this solves
 
@@ -46,12 +48,22 @@ Please complete these steps before submitting:
 1. **Complete coverage** - Include auth, endpoints, examples
 2. **Verify accuracy** - Test endpoints work as documented
 3. **Use standard formats** - Follow existing integration doc patterns
+4. **Use the template** - Start from `tools/integrations/INTEGRATION_TEMPLATE.md`
 
 ### CLI Tools
 
 1. **Document purpose** - Clear description of what it does
 2. **Include examples** - Show common usage patterns
 3. **Handle errors** - Meaningful error messages
+4. **Write tests** - Add unit tests in `tools/clis/tests/`
+5. **Use shared utilities** - Leverage `tools/clis/shared/` when possible
+
+### Documentation
+
+1. **Follow existing patterns** - Match style and format of existing docs
+2. **Include examples** - Provide clear, runnable examples
+3. **Keep it current** - Update docs when code changes
+4. **Use the template** - For integration docs, use INTEGRATION_TEMPLATE.md
 
 ## What Doesn't Fit in Core
 
@@ -78,20 +90,40 @@ Skills shape AI agent behavior. Changes should be tested:
 ### Local Validation
 
 ```bash
-# Validate all skills
-./scripts/validate-skills.sh
+# Validate skills
+./scripts/validate-skills.sh                    # All skills
+./scripts/validate-skills.sh skills/my-new-skill # Specific skill
 
-# Validate specific skill
-./scripts/validate-skills.sh skills/my-new-skill
+# Test CLI tools
+pytest tools/clis/tests/ -v                    # All CLI tests
+pytest tools/clis/tests/test_dicom_qido.py     # Specific test
 
 # Check YAML syntax
 find skills -name "*.md" -exec head -10 {} \; | grep -q "^---" || echo "Frontmatter error"
+
+# Run with Docker
+docker-compose run cli-tools pytest tools/clis/tests/ -v
+```
+
+### Development Setup
+
+Before testing, set up your development environment:
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run pre-commit hooks
+pre-commit run --all-files
+
+# See docs/DEVELOPMENT.md for complete setup guide
 ```
 
 ### Required Checks
 
 Before submitting, verify:
 
+#### For Skill Changes
 - [ ] SKILL.md has valid frontmatter (`name`, `description`)
 - [ ] `name` field matches directory name
 - [ ] `description` is 1-1024 characters
@@ -99,6 +131,19 @@ Before submitting, verify:
 - [ ] No hardcoded secrets or credentials
 - [ ] No patient health information (PHI)
 - [ ] External links are valid and safe
+
+#### For CLI Tool Changes
+- [ ] Unit tests added in `tools/clis/tests/`
+- [ ] Tests pass with pytest
+- [ ] Uses shared utilities from `tools/clis/shared/` when applicable
+- [ ] Error handling is robust
+- [ ] Documentation updated in docs/CLI_API.md
+
+#### For Documentation Changes
+- [ ] Follows existing style and format
+- [ ] Examples are tested and accurate
+- [ ] Links are valid
+- [ ] Markdown renders correctly
 
 ## Human Review Requirements
 
@@ -143,6 +188,14 @@ clinical-skills/
 ├── tools/
 │   ├── integrations/          # Platform integration docs
 │   └── clis/                # CLI tools
+│       ├── shared/          # Shared utilities
+│       └── tests/           # CLI tool tests
+├── docs/                      # Development documentation
+│   ├── DEVELOPMENT.md
+│   ├── TROUBLESHOOTING.md
+│   ├── WORKFLOW_EXAMPLES.md
+│   ├── CLI_API.md
+│   └── DOCKER.md
 ├── scripts/                  # Validation scripts
 └── .github/                 # GitHub config
 ```
@@ -159,6 +212,8 @@ Before reporting:
 - Open an issue for bugs or feature requests
 - Check existing discussions
 - Reference CLAUDE.md for contributing guidelines
+- See docs/DEVELOPMENT.md for development setup
+- See docs/TROUBLESHOOTING.md for common issues
 
 ## License
 
@@ -166,4 +221,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-**Thank you for helping improve Clinical Skills for Radiology!**
+**Thank you for helping improve Clinical Skills!**

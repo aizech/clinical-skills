@@ -9,6 +9,8 @@ Guidelines for AI agents working in this repository. For contributing guidelines
 - **Creator**: Corpus Analytica
 - **Focus**: Radiological Analytics
 - **License**: MIT
+- **Version**: 1.0.1 (2026-04-04)
+- **Status**: 26 skills, 30+ integration docs, 12 CLI tools, 85 tests
 
 ## Repository Structure
 
@@ -28,9 +30,17 @@ clinical-skills/
 │   └── dataset/
 ├── tools/
 │   ├── integrations/     # 30+ platform integration docs
-│   └── clis/            # 12 Python CLI tools
+│   ├── clis/            # 12 Python CLI tools
+│   │   ├── shared/      # Shared utilities (base_cli, api_client, json_formatter)
+│   │   └── tests/       # Comprehensive test suite (85 tests)
+├── docs/                 # Development documentation
+│   ├── DEVELOPMENT.md
+│   ├── TROUBLESHOOTING.md
+│   ├── WORKFLOW_EXAMPLES.md
+│   ├── CLI_API.md
+│   └── DOCKER.md
 ├── scripts/              # Validation scripts
-└── .github/             # GitHub config
+└── .github/             # GitHub config (5 workflows including CLI tests)
 ```
 
 ## Skill Categories
@@ -106,6 +116,19 @@ See `tools/REGISTRY.md` for all available tools.
 | **Datasets** | rsna-data, nih-chestxray14, physionet-mimic, chexpert, luna16, brats, etc. |
 | **Reference** | pubmed-ncbi, radiopaedia, fhir-r4, hl7-v2 |
 
+## Documentation
+
+### Development Guides
+- `docs/DEVELOPMENT.md` - Development setup, validation, testing
+- `docs/TROUBLESHOOTING.md` - Common issues and solutions
+- `docs/WORKFLOW_EXAMPLES.md` - End-to-end workflow examples
+- `docs/CLI_API.md` - CLI tools API documentation
+- `docs/DOCKER.md` - Docker support and usage guide
+
+### Integration Documentation
+- `tools/integrations/INTEGRATION_TEMPLATE.md` - Template for new integration docs
+- `tools/integrations/*.md` - 30+ platform-specific integration guides
+
 ## Validation Commands
 
 ### Skills
@@ -116,8 +139,27 @@ See `tools/REGISTRY.md` for all available tools.
 
 ### CLI Tools
 ```bash
+# Run CLI tools
 python tools/clis/dicom_qido.py --help         # DICOM query
 python tools/clis/pubmed_search.py --help      # Literature search
+
+# Run tests
+pytest tools/clis/tests/ -v                    # All CLI tests
+pytest tools/clis/tests/test_dicom_qido.py     # Specific test
+
+# Run with Docker
+docker-compose run cli-tools python tools/clis/dicom_qido.py --help
+```
+
+### Development Setup
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run pre-commit hooks
+pre-commit run --all-files
+
+# See docs/DEVELOPMENT.md for complete setup guide
 ```
 
 ## Git Workflow

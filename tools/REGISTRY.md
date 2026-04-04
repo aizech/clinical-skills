@@ -7,6 +7,9 @@ Quick reference for AI agents to discover clinical imaging tools, AI platforms, 
 1. **Find tools by category** - Browse sections below for tools in each domain
 2. **Check integration methods** - See what APIs, CLIs, or SDKs are available
 3. **Read integration guides** - Detailed setup and common operations in `integrations/`
+4. **Use CLI tools** - Python-based CLIs for imaging operations (see CLI Tools section)
+5. **Check documentation** - See Documentation section for development guides and workflows
+6. **Review tests** - Comprehensive test suite for CLI tools (85 tests)
 
 ---
 
@@ -151,29 +154,47 @@ Literature search and healthcare data exchange standards.
 
 Python-based CLIs for clinical imaging operations.
 
-| CLI | Purpose | Category |
-|-----|---------|----------|
-| [dicom_qido.py](clis/dicom_qido.py) | QIDO-RS search | DICOM |
-| [dicom_wado.py](clis/dicom_wado.py) | WADO-RS retrieve | DICOM |
-| [fetch_study.py](clis/fetch_study.py) | Full study download | PACS |
-| [dicom_anonymizer.py](clis/dicom_anonymizer.py) | PHI removal | Compliance |
-| [dicom_info.py](clis/dicom_info.py) | DICOM metadata viewer | Utilities |
-| [image_qc.py](clis/image_qc.py) | Image quality metrics | QC |
-| [tat_analyzer.py](clis/tat_analyzer.py) | Turnaround time analysis | Metrics |
-| [radiology_metrics.py](clis/radiology_metrics.py) | Productivity metrics | Metrics |
-| [pubmed_search.py](clis/pubmed_search.py) | Literature search | Research |
-| [dataset_downloader.py](clis/dataset_downloader.py) | Dataset access guide | Dataset |
-| [structured_report.py](clis/structured_report.py) | Report templating | Documentation |
-| [trial_matcher.py](clis/trial_matcher.py) | Clinical trial matching | Research |
+| CLI | Purpose | Category | Tests |
+|-----|---------|----------|-------|
+| [dicom_qido.py](clis/dicom_qido.py) | QIDO-RS search | DICOM | 10 |
+| [dicom_wado.py](clis/dicom_wado.py) | WADO-RS retrieve | DICOM | - |
+| [fetch_study.py](clis/fetch_study.py) | Full study download | PACS | - |
+| [dicom_anonymizer.py](clis/dicom_anonymizer.py) | PHI removal | Compliance | - |
+| [dicom_info.py](clis/dicom_info.py) | DICOM metadata viewer | Utilities | 15 |
+| [image_qc.py](clis/image_qc.py) | Image quality metrics | QC | 23 |
+| [tat_analyzer.py](clis/tat_analyzer.py) | Turnaround time analysis | Metrics | - |
+| [radiology_metrics.py](clis/radiology_metrics.py) | Productivity metrics | Metrics | 16 |
+| [pubmed_search.py](clis/pubmed_search.py) | Literature search | Research | 14 |
+| [dataset_downloader.py](clis/dataset_downloader.py) | Dataset access guide | Dataset | - |
+| [structured_report.py](clis/structured_report.py) | Report templating | Documentation | - |
+| [trial_matcher.py](clis/trial_matcher.py) | Clinical trial matching | Research | - |
+
+**Total: 12 CLI tools, 78 unit tests, 7 integration tests (85 total)**
+
+### Shared Utilities
+
+The CLI tools use a shared utilities module for common functionality:
+
+| Module | Purpose |
+|--------|---------|
+| [shared/base_cli.py](clis/shared/base_cli.py) | Common argparse setup, logging, error handling |
+| [shared/api_client.py](clis/shared/api_client.py) | HTTP client with retry logic, rate limiting, timeout handling |
+| [shared/json_formatter.py](clis/shared/json_formatter.py) | JSON output formatting utilities |
 
 ### CLI Installation
 
 ```bash
+# Install dependencies
+pip install -r requirements.txt
+
 # Run directly
 python tools/clis/dicom_qido.py --help
 
-# Make executable
-chmod +x tools/clis/*.py
+# Run tests
+pytest tools/clis/tests/ -v
+
+# Run with Docker
+docker-compose run cli-tools python tools/clis/dicom_qido.py --help
 ```
 
 ---
@@ -183,26 +204,37 @@ chmod +x tools/clis/*.py
 ### Query PACS for Studies
 1. Read [orthanc.md](integrations/orthanc.md) for PACS setup
 2. Use `dicom_qido.py` CLI for queries
+3. See [WORKFLOW_EXAMPLES.md](../docs/WORKFLOW_EXAMPLES.md) for complete workflow
 
 ### Set Up AI Detection
 1. Read [aidoc.md](integrations/aidoc.md) for CT triage
 2. Configure PACS integration for automated processing
+3. See [WORKFLOW_EXAMPLES.md](../docs/WORKFLOW_EXAMPLES.md) for AI integration examples
 
 ### Search Literature
 1. Read [pubmed-ncbi.md](integrations/pubmed-ncbi.md) for API access
 2. Use `pubmed_search.py` CLI for searches
+3. See [WORKFLOW_EXAMPLES.md](../docs/WORKFLOW_EXAMPLES.md) for literature search workflows
 
 ### Analyze Report Quality
 1. Use `radiology_metrics.py` for TAT analysis
 2. Use `image_qc.py` for quality metrics
+3. See [DEVELOPMENT.md](../docs/DEVELOPMENT.md) for testing CLI tools
 
 ### Download Training Data
 1. Read [rsna-data.md](integrations/rsna-data.md) for RSNA data
 2. Use `dataset_downloader.py` for guidance
+3. See [WORKFLOW_EXAMPLES.md](../docs/WORKFLOW_EXAMPLES.md) for dataset preprocessing
 
 ### Analyze Reports with LLM
 1. Read [medpalm-api.md](integrations/medpalm-api.md) for setup
 2. Use structured_report.py for templating
+3. See [WORKFLOW_EXAMPLES.md](../docs/WORKFLOW_EXAMPLES.md) for LLM integration examples
+
+### Development Setup
+1. Read [DEVELOPMENT.md](../docs/DEVELOPMENT.md) for environment setup
+2. Install dependencies from requirements.txt
+3. Run tests with pytest
 
 ---
 
@@ -230,6 +262,50 @@ chmod +x tools/clis/*.py
 **Frameworks:**
 - monai-framework.md, itksnap.md
 
+**Template:**
+- INTEGRATION_TEMPLATE.md (standardized structure for new integration docs)
+
+---
+
+## Documentation
+
+Comprehensive documentation for development, troubleshooting, and workflows.
+
+| Document | Purpose |
+|----------|---------|
+| [DEVELOPMENT.md](../docs/DEVELOPMENT.md) | Development setup, validation, testing guide |
+| [TROUBLESHOOTING.md](../docs/TROUBLESHOOTING.md) | Common issues and solutions |
+| [WORKFLOW_EXAMPLES.md](../docs/WORKFLOW_EXAMPLES.md) | End-to-end workflow examples |
+| [CLI_API.md](../docs/CLI_API.md) | CLI tools API documentation |
+| [DOCKER.md](../docs/DOCKER.md) | Docker support and usage guide |
+| [INTEGRATION_TEMPLATE.md](integrations/INTEGRATION_TEMPLATE.md) | Integration documentation template |
+
+---
+
+## Development Tools
+
+Tools and configurations for development and CI/CD.
+
+| Tool/File | Purpose |
+|-----------|---------|
+| [pytest.ini](../pytest.ini) | Test configuration with coverage settings |
+| [requirements.txt](../requirements.txt) | Python dependencies |
+| [.pre-commit-config.yaml](../.pre-commit-config.yaml) | Pre-commit hooks for validation, linting, formatting |
+| [.yamllint.yml](../.yamllint.yml) | YAML linting configuration |
+| [Dockerfile](../Dockerfile) | Docker image for consistent environment |
+| [docker-compose.yml](../docker-compose.yml) | Docker Compose services for CLI tools and tests |
+| [.dockerignore](../.dockerignore) | Docker build exclusions |
+
+### GitHub Actions Workflows
+
+| Workflow | Purpose |
+|---------|---------|
+| [validate-skill.yml](../.github/workflows/validate-skill.yml) | Skill validation on SKILL.md changes |
+| [security-baseline.yml](../.github/workflows/security-baseline.yml) | Security baseline checks |
+| [generate-llms.yml](../.github/workflows/generate-llms.yml) | Generate llms.txt for AI agent discovery |
+| [sync-skills.yml](../.github/workflows/sync-skills.yml) | Sync skills with marketplace.json and README |
+| [cli-tests.yml](../.github/workflows/cli-tests.yml) | Run CLI tests in CI |
+
 ---
 
 ## Skills Reference
@@ -251,4 +327,4 @@ These tools are referenced by the agent skills:
 
 ---
 
-**Total: 30 integration docs, 12 CLI tools**
+**Total: 30 integration docs, 12 CLI tools, 85 tests, 6 documentation files, 5 GitHub Actions workflows**

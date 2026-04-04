@@ -178,9 +178,9 @@ function generateLlms() {
   const integrations = getIntegrations();
   const cliTools = getCLITools();
 
-  let content = `# Clinical Skills for Radiology
+  let content = `# Clinical Skills
 
-AI agent skills for radiological analytics by Corpus Analytica.
+AI agent skills for medical imaging and healthcare workflows by Corpus Analytica.
 
 ## About
 
