@@ -6,6 +6,8 @@
 
 ## Installation
 
+### Option 1: Remote Install (Recommended)
+
 Add clinical-skills to the `plugin` array in your `opencode.json` (global or project-level):
 
 ```json
@@ -14,9 +16,29 @@ Add clinical-skills to the `plugin` array in your `opencode.json` (global or pro
 }
 ```
 
-Restart OpenCode. That's it — the plugin auto-installs and registers all 26 clinical skills.
+Restart OpenCode. The plugin auto-installs and registers all 26 clinical skills.
 
-Verify by asking: "Read radiology-context skill"
+### Option 2: Local Install (for development)
+
+Clone the repository and add the local plugin path:
+
+```bash
+git clone https://github.com/aizech/clinical-skills.git ~/.config/opencode/clinical-skills
+```
+
+Then add to your `opencode.json`:
+
+```json
+{
+  "plugin": ["~/.config/opencode/clinical-skills/.opencode/plugins/clinical-skills.js"]
+}
+```
+
+Restart OpenCode.
+
+### Verify Installation
+
+Ask: "Read radiology-context skill" or "Analyze this CT report for pulmonary nodules"
 
 ## Migrating from the old symlink-based install
 
