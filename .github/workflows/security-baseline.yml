@@ -7,6 +7,7 @@ on:
       - 'skills/**'
       - 'tools/integrations/**'
       - 'tools/clis/**'
+      - 'docs/**'
       - '.github/scripts/security-baseline.js'
   schedule:
     - cron: '0 0 * * *'  # Daily at midnight
@@ -48,11 +49,15 @@ jobs:
         with:
           commit_message: "ci: update security report"
           add_options: "security-report.json"
+          skip_dirty_check: true
 
   report:
     needs: security-baseline
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Download security report
         uses: actions/download-artifact@v4
         with:
