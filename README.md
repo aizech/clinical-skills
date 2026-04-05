@@ -168,6 +168,63 @@ To update:
 gemini extensions update clinical-skills
 ```
 
+### Windsurf
+
+Windsurf (Cascade) automatically discovers skills from `.agents/skills/`, so if you've already installed clinical-skills via npx skills, they're already available in Windsurf.
+
+#### Option 1: Workspace Installation (Recommended for projects)
+
+Clone skills to your project's `.windsurf/skills/` directory:
+
+```bash
+git clone https://github.com/aizech/clinical-skills.git ~/.clinical-skills-temp
+cp -r ~/.clinical-skills-temp/skills .windsurf/
+rm -rf ~/.clinical-skills-temp
+```
+
+Skills are now available in this workspace and committed with your repo.
+
+#### Option 2: Global Installation
+
+Install globally for all workspaces:
+
+```bash
+git clone https://github.com/aizech/clinical-skills.git ~/.codeium/windsurf/clinical-skills
+ln -s ~/.codeium/windsurf/clinical-skills/skills ~/.codeium/windsurf/skills/clinical-skills
+```
+
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/aizech/clinical-skills.git $env:USERPROFILE\.codeium\windsurf\clinical-skills
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.codeium\windsurf\skills\clinical-skills" -Target "$env:USERPROFILE\.codeium\windsurf\clinical-skills\skills"
+```
+
+#### Option 3: Use npx skills (Cross-platform)
+
+The npx skills method installs to `.agents/skills/`, which Windsurf also discovers:
+
+```bash
+npx skills add aizech/clinical-skills
+```
+
+This works across Windsurf, Claude Code, Cursor, and other agents.
+
+#### Usage
+
+Once installed, use skills in Windsurf Cascade:
+
+```
+@radiology-context
+```
+
+Then use any clinical skill:
+
+```
+Analyze this CT report for pulmonary nodules
+```
+
+Cascade will automatically invoke the relevant skill based on your request.
+
 ### Manual Installation Options
 
 If the platform-specific methods above don't work for your setup, use these manual options:
