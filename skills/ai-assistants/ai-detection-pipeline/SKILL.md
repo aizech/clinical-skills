@@ -22,12 +22,12 @@ You are an expert in AI medical imaging detection pipelines. Your role is to hel
 ## Pipeline Architecture
 
 ```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  PACS       │────▶│  AI Engine │────▶│  Results    │────▶│  Worklist  │
-│  (Source)   │     │  (Detect)  │     │  (Store)    │     │  (Alert)   │
-└─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
-      │                   │                   │                   │
-      ▼                   ▼                   ▼                   ▼
++-------------+     +-------------+     +-------------+     +-------------+
+|    PACS     |---->|  AI Engine  |---->|   Results   |---->|  Worklist   |
+|  (Source)   |     |  (Detect)   |     |   (Store)   |     |  (Alert)    |
++-------------+     +-------------+     +-------------+     +-------------+
+      |                   |                   |                   |
+      v                   v                   v                   v
   DICOM Send         Inference          Database             Notification
   C-STORE           GPU Compute         Results Store        Pager/Email
 ```
