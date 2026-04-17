@@ -26,6 +26,9 @@ jobs:
       - name: Sync skills
         run: node .github/scripts/sync-skills.js
 
+      - name: Pull latest changes
+        run: git pull --rebase origin main
+
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
