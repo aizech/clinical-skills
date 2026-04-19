@@ -1,0 +1,49 @@
+{
+  "tests": [
+    {
+      "id": "ct-prep-education",
+      "input": "Create patient education material for CT scan with contrast preparation",
+      "expected": {
+        "action": "create_education",
+        "procedure": "CT",
+        "modality": "CT",
+        "includes_preparation": true
+      }
+    },
+    {
+      "id": "mri-prep-education",
+      "input": "Write education material explaining MRI procedure to a nervous patient",
+      "expected": {
+        "action": "create_education",
+        "procedure": "MRI",
+        "tone": "reassuring",
+        "addresses_anxiety": true
+      }
+    },
+    {
+      "id": "biopsy-education",
+      "input": "Create educational material about lung biopsy procedure",
+      "expected": {
+        "action": "create_education",
+        "procedure": "biopsy",
+        "includes_risks": true,
+        "includes_preparation": true
+      }
+    },
+    {
+      "id": "findings-explanation",
+      "input": "Explain what a pulmonary embolism means to a patient",
+      "expected": {
+        "action": "explain",
+        "condition": "pulmonary_embolism",
+        "plain_language": true,
+        "includes_treatment": true
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "plain_language": "Appropriate reading level",
+    "completeness": "All key information included"
+  }
+}

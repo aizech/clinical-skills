@@ -1,0 +1,77 @@
+{
+  "tests": [
+    {
+      "id": "false-positive-detection",
+      "input": "Review this AI finding of lung nodule - is it a false positive?",
+      "expected": {
+        "action": "qa_review",
+        "finding_type": "nodule",
+        "review_type": "false_positive_check"
+      }
+    },
+    {
+      "id": "missed-finding-review",
+      "input": "Check if AI missed any findings in this CT",
+      "expected": {
+        "action": "qa_review",
+        "review_type": "missed_findings"
+      }
+    },
+    {
+      "id": "confidence-review",
+      "input": "Review AI confidence scores for this study",
+      "expected": {
+        "action": "review_confidence",
+        "metric": "confidence_scores"
+      }
+    },
+    {
+      "id": "comparison-radiologist",
+      "input": "Compare AI detection vs radiologist interpretation",
+      "expected": {
+        "action": "compare",
+        "comparator": "radiologist"
+      }
+    },
+    {
+      "id": "error-pattern-analysis",
+      "input": "Identify error patterns in recent AI detections",
+      "expected": {
+        "action": "analyze_patterns",
+        "metric": "error_patterns"
+      }
+    },
+    {
+      "id": "specificity-assessment",
+      "input": "Assess AI specificity for pulmonary embolism detection",
+      "expected": {
+        "action": "assess",
+        "metric": "specificity",
+        "use_case": "pe"
+      }
+    },
+    {
+      "id": "sensitivity-review",
+      "input": "Review AI sensitivity for hemorrhage detection",
+      "expected": {
+        "action": "assess",
+        "metric": "sensitivity",
+        "use_case": "hemorrhage"
+      }
+    },
+    {
+      "id": "quality-report",
+      "input": "Generate QA report for AI performance last month",
+      "expected": {
+        "action": "generate_report",
+        "timeframe": "monthly",
+        "format": "report"
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "review_approach": "Proper QA methodology",
+    "metric_selection": "Appropriate quality metrics"
+  }
+}

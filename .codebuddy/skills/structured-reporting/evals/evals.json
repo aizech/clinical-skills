@@ -1,0 +1,64 @@
+{
+  "tests": [
+    {
+      "id": "ct-chest-structured",
+      "input": "Create a structured CT chest report with findings for a 2.5cm lung mass",
+      "expected": {
+        "action": "generate_template",
+        "modality": "CT",
+        "body_part": "chest",
+        "template_type": "structured"
+      }
+    },
+    {
+      "id": "convert-free-to-structured",
+      "input": "Convert this free-text report to structured format: CT chest shows 2.5cm mass right upper lobe, no mediastinal lymphadenopathy",
+      "expected": {
+        "action": "convert",
+        "input_format": "free_text",
+        "output_format": "structured"
+      }
+    },
+    {
+      "id": "bi-rads-report",
+      "input": "Generate a BI-RADS structured report for a breast mass",
+      "expected": {
+        "action": "generate_template",
+        "standard": "BI-RADS",
+        "category": "mammography"
+      }
+    },
+    {
+      "id": "li-rads-report",
+      "input": "Create a LI-RADS structured report for liver lesion surveillance",
+      "expected": {
+        "action": "generate_template",
+        "standard": "LI-RADS",
+        "category": "MRI"
+      }
+    },
+    {
+      "id": "pi-rads-report",
+      "input": "Generate PI-RADS structured report for prostate MRI",
+      "expected": {
+        "action": "generate_template",
+        "standard": "PI-RADS",
+        "category": "prostate"
+      }
+    },
+    {
+      "id": "ti-rads-report",
+      "input": "Create TI-RADS structured report for thyroid nodule",
+      "expected": {
+        "action": "generate_template",
+        "standard": "TI-RADS",
+        "category": "ultrasound"
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "standard_compliance": "Follows reporting standards",
+    "completeness": "All required fields included"
+  }
+}

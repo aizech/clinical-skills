@@ -1,0 +1,45 @@
+{
+  "tests": [
+    {
+      "id": "track-nodule",
+      "input": "Set up follow-up tracking for a 6mm lung nodule found on CT",
+      "expected": {
+        "action": "track",
+        "finding": "nodule",
+        "size": "6mm",
+        "followup_interval": "6-12 months"
+      }
+    },
+    {
+      "id": "incidental-finding",
+      "input": "Create follow-up reminder for an incidental renal cyst",
+      "expected": {
+        "action": "create_reminder",
+        "finding_type": "incidental",
+        "anatomy": "kidney"
+      }
+    },
+    {
+      "id": "missed-followup",
+      "input": "Identify patients who missed their scheduled follow-up CT",
+      "expected": {
+        "action": "identify_missed",
+        "report_type": "followup"
+      }
+    },
+    {
+      "id": "update-followup",
+      "input": "Update the follow-up status for a patient who completed their lung nodule surveillance CT",
+      "expected": {
+        "action": "update",
+        "status": "completed",
+        "finding_type": "nodule"
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "interval_correctness": "Follows guidelines",
+    "reminder_appropriateness": "Matches finding severity"
+  }
+}

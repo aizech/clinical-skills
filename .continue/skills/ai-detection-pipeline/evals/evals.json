@@ -1,0 +1,84 @@
+{
+  "tests": [
+    {
+      "id": "aidoc-ct-head",
+      "input": "Set up Aidoc for CT head hemorrhage detection",
+      "expected": {
+        "action": "configure",
+        "platform": "aidoc",
+        "modality": "CT",
+        "use_case": "hemorrhage"
+      }
+    },
+    {
+      "id": "clara-lung",
+      "input": "Configure Nvidia Clara for lung nodule detection in CT",
+      "expected": {
+        "action": "configure",
+        "platform": "nvidia_clara",
+        "modality": "CT",
+        "use_case": "nodule_detection"
+      }
+    },
+    {
+      "id": "zebra-multi-findings",
+      "input": "Set up Zebra Medical for multi-finding detection on chest X-ray",
+      "expected": {
+        "action": "configure",
+        "platform": "zebra_medical",
+        "modality": "X-ray",
+        "use_case": "multi_finding"
+      }
+    },
+    {
+      "id": "maxq-neuro",
+      "input": "Configure MaxQ AI for stroke detection",
+      "expected": {
+        "action": "configure",
+        "platform": "maxq",
+        "use_case": "stroke"
+      }
+    },
+    {
+      "id": "qure-chest",
+      "input": "Set up Qure AI for chest X-ray analysis",
+      "expected": {
+        "action": "configure",
+        "platform": "qure",
+        "modality": "X-ray"
+      }
+    },
+    {
+      "id": "pipeline-integration",
+      "input": "Integrate AI detection results with PACS worklist",
+      "expected": {
+        "action": "integrate",
+        "component": "worklist",
+        "priority_flagging": true
+      }
+    },
+    {
+      "id": "alert-configuration",
+      "input": "Configure critical findings alerts to radiologist",
+      "expected": {
+        "action": "configure_alerts",
+        "notification_method": "alert",
+        "critical_only": true
+      }
+    },
+    {
+      "id": "batch-processing",
+      "input": "Set up batch processing for backlog studies",
+      "expected": {
+        "action": "configure",
+        "mode": "batch",
+        "use_case": "backlog"
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "platform_identification": "Correct AI platform selection",
+    "modality_matching": "Correct modality for use case"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$evals": [
+    {
+      "id": "report-tat-compliance",
+      "prompt": "Analyze report turnaround time compliance for our emergency CT studies. What percentage meet the 30-minute target and what factors predict delays?",
+      "expected": "Compliance rate, delay predictors, time-of-day patterns, and process improvement recommendations.",
+      "metrics": ["compliance_measurement", "predictor_identification"]
+    },
+    {
+      "id": "report-discrepancy-pattern",
+      "prompt": "Review major discrepancies from our double-read program over the past quarter. Categorize by type, body part, and clinical setting.",
+      "expected": "Discrepancy categorization, pattern identification, learning points, and peer review focus areas.",
+      "metrics": ["categorization_accuracy", "learning_value"]
+    },
+    {
+      "id": "report-completeness-audit",
+      "prompt": "Audit report completeness for chest CT studies. Check for required elements: clinical indication, technique, comparison studies, findings, and impressions.",
+      "expected": "Completeness scores by element, deficiency patterns, template optimization suggestions.",
+      "metrics": ["element_tracking", "standard_adherence"]
+    },
+    {
+      "id": "report-critical-finding-doc",
+      "prompt": "Review documentation of critical result communications for pneumothorax and PE findings. Verify proper documentation in RIS and communication logs.",
+      "expected": "Communication compliance rate, documentation gaps, escalation protocol adherence.",
+      "metrics": ["compliance_verification", "safety_focus"]
+    },
+    {
+      "id": "report-attending-signoff",
+      "prompt": "Identify all preliminary reports still awaiting attending sign-off older than 2 hours. Prioritize by clinical urgency and alert appropriate radiologists.",
+      "expected": "Pending report list with urgency ranking, escalation pathway, and resolution tracking.",
+      "metrics": ["urgency_ranking", "escalation_clarity"]
+    },
+    {
+      "id": "report-attribution-accuracy",
+      "prompt": "Verify report attribution accuracy by comparing final signatures in PACS against RIS sign-off logs. Identify any attribution mismatches.",
+      "expected": "Mismatch report with affected studies, root cause analysis, and system synchronization recommendations.",
+      "metrics": ["data_accuracy", "system_integration"]
+    },
+    {
+      "id": "report-structured-vs-free",
+      "prompt": "Compare diagnostic accuracy and clinical utility between structured template reports and free-text reports for CT abdomen studies.",
+      "expected": "Comparative analysis with accuracy metrics, clinician satisfaction indicators, and template adoption recommendations.",
+      "metrics": ["comparative_rigor", "clinical_utility"]
+    },
+    {
+      "id": "report-cqi-project",
+      "prompt": "Design a continuous quality improvement project for reducing addendum rates. Track why addenda are created and identify preventable causes.",
+      "expected": "CQI framework with baseline metrics, contributing factors, intervention recommendations, and success metrics.",
+      "metrics": ["project_design", "intervention_quality"]
+    }
+  ],
+  "$skill": "analytics-quality/report-quality-review",
+  "$version": "1.0.0"
+}
