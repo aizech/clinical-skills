@@ -277,6 +277,9 @@ function analyzeAllSkills() {
       const skillPath = path.join(categoryPath, skill);
       if (!fs.statSync(skillPath).isDirectory()) continue;
 
+      // Skip non-skill directories (e.g., evals, references folders inside skills)
+      if (skill === 'evals' || skill === 'references') continue;
+
       const result = analyzeSkill(skillPath, category);
       results.push(result);
 
