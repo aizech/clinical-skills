@@ -1,0 +1,42 @@
+{
+  "$evals": [
+    {
+      "id": "xref-find-priors",
+      "prompt": "Find all prior CT chest studies for patient MRN 12345 to compare with today's imaging. List dates and key findings.",
+      "expected": "Prior study list with dates, modalities, and summary findings.",
+      "metrics": ["completeness", "finding_summary_quality"]
+    },
+    {
+      "id": "xref-related-lit",
+      "prompt": "For this chest X-ray showing a right upper lobe opacity, what similar cases or relevant literature should I consider?",
+      "expected": "Prior case patterns, differential considerations, and relevant literature citations.",
+      "metrics": ["clinical_relevance", "literature_relevance"]
+    },
+    {
+      "id": "xref-followup-correlation",
+      "prompt": "Patient had lung nodule found on CT 6 months ago. Today's chest CT shows the nodule is still present. Correlate and assess change.",
+      "expected": "Comparison analysis with size change, density change, and followup recommendations.",
+      "metrics": ["comparison_accuracy", "recommendation_quality"]
+    },
+    {
+      "id": "xref-multiple-studies",
+      "prompt": "Compare findings across all available MRI brain studies for this patient to show progression of white matter lesions.",
+      "expected": "Longitudinal comparison table with dates, lesion characteristics, and progression assessment.",
+      "metrics": ["longitudinal_accuracy", "visual_clarity"]
+    },
+    {
+      "id": "xref-ehr-correlation",
+      "prompt": "Correlate the incidental thyroid nodule found on CT neck with any relevant lab values or clinical notes from the EHR.",
+      "expected": "Correlation summary with lab results, clinical notes, and recommendation for followup.",
+      "metrics": ["data_integration", "clinical_utility"]
+    },
+    {
+      "id": "xref-biopsy-pathology",
+      "prompt": "Correlate the lung mass findings on CT with the recent biopsy pathology report showing adenocarcinoma.",
+      "expected": "Radiology-pathology correlation with staging implications and treatment considerations.",
+      "metrics": ["pathology_knowledge", "staging_accuracy"]
+    }
+  ],
+  "$skill": "research-evidence/cross-reference-linking",
+  "$version": "1.0.0"
+}

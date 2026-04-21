@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "id": "lung-screening-gap",
+      "input": "Identify care gaps for patients due for lung cancer screening CT",
+      "expected": {
+        "action": "identify_gaps",
+        "screening_type": "lung_cancer_screening",
+        "criteria": "USPSTF"
+      }
+    },
+    {
+      "id": "colorectal-screening-gap",
+      "input": "Find patients who need CT colonography for colorectal cancer screening",
+      "expected": {
+        "action": "identify_gaps",
+        "screening_type": "colorectal",
+        "modality": "CT"
+      }
+    },
+    {
+      "id": "close-gap",
+      "input": "Help close the imaging care gap for a patient who is overdue for screening CT",
+      "expected": {
+        "action": "close_gap",
+        "workflow": "outreach_and_scheduling"
+      }
+    },
+    {
+      "id": "gap-report",
+      "input": "Generate a report on imaging care gaps in our patient population",
+      "expected": {
+        "action": "generate_report",
+        "format": "report",
+        "include_metrics": true
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "criteria_准确性": "Correct screening guidelines",
+    "outreach_effectiveness": "Actionable intervention"
+  }
+}

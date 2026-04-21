@@ -1,0 +1,54 @@
+{
+  "$evals": [
+    {
+      "id": "metrics-turnaround-time",
+      "prompt": "Calculate the average report turnaround time for CT studies from our PACS. We want to know mean, median, and 90th percentile times from study completion to final signature.",
+      "expected": "Returns structured metrics including mean (hours), median (hours), p90 (hours), with breakdown by time of day and urgency level.",
+      "metrics": ["retrieval_accuracy", "formatting_clarity"]
+    },
+    {
+      "id": "metrics-productivity-dashboard",
+      "prompt": "Generate a productivity report for our radiology group covering the last month. Include studies read per radiologist, modality distribution, RVU estimates, and comparison to previous month.",
+      "expected": "Comprehensive dashboard with individual and group metrics, trend analysis, and actionable insights.",
+      "metrics": ["completeness", "data_accuracy"]
+    },
+    {
+      "id": "metrics-backlog-analysis",
+      "prompt": "Identify current backlog by modality and priority level. Which subspecialties have the longest pending queues and what's driving the delays?",
+      "expected": "Backlog summary with contributing factors, time-in-queue analysis, and bottleneck identification.",
+      "metrics": ["analysis_depth", "actionability"]
+    },
+    {
+      "id": "metrics-error-rate-tracking",
+      "prompt": "Track our discrepancy rate over the past quarter. What types of errors are most common and which radiologists have elevated rates requiring peer review?",
+      "expected": "Error categorization, trend data, statistical significance indicators, and peer review recommendations.",
+      "metrics": ["statistical_rigor", "context_awareness"]
+    },
+    {
+      "id": "metrics-utilization-efficiency",
+      "prompt": "Analyze MRI utilization rates across our health system. Compare scheduled vs. completed rates, no-show patterns, and suggest capacity optimization opportunities.",
+      "expected": "Utilization metrics with root cause analysis and quantified optimization recommendations.",
+      "metrics": ["business_acumen", "recommendation_quality"]
+    },
+    {
+      "id": "metrics-quality-safety-kpi",
+      "prompt": "Calculate our critical result communication compliance rate. Track time from finding identification to ordering physician notification for critical findings.",
+      "expected": "Compliance metrics, escalation patterns, and process improvement suggestions.",
+      "metrics": ["safety_focus", "regulatory_compliance"]
+    },
+    {
+      "id": "metrics-volume-forecasting",
+      "prompt": "Forecast imaging volumes for the next 6 months based on historical trends, seasonality, and scheduled protocol changes. Factor in new AI tool adoption.",
+      "expected": "Forecasted volumes with confidence intervals, scenario planning, and staffing recommendations.",
+      "metrics": ["predictive_accuracy", "assumptions_transparency"]
+    },
+    {
+      "id": "metrics-cost-effectiveness",
+      "prompt": "Compare cost-effectiveness of our outpatient CT protocols vs. industry benchmarks. Include per-study cost, image quality metrics, and downstream testing rates.",
+      "expected": "Comparative analysis with actionable efficiency improvements and ROI projections.",
+      "metrics": ["comparative_analysis", "financial_acumen"]
+    }
+  ],
+  "$skill": "analytics-quality/radiology-metrics",
+  "$version": "1.0.0"
+}

@@ -1,0 +1,79 @@
+{
+  "tests": [
+    {
+      "id": "basic-lung-nodule-search",
+      "input": "Search for recent literature on lung nodule detection AI",
+      "expected": {
+        "action": "pubmed_search",
+        "query_terms": ["lung nodule", "detection", "AI"],
+        "date_filter": "recent"
+      }
+    },
+    {
+      "id": "specific-guideline-search",
+      "input": "Find ACR guidelines for incidental pulmonary nodules",
+      "expected": {
+        "action": "pubmed_search",
+        "query_terms": ["ACR", "incidental pulmonary nodules", "guidelines"],
+        "source_preference": "guidelines"
+      }
+    },
+    {
+      "id": "filter-by-year",
+      "input": "Search for COVID-19 chest X-ray AI studies from 2024",
+      "expected": {
+        "action": "pubmed_search",
+        "query_terms": ["COVID-19", "chest X-ray", "AI"],
+        "year": 2024
+      }
+    },
+    {
+      "id": "clinical-trial-search",
+      "input": "Find clinical trials for AI-assisted mammography screening",
+      "expected": {
+        "action": "clinical_trial_search",
+        "query_terms": ["mammography", "AI", "screening"]
+      }
+    },
+    {
+      "id": "systematic-review",
+      "input": "Find systematic reviews on deep learning in radiology",
+      "expected": {
+        "action": "pubmed_search",
+        "query_terms": ["deep learning", "radiology"],
+        "article_type": "systematic review"
+      }
+    },
+    {
+      "id": "guideline-integration",
+      "input": "What are the current guidelines for lung cancer screening CT?",
+      "expected": {
+        "action": "guideline_search",
+        "query_terms": ["lung cancer screening", "guidelines"]
+      }
+    },
+    {
+      "id": "citation-count-filter",
+      "input": "Find highly cited papers on radiology AI from the last 5 years",
+      "expected": {
+        "action": "pubmed_search",
+        "query_terms": ["radiology", "AI"],
+        "min_citations": "high",
+        "years_back": 5
+      }
+    },
+    {
+      "id": "comparison-studies",
+      "input": "Compare AI vs radiologist performance in mammography",
+      "expected": {
+        "action": "pubmed_search",
+        "query_terms": ["mammography", "AI", "radiologist", "comparison"]
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "query_construction": "Properly construct PubMed search queries",
+    "result_relevance": "Return relevant results"
+  }
+}

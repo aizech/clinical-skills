@@ -1,0 +1,89 @@
+{
+  "tests": [
+    {
+      "id": "text-ct-chest",
+      "input": "CT chest with contrast",
+      "expected_modality": "CT",
+      "expected_body_part": "Chest",
+      "expected_contrast": "Yes"
+    },
+    {
+      "id": "text-mri-brain",
+      "input": "brain MRI without gadolinium",
+      "expected_modality": "MRI",
+      "expected_body_part": "Brain",
+      "expected_contrast": "No"
+    },
+    {
+      "id": "text-xray-chest",
+      "input": "DX chest PA lateral",
+      "expected_modality": "X-ray",
+      "expected_body_part": "Chest",
+      "expected_contrast": null
+    },
+    {
+      "id": "text-ultrasound-abdomen",
+      "input": "Abdominal ultrasound complete",
+      "expected_modality": "Ultrasound",
+      "expected_body_part": "Abdomen",
+      "expected_contrast": null
+    },
+    {
+      "id": "text-pet-ct",
+      "input": "PET/CT whole body for oncology staging",
+      "expected_modality": "PET/CT",
+      "expected_body_part": "Whole Body",
+      "expected_contrast": null
+    },
+    {
+      "id": "text-mammogram",
+      "input": "Digital mammography screening",
+      "expected_modality": "Mammography",
+      "expected_body_part": "Breast"
+    },
+    {
+      "id": "text-mrangiography",
+      "input": "MR angiography renal arteries",
+      "expected_modality": "MRA",
+      "expected_body_part": "Renal",
+      "expected_subtype": "Angiography"
+    },
+    {
+      "id": "text-cta",
+      "input": "CT angiography head and neck",
+      "expected_modality": "CTA",
+      "expected_body_part": "Head/Neck",
+      "expected_subtype": "Angiography"
+    },
+    {
+      "id": "dicom-header-ct",
+      "input": "DICOM file with Modality=CT, BodyPartExamined=CHEST",
+      "expected_modality": "CT",
+      "expected_body_part": "CHEST"
+    },
+    {
+      "id": "dicom-header-mr",
+      "input": "DICOM file with Modality=MR, BodyPartExamined=BRAIN",
+      "expected_modality": "MRI",
+      "expected_body_part": "BRAIN"
+    },
+    {
+      "id": "ambiguous-text",
+      "input": "Chest imaging study",
+      "expected_modality": null,
+      "note": "Should ask for clarification when ambiguous"
+    },
+    {
+      "id": "multi-modality",
+      "input": "CT chest abdomen pelvis with contrast",
+      "expected_modality": "CT",
+      "expected_body_part": "Chest/Abdomen/Pelvis",
+      "expected_contrast": "Yes"
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "accuracy": "100% on modality identification",
+    "fallback": "When uncertain, should return null and suggest clarification"
+  }
+}

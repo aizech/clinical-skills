@@ -1,0 +1,45 @@
+{
+  "tests": [
+    {
+      "id": "create-ct-referral",
+      "input": "Create an imaging referral for CT chest with contrast for suspected pneumonia",
+      "expected": {
+        "action": "create_referral",
+        "modality": "CT",
+        "indication": "pneumonia",
+        "clinical_info": true
+      }
+    },
+    {
+      "id": "improve-referral",
+      "input": "Improve this incomplete referral: CT chest",
+      "expected": {
+        "action": "improve",
+        "missing_fields": ["indication", "clinical_history"]
+      }
+    },
+    {
+      "id": "urgent-referral",
+      "input": "Create an urgent referral for suspected pulmonary embolism",
+      "expected": {
+        "action": "create_referral",
+        "urgency": "STAT",
+        "modality": "CTPA"
+      }
+    },
+    {
+      "id": "track-referral",
+      "input": "Check the status of referral for patient John Doe ordered on March 1",
+      "expected": {
+        "action": "track",
+        "patient": "John Doe",
+        "date": "March 1"
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "completeness": "All required referral fields",
+    "clinical_appropriateness": "Correct modality for indication"
+  }
+}

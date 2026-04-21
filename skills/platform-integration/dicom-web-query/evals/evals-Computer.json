@@ -1,0 +1,77 @@
+{
+  "tests": [
+    {
+      "id": "query-studies-wado",
+      "input": "Query DICOMweb for CT studies from last week",
+      "expected": {
+        "action": "qido_rs_query",
+        "endpoint": "/studies",
+        "filters": {"Modality": "CT", "TimeRange": "7d"}
+      }
+    },
+    {
+      "id": "retrieve-single-study",
+      "input": "Retrieve DICOM study with UID 1.2.840.12345.67890",
+      "expected": {
+        "action": "wado_rs_retrieve",
+        "endpoint": "/studies/1.2.840.12345.67890",
+        "format": "application/dicom"
+      }
+    },
+    {
+      "id": "retrieve-series",
+      "input": "Get series from study 1.2.840.12345.67890",
+      "expected": {
+        "action": "wado_rs_retrieve",
+        "endpoint": "/studies/1.2.840.12345.67890/series"
+      }
+    },
+    {
+      "id": "retrieve-single-image",
+      "input": "Fetch instance 1.2.840.12345.67890.1.1",
+      "expected": {
+        "action": "wado_rs_retrieve",
+        "endpoint": "/studies/1.2.840.12345.67890/series/1/instances/1"
+      }
+    },
+    {
+      "id": "metadata-only",
+      "input": "Get metadata for study 1.2.840.12345.67890 without images",
+      "expected": {
+        "action": "wado_rs_metadata",
+        "endpoint": "/studies/1.2.840.12345.67890/metadata"
+      }
+    },
+    {
+      "id": "thumbnail-retrieval",
+      "input": "Get thumbnail for series 1.2.840.12345.67890.1",
+      "expected": {
+        "action": "wado_rs_thumbnail",
+        "endpoint": "/studies/1.2.840.12345.67890/series/1/thumbnail"
+      }
+    },
+    {
+      "id": "filter-modalities",
+      "input": "Find all PET/CT studies from March 2026",
+      "expected": {
+        "action": "qido_rs_query",
+        "endpoint": "/studies",
+        "filters": {"Modality": "PT", "StudyDateFrom": "2026-03-01", "StudyDateTo": "2026-03-31"}
+      }
+    },
+    {
+      "id": "patient-level-query",
+      "input": "Get all studies for patient ID 12345",
+      "expected": {
+        "action": "qido_rs_query",
+        "endpoint": "/studies",
+        "filters": {"PatientID": "12345"}
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "endpoint_construction": "Correct DICOMweb URL construction",
+    "filter_encoding": "Proper URL encoding of query parameters"
+  }
+}

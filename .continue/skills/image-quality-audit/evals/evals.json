@@ -1,0 +1,54 @@
+{
+  "$evals": [
+    {
+      "id": "quality-motion-artifact",
+      "prompt": "Audit CT chest studies from last week for motion artifacts. Identify studies with significant motion degrading diagnostic quality and categorize severity.",
+      "expected": "Artifact severity classification, percentage of studies affected, contributing factors, and protocol optimization suggestions.",
+      "metrics": ["assessment_accuracy", "categorization_rigor"]
+    },
+    {
+      "id": "quality-dose-analysis",
+      "prompt": "Perform a CT dose audit comparing our abdominal CT protocols against ACR dose guidelines. Flag studies exceeding reference levels.",
+      "expected": "Dose comparison table, outlier identification, protocol-specific recommendations, and compliance documentation.",
+      "metrics": ["standard_adherence", "actionability"]
+    },
+    {
+      "id": "quality-protocol-deviation",
+      "prompt": "Review protocol deviations for MRI brain studies this month. Identify patterns in improper slice coverage, contrast timing, or sequence selection.",
+      "expected": "Deviation categorization, frequency analysis, root cause identification, and protocol training recommendations.",
+      "metrics": ["pattern_recognition", "root_cause_depth"]
+    },
+    {
+      "id": "quality-image-quality-trend",
+      "prompt": "Analyze the trend in ultrasound image quality scores over the past year. Identify any degradation and correlate with equipment age or operator.",
+      "expected": "Trend visualization, contributing factors, equipment assessment, and quality improvement action plan.",
+      "metrics": ["trend_analysis", "correlation_accuracy"]
+    },
+    {
+      "id": "quality-technique-iteration",
+      "prompt": "Evaluate the diagnostic utility of our low-dose chest CT protocol. Compare image quality scores and incidental finding detection rates to standard dose.",
+      "expected": "Comparative analysis with diagnostic accuracy metrics, dose reduction achieved, and protocol viability assessment.",
+      "metrics": ["comparative_rigor", "clinical_relevance"]
+    },
+    {
+      "id": "quality-cine-clip-review",
+      "prompt": "Audit echocardiogram cine clip adequacy for left ventricle assessment. Check for foreshortening, adequate R-R coverage, and Doppler sample placement.",
+      "expected": "Adequacy rates by criterion, common deficiencies, technologist feedback, and re-training priorities.",
+      "metrics": ["technical_accuracy", "feedback_quality"]
+    },
+    {
+      "id": "quality-digital-breast-tomo",
+      "prompt": "Review DBT (digital breast tomosynthesis) acquisitions for adequate compression, positioning, and artifact presence. Compare tomosynthesis to 2D mammo rates.",
+      "expected": "Quality metrics by technologist and equipment, artifact analysis, and protocol standardization recommendations.",
+      "metrics": ["standard_adherence", "comparative_analysis"]
+    },
+    {
+      "id": "quality-fluoroscopy-dose-length",
+      "prompt": "Review fluoroscopy procedures for dose-length product and fluoroscopy time. Identify high-dose cases and procedures exceeding DRLs.",
+      "expected": "Dose metrics by procedure type, outlier analysis, technique optimization suggestions, and patient education points.",
+      "metrics": ["safety_compliance", "dose_optimization"]
+    }
+  ],
+  "$skill": "analytics-quality/image-quality-audit",
+  "$version": "1.0.0"
+}

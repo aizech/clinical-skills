@@ -1,0 +1,36 @@
+{
+  "$evals": [
+    {
+      "id": "research-lung-ai",
+      "prompt": "Find recent research papers on AI-based lung nodule detection published in the last 2 years. Include accuracy metrics and datasets used.",
+      "expected": "Paper list with accuracy metrics, dataset details, and key methodology highlights.",
+      "metrics": ["recency", "relevance", "metric_accuracy"]
+    },
+    {
+      "id": "research-stroke-imaging",
+      "prompt": "What is the current evidence for MRI diffusion imaging in acute stroke within the 6-hour window? Include key studies and recommendations.",
+      "expected": "Evidence summary with key studies, sample sizes, and clinical recommendations.",
+      "metrics": ["evidence_quality", "clinical_alignment"]
+    },
+    {
+      "id": "research-pet-standards",
+      "prompt": "Summarize current PET/CT reporting standards including PERCIST criteria for treatment response assessment.",
+      "expected": "Standard summary with PERCIST criteria details and application guidance.",
+      "metrics": ["standard_accuracy", "application_clarity"]
+    },
+    {
+      "id": "research-contrast-safety",
+      "prompt": "What is the latest evidence on gadolinium deposition in brain tissue from MRI contrast agents? What are current safety recommendations?",
+      "expected": "Evidence summary with current guidelines, risk factors, and alternative recommendations.",
+      "metrics": ["safety_focus", "currency"]
+    },
+    {
+      "id": "research-systematic-review",
+      "prompt": "Perform a systematic review search for AI accuracy in chest X-ray interpretation compared to radiologist performance.",
+      "expected": "Structured review summary with study counts, pooled accuracy, and bias assessment.",
+      "metrics": ["methodological_rigor", "comprehensiveness"]
+    }
+  ],
+  "$skill": "research-evidence/radiology-research",
+  "$version": "1.0.0"
+}

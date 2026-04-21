@@ -1,0 +1,82 @@
+{
+  "tests": [
+    {
+      "id": "query-studies-by-modality",
+      "input": "Query PACS for all CT studies from the last 7 days",
+      "expected": {
+        "action": "query",
+        "filters": {"Modality": "CT", "DaysBack": 7}
+      }
+    },
+    {
+      "id": "query-by-patient-id",
+      "input": "Find all studies for patient ID ABC123",
+      "expected": {
+        "action": "query",
+        "filters": {"PatientID": "ABC123"}
+      }
+    },
+    {
+      "id": "query-by-date-range",
+      "input": "Get CT chest studies between March 1 and March 31, 2026",
+      "expected": {
+        "action": "query",
+        "filters": {"Modality": "CT", "StudyDateFrom": "2026-03-01", "StudyDateTo": "2026-03-31"}
+      }
+    },
+    {
+      "id": "retrieve-study",
+      "input": "Retrieve study with accession number ACC456789",
+      "expected": {
+        "action": "retrieve",
+        "StudyInstanceUID": "ACC456789"
+      }
+    },
+    {
+      "id": "query-worklist",
+      "input": "Show my PACS worklist for today",
+      "expected": {
+        "action": "worklist",
+        "Modality": null,
+        "ScheduledDate": "today"
+      }
+    },
+    {
+      "id": "filter-by-bodypart",
+      "input": "Find all brain MRI studies",
+      "expected": {
+        "action": "query",
+        "filters": {"Modality": "MR", "BodyPartExamined": "BRAIN"}
+      }
+    },
+    {
+      "id": "modality-worklist",
+      "input": "Get CT scanner worklist",
+      "expected": {
+        "action": "worklist",
+        "Modality": "CT"
+      }
+    },
+    {
+      "id": "patient-studies-history",
+      "input": "Show all imaging history for patient John Doe, DOB 1980-01-15",
+      "expected": {
+        "action": "query",
+        "filters": {"PatientName": "Doe", "PatientBirthDate": "1980-01-15"}
+      }
+    },
+    {
+      "id": "recent-emergent",
+      "input": "List all STAT/CT emergent studies from last 24 hours",
+      "expected": {
+        "action": "query",
+        "filters": {"Priority": "STAT", "HoursBack": 24}
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "query_correctness": "Correct DICOM query parameters",
+    "filter_parsing": "Accurately parse user requests to filters"
+  }
+}

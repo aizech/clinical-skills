@@ -1,0 +1,68 @@
+{
+  "tests": [
+    {
+      "id": "init-new-context",
+      "input": "Set up my radiology context. I use Orthanc PACS at localhost:8042.",
+      "expected_action": "create_context",
+      "expected_pacs_type": "orthanc",
+      "expected_fields": ["pacs_type", "pacs_url"]
+    },
+    {
+      "id": "update-existing-context",
+      "input": "Update my PACS to use dcm4chee at 192.168.1.100:8080/dcm4chee",
+      "expected_action": "update_context",
+      "expected_pacs_type": "dcm4chee"
+    },
+    {
+      "id": "show-current-context",
+      "input": "Show my current radiology context",
+      "expected_action": "display_context",
+      "expected_output": "structured context display"
+    },
+    {
+      "id": "clear-context",
+      "input": "Reset my radiology context",
+      "expected_action": "clear_context"
+    },
+    {
+      "id": "query-pacs-with-context",
+      "input": "Query my PACS for recent CT studies",
+      "expected_action": "query_pacs",
+      "expected_pacs_from_context": true
+    },
+    {
+      "id": "add-modalities",
+      "input": "Add CT and MRI to my modalities",
+      "expected_action": "update_modalities",
+      "expected_modalities": ["CT", "MRI"]
+    },
+    {
+      "id": "add-ehr",
+      "input": "Set Epic as my EHR system",
+      "expected_action": "update_ehr",
+      "expected_ehr_type": "epic"
+    },
+    {
+      "id": "validate-complete-context",
+      "input": "Validate my context setup",
+      "expected_action": "validate",
+      "expected_check": "all_required_fields"
+    },
+    {
+      "id": "context-with-api-keys",
+      "input": "Configure PACS with API key auth at pacs.example.com",
+      "expected_action": "create_context_with_auth",
+      "expected_auth_type": "api_key"
+    },
+    {
+      "id": "missing-context-query",
+      "input": "Search for lung nodules in my PACS",
+      "expected_action": "request_context_or_prompt_setup"
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "context_persistence": "Context should persist across sessions",
+    "validation": "Required fields must be validated before use"
+  }
+}

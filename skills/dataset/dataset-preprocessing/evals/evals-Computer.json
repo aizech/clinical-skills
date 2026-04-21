@@ -1,0 +1,54 @@
+{
+  "$evals": [
+    {
+      "id": "preprocess-dicom-normalization",
+      "prompt": "Create a preprocessing pipeline for chest X-ray images from multiple institutions. Handle DICOM headers, windowing, and intensity normalization across vendors.",
+      "expected": "Pipeline code with vendor-specific handling, quality checks, and normalization statistics.",
+      "metrics": ["code_quality", "robustness"]
+    },
+    {
+      "id": "preprocess-mri-harmonization",
+      "prompt": "Preprocess brain MRI scans from 3 different scanner manufacturers for consistent analysis. Address intensity inhomogeneity and bias field correction.",
+      "expected": "Harmonization workflow with multi-vendor support, QC metrics, and registration steps.",
+      "metrics": ["technical_rigor", "multi_vendor_support"]
+    },
+    {
+      "id": "preprocess-augmentation-strategy",
+      "prompt": "Design an augmentation strategy for a small dataset of pediatric chest X-rays to improve model generalization.",
+      "expected": "Augmentation plan with specific transforms, validation strategy, and expected improvement estimates.",
+      "metrics": ["strategy_rigor", "small_data_handling"]
+    },
+    {
+      "id": "preprocess-segmentation-mask",
+      "prompt": "Convert RSNA bone age dataset annotations into segmentation masks suitable for U-Net training. Handle class imbalance.",
+      "expected": "Conversion script with mask generation, class weighting, and data split verification.",
+      "metrics": ["conversion_accuracy", "handling_edge_cases"]
+    },
+    {
+      "id": "preprocess-quality-filtering",
+      "prompt": "Build a quality control pipeline to filter out low-quality chest X-rays before training a pneumonia detector.",
+      "expected": "QC pipeline with automated checks, rejection criteria, and human review workflow for borderline cases.",
+      "metrics": ["qc_robustness", "automation_level"]
+    },
+    {
+      "id": "preprocess-metadata-extraction",
+      "prompt": "Extract and standardize clinical metadata from DICOM headers across a MIMIC-CXR and CheXpert dataset merge.",
+      "expected": "Extraction script with field mapping, standardization, and conflict resolution documentation.",
+      "metrics": ["standardization_quality", "documentation"]
+    },
+    {
+      "id": "preprocess-pet-standardization",
+      "prompt": "Standardize PET/CT uptake values for a multi-site study. How do I handle SUV normalization and partial volume correction?",
+      "expected": "Standardization protocol with SUV calculations, partial volume correction, and validation metrics.",
+      "metrics": ["quantitative_accuracy", "multi_site_support"]
+    },
+    {
+      "id": "preprocess-federated-split",
+      "prompt": "Create a patient-level train/validation/test split for a federated learning project across 5 hospital sites with privacy preservation.",
+      "expected": "Split strategy with privacy checks, site balance, and reproducibility documentation.",
+      "metrics": ["privacy_compliance", "split_quality"]
+    }
+  ],
+  "$skill": "dataset/dataset-preprocessing",
+  "$version": "1.0.0"
+}

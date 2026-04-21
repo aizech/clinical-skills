@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "skills": {
+    "ai-detection-pipeline": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "7261157519fd0e1efeaa2097ed726b3a6d4c0c972cf84294bf21761744e19da6"
+    },
+    "ai-quality-review": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "6da8146e075f28330668f6540006d357f3e2cf6e97ef2bc4a66593d241603f67"
+    },
+    "ai-report-assist": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "f989e41112adbef440732538bd09bfa1c2c858cb1e82555ba9f93f71641bdded"
+    },
+    "care-gap-closure": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "c5b907579e55b04c915300ddeefda6da5d49384a5bd0314f2f888067c21f69db"
+    },
+    "cross-reference-linking": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "373cbb9e69cca4683c219b67e4dc8984d8158888964b930298d16f075a69b625"
+    },
+    "dataset-preprocessing": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "beccc2d986f619784703c8c5a9e2e0421a2cd7935acc7c15a7aae2905a040319"
+    },
+    "dicom-web-query": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "7d6a45a6348b00d48390c72bf41779bbb3bf04e22e4384416c97e960723aa5a5"
+    },
+    "followup-tracking": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "2f14438d5f0a559f75803ea3587bdc59721f499fb527385e11727fcdb221ffa7"
+    },
+    "guideline-integration": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "3a3864c1bcc9eb8672c241c342b0a4f9c7d48aefcf92b60b359c56d5cc79713b"
+    },
+    "image-quality-audit": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "b7c2444a65d3e9ad175f0c4695341d83dd57b47ee3cc853c2e0111f8f817420e"
+    },
+    "imaging-referral": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "c9addd75f52cab3bdc7b178f1ec2ec68b05931f1b211e48f9f061c32af9b3cca"
+    },
+    "imaging-study-review": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "4c548406c645f6b61bc9653f557b7fdd581f7825b3408d8606922982ead0a700"
+    },
+    "llm-radiology-use": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "62918ee29e7cd8ffaa6cb36fc18edb266f6122a85155a7c2b991e9d47f17d878"
+    },
+    "modality-detection": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "5a6a50d52a96cd5c11b48c9428e579c5ac5c5b382c66d68ed7622d100d962d0d"
+    },
+    "model-validation": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "a66ed3b067c5814c216f9bca1ecc68f044cb7cdb769ba030b98587b5f71ce10a"
+    },
+    "pacs-workflow": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "bb330b26504e583de7705d2acef8a55ca56c86c3b024d3a9f8b726ab0a806eda"
+    },
+    "patient-education-material": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "e3b66fce38fae96aa019aee3012061912ba1f48dc60e1bb461fba9022b56c0e3"
+    },
+    "patient-results-letter": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "ef9beea3eefe0f91ef6c8a9c75d1a927e1ae2cd601bb238136586ede6c0adbb9"
+    },
+    "radiology-context": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "8df8a25009e66907f16c700d3c024c54e52815bca94424cc65cec317fed756a2"
+    },
+    "radiology-dataset-guide": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "2e9d67c9a99cad016c0ffeb31260372ba7c650052841b72eb4ff118dcc12f592"
+    },
+    "radiology-metrics": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "ca6583b995d775951ba1ee9339edf3e2a419f6018d15c889f50c83669666f89c"
+    },
+    "radiology-report-analysis": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "c6210933d73e8829915d59ad3fb5011ded722bb121e3cfda5ec1c5c00ffa4810"
+    },
+    "radiology-research": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "df4f1df7c027603bed56ca2c1ee460b9612dcc52f9d60067a1c823ffa45d2331"
+    },
+    "report-quality-review": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "2d61c95c3b67383334848d6baace81088eb235a5f4a0f62d8f4d3d1a7f3a5fc1"
+    },
+    "structured-reporting": {
+      "source": "aizech/clinical-skills",
+      "sourceType": "github",
+      "computedHash": "b30dfdfec757aeaca71ee84955835ef139eef1f3e5589368ceb1e219ed7647f4"
+    }
+  }
+}

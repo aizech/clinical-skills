@@ -1,0 +1,72 @@
+{
+  "tests": [
+    {
+      "id": "radai-integration",
+      "input": "Set up RadAI for structured CT reporting",
+      "expected": {
+        "action": "configure",
+        "platform": "radai",
+        "modality": "CT"
+      }
+    },
+    {
+      "id": "speech-to-report",
+      "input": "Configure AI reporting to auto-populate from dictation",
+      "expected": {
+        "action": "configure",
+        "feature": "speech_recognition",
+        "auto_populate": true
+      }
+    },
+    {
+      "id": "template-suggestion",
+      "input": "Enable AI suggestions for chest CT impression",
+      "expected": {
+        "action": "enable_feature",
+        "feature": "template_suggestion",
+        "body_part": "chest"
+      }
+    },
+    {
+      "id": "integration-with-pacs",
+      "input": "Connect RadAI to Orthanc PACS",
+      "expected": {
+        "action": "integrate",
+        "ai_platform": "radai",
+        "pacs": "orthanc"
+      }
+    },
+    {
+      "id": "abba-configuration",
+      "input": "Set up Abba for MRI structured reporting",
+      "expected": {
+        "action": "configure",
+        "platform": "abba",
+        "modality": "MRI"
+      }
+    },
+    {
+      "id": "reporting-templates",
+      "input": "Enable structured reporting templates for lung cancer screening",
+      "expected": {
+        "action": "enable_templates",
+        "template_type": "structured",
+        "use_case": "lung_cancer_screening"
+      }
+    },
+    {
+      "id": "workflow-optimization",
+      "input": "Optimize AI reporting workflow for high-volume CT practice",
+      "expected": {
+        "action": "optimize",
+        "workflow": "high_volume",
+        "modality": "CT"
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "platform_selection": "Correct AI platform identification",
+    "configuration_accuracy": "Proper configuration options"
+  }
+}
