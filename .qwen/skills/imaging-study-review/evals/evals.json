@@ -1,0 +1,46 @@
+{
+  "tests": [
+    {
+      "id": "comprehensive-review",
+      "input": "Perform a comprehensive review of this CT chest study showing a lung mass",
+      "expected": {
+        "action": "review",
+        "study_type": "CT",
+        "focus": "comprehensive",
+        "sections": ["lungs", "mediastinum", "pleura", "bones", "impression"]
+      }
+    },
+    {
+      "id": "qa-review",
+      "input": "Review this MRI brain for quality assurance",
+      "expected": {
+        "action": "qa_review",
+        "modality": "MRI",
+        "purpose": "quality_assurance"
+      }
+    },
+    {
+      "id": "tumor-board-review",
+      "input": "Prepare this CT abdomen for tumor board presentation",
+      "expected": {
+        "action": "prepare",
+        "context": "tumor_board",
+        "format": "presentation"
+      }
+    },
+    {
+      "id": "comparison-review",
+      "input": "Compare this CT with prior study and summarize changes",
+      "expected": {
+        "action": "compare",
+        "prior_study": true,
+        "changes_detected": true
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "review_thoroughness": "All anatomy reviewed",
+    "comparison_accuracy": "Changes correctly identified"
+  }
+}

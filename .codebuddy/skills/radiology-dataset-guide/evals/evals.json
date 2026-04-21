@@ -1,0 +1,54 @@
+{
+  "$evals": [
+    {
+      "id": "guide-rsna-dataset",
+      "prompt": "I'm building a lung nodule detection model. What RSNA datasets are available, what annotations do they include, and how do I access them?",
+      "expected": "Complete guide with dataset selection rationale, annotation details, access procedures, and relevant publications.",
+      "metrics": ["completeness", "accuracy", "actionability"]
+    },
+    {
+      "id": "guide-multimodality",
+      "prompt": "Compare available datasets for brain tumor segmentation including BraTS variants. Which should I use for developing an automated segmentation tool?",
+      "expected": "Comparative analysis with selection criteria, preprocessing requirements, and benchmark results.",
+      "metrics": ["comparative_depth", "recommendation_quality"]
+    },
+    {
+      "id": "guide-chest-xray-compare",
+      "prompt": "Compare NIH ChestX-ray14, CheXpert, and MIMIC-CXR for building a pneumonia detection system. What are the labeling differences?",
+      "expected": "Dataset comparison table with strengths, limitations, label definitions, and recommendation based on use case.",
+      "metrics": ["comparison_rigor", "use_case_alignment"]
+    },
+    {
+      "id": "guide-mammography",
+      "prompt": "What public mammography datasets are available for breast density classification and mass detection? Include CBIS-DDSM and VinDr-Mammo details.",
+      "expected": "Dataset inventory with acquisition details, annotation quality, and access requirements.",
+      "metrics": ["inventory_completeness", "technical_detail"]
+    },
+    {
+      "id": "guide-pet-ct-datasets",
+      "prompt": "Find datasets suitable for developing a PET/CT quantitative analysis tool for lymphoma treatment response assessment.",
+      "expected": "Applicable datasets with PET-specific considerations, quantitative annotation availability, and validation requirements.",
+      "metrics": ["specialization_depth", "clinical_alignment"]
+    },
+    {
+      "id": "guide-legal-ethics",
+      "prompt": "What are the IRB and consent requirements for using public radiology datasets in commercial AI development?",
+      "expected": "Legal framework overview, dataset-specific restrictions, and compliance checklist for commercial deployment.",
+      "metrics": ["legal_accuracy", "practical_guidance"]
+    },
+    {
+      "id": "guide-dataset-versioning",
+      "prompt": "How should I version and track my radiology datasets for reproducible model development?",
+      "expected": "Data versioning best practices with specific tool recommendations (DVC, MLflow, etc.) and workflow examples.",
+      "metrics": ["workflow_clarity", "tool_recommendation"]
+    },
+    {
+      "id": "guide-synthetic-data",
+      "prompt": "When should I consider using synthetic radiology data for model training, and what tools are available for generating medical images?",
+      "expected": "Synthetic data use cases, generation tools, validation requirements, and limitations to consider.",
+      "metrics": ["use_case_clarity", "tool_knowledge"]
+    }
+  ],
+  "$skill": "dataset/radiology-dataset-guide",
+  "$version": "1.0.0"
+}

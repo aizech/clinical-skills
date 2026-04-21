@@ -1,0 +1,54 @@
+{
+  "$evals": [
+    {
+      "id": "validate-model-performance",
+      "prompt": "Validate a chest X-ray pneumonia detector trained on CheXpert against the RSNA Pneumonia Detection challenge test set. What metrics should I report?",
+      "expected": "Validation protocol with standard metrics, statistical rigor, and publication-ready results table.",
+      "metrics": ["methodological_rigor", "metric_selection"]
+    },
+    {
+      "id": "validate-external-generalization",
+      "prompt": "Design an external validation study for our brain hemorrhage detection model across 3 different hospital systems with different CT scanners.",
+      "expected": "Validation study design with stratification, statistical analysis plan, and subgroup analysis strategy.",
+      "metrics": ["study_design_quality", "generalizability_assessment"]
+    },
+    {
+      "id": "validate-statistical-significance",
+      "prompt": "Compare my CNN model's performance against the baseline on the LUNA16 nodule detection challenge. How many test cases do I need for statistical power?",
+      "expected": "Power analysis, statistical test selection (DeLong, McNemar), and results interpretation guide.",
+      "metrics": ["statistical_rigor", "interpretation_clarity"]
+    },
+    {
+      "id": "validate-subgroup-performance",
+      "prompt": "Audit our mammography AI for performance differences across breast density categories and patient demographics.",
+      "expected": "Subgroup analysis framework with fairness metrics, disparity quantification, and bias mitigation recommendations.",
+      "metrics": ["fairness_awareness", "subgroup_depth"]
+    },
+    {
+      "id": "validate-prospective-study",
+      "prompt": "Design a prospective clinical validation study for deploying our lung nodule AI in a community practice setting.",
+      "expected": "Study protocol with endpoints, sample size, IRB considerations, and integration evaluation framework.",
+      "metrics": ["clinical_relevance", "protocol_completeness"]
+    },
+    {
+      "id": "validate-calibration-analysis",
+      "prompt": "Assess the calibration of our CT severity prediction model. How well do predicted probabilities match observed outcomes?",
+      "expected": "Calibration analysis with reliability diagrams, Brier score, expected calibration error, and recalibration suggestions.",
+      "metrics": ["calibration_accuracy", "clinical_utility"]
+    },
+    {
+      "id": "validate-adversarial-robustness",
+      "prompt": "Test our chest X-ray classifier for robustness to common image corruptions and distribution shifts.",
+      "expected": "Robustness evaluation with corruption types, performance degradation metrics, and improvement strategies.",
+      "metrics": ["robustness_comprehensiveness", "actionability"]
+    },
+    {
+      "id": "validate-regulatory-standards",
+      "prompt": "What FDA validation requirements should I address for 510(k) clearance of our bone age prediction AI?",
+      "expected": "Regulatory validation checklist with performance metrics, predicate device comparison, and test database requirements.",
+      "metrics": ["regulatory_accuracy", "completeness"]
+    }
+  ],
+  "$skill": "dataset/model-validation",
+  "$version": "1.0.0"
+}

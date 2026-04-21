@@ -1,0 +1,84 @@
+{
+  "tests": [
+    {
+      "id": "extract-findings-chest-ct",
+      "input": "CT CHEST WITH CONTRAST: Findings: 2.5 cm mass in right upper lobe. No mediastinal lymphadenopathy. Small right pleural effusion. Impression: Lung mass, concerning for malignancy.",
+      "expected": {
+        "findings": ["2.5 cm mass in right upper lobe", "no mediastinal lymphadenopathy", "small right pleural effusion"],
+        "impression": "Lung mass, concerning for malignancy",
+        "critical_findings": ["lung mass"]
+      }
+    },
+    {
+      "id": "extract-findings-brain-mri",
+      "input": "MRI BRAIN WITHOUT CONTRAST: Findings: 3cm ring-enhancing lesion in the right frontal lobe with surrounding edema. Impression: Brain tumor, recommend biopsy.",
+      "expected": {
+        "findings": ["3cm ring-enhancing lesion in right frontal lobe", "surrounding edema"],
+        "impression": "Brain tumor, recommend biopsy",
+        "critical_findings": ["brain tumor"]
+      }
+    },
+    {
+      "id": "normal-report",
+      "input": "CHEST X-RAY: Findings: Lungs are clear. No pneumothorax or pleural effusion. Cardiac silhouette normal. Impression: Normal chest radiograph.",
+      "expected": {
+        "findings": ["lungs clear", "no pneumothorax", "no pleural effusion", "cardiac silhouette normal"],
+        "impression": "Normal chest radiograph",
+        "is_normal": true,
+        "critical_findings": []
+      }
+    },
+    {
+      "id": "incidental-findings",
+      "input": "CT ABDOMEN: Incidental 1.2 cm renal cyst left kidney. 5mm gallbladder polyp. No acute findings. Impression: Benign-appearing renal cyst. Gallbladder polyp, recommend ultrasound follow-up.",
+      "expected": {
+        "findings": ["1.2 cm renal cyst left kidney", "5mm gallbladder polyp", "no acute findings"],
+        "incidental_findings": ["renal cyst", "gallbladder polyp"],
+        "followup_recommended": true
+      }
+    },
+    {
+      "id": "structured-report-parsed",
+      "input": "EXAM: CT Chest PE Protocol\nFINDINGS:\n- Pulmonary arteries: No filling defects\n- Lungs: No consolidation, no pleural effusion\n- Heart: Normal size, no pericardial effusion\n- Other: Mediastinum without lymphadenopathy\nIMPRESSION:\n1. No evidence of pulmonary embolism",
+      "expected": {
+        "exam_type": "CT Chest PE Protocol",
+        "findings_count": 4,
+        "impression": "No evidence of pulmonary embolism",
+        "is_normal": true
+      }
+    },
+    {
+      "id": "measurements-extraction",
+      "input": "CT ABDOMEN: 3.2 x 2.8 cm mass in pancreatic body. Liver lesions: largest 1.5 cm. Impression: Pancreatic mass with liver metastases.",
+      "expected": {
+        "measurements": ["3.2 x 2.8 cm pancreatic mass", "1.5 cm liver lesion"],
+        "anatomical_locations": ["pancreatic body", "liver"]
+      }
+    },
+    {
+      "id": "comparison-detection",
+      "input": "CHEST CT: New 8mm nodule in right lower lobe not present on prior CT from 6 months ago. Previously seen nodules stable. Impression: New pulmonary nodule, recommend short-term follow-up.",
+      "expected": {
+        "comparison": true,
+        "change_detected": true,
+        "new_findings": ["8mm nodule in right lower lobe"],
+        "stable_findings": ["previously seen nodules"]
+      }
+    },
+    {
+      "id": "urgency-classification",
+      "input": "CT HEAD: Large acute subdural hematoma with 8mm midline shift. Impression: Acute subdural hematoma, neurosurgery consultation recommended.",
+      "expected": {
+        "critical_findings": ["acute subdural hematoma", "midline shift"],
+        "urgency": "STAT",
+        "recommended_action": "neurosurgery consultation"
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "finding_extraction_accuracy": "Extract all findings",
+    "impression_identification": "Correctly identify impression section",
+    "critical_findings": "Flag all critical findings"
+  }
+}

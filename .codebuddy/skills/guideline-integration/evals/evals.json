@@ -1,0 +1,36 @@
+{
+  "$evals": [
+    {
+      "id": "guideline-acr-search",
+      "prompt": "Find the current ACR appropriateness criteria for CT imaging of suspected appendicitis in adults. Include rating scale and what alternatives are considered.",
+      "expected": "Current ACR guideline rating, clinical scenario details, and alternative imaging considerations.",
+      "metrics": ["guideline_accuracy", "currency"]
+    },
+    {
+      "id": "guideline-birads-update",
+      "prompt": "What are the current BI-RADS 5th edition changes from the previous version for mammography reporting?",
+      "expected": "Key changes summary with specific comparison to prior edition.",
+      "metrics": ["accuracy", "completeness"]
+    },
+    {
+      "id": "guideline-radiation-dose",
+      "prompt": "What are the ACR dose reference levels for adult CT abdomen/pelvis? What actions are recommended when levels are exceeded?",
+      "expected": "Current DRL values with table format, recommended actions, and documentation requirements.",
+      "metrics": ["numeric_accuracy", "actionability"]
+    },
+    {
+      "id": "guideline-contrast-protocol",
+      "prompt": "What are the ASNR guidelines for MRI contrast protocols in multiple sclerosis? Include recommended sequences and timing.",
+      "expected": "Guideline summary with specific protocol recommendations.",
+      "metrics": ["protocol_detail", "standard_adherence"]
+    },
+    {
+      "id": "guideline-lit-search",
+      "prompt": "Find and summarize the latest society guidelines for lung cancer screening CT eligibility criteria including any recent USPSTF updates.",
+      "expected": "Current eligibility criteria with USPSTF version and any recent changes.",
+      "metrics": ["currency", "clinical_alignment"]
+    }
+  ],
+  "$skill": "research-evidence/guideline-integration",
+  "$version": "1.0.0"
+}

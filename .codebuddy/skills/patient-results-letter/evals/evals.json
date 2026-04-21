@@ -1,0 +1,48 @@
+{
+  "tests": [
+    {
+      "id": "normal-result-letter",
+      "input": "Write a patient letter for a normal chest X-ray",
+      "expected": {
+        "action": "write_letter",
+        "tone": "reassuring",
+        "content": "normal_result",
+        "plain_language": true
+      }
+    },
+    {
+      "id": "abnormal-result-letter",
+      "input": "Write a patient letter explaining a lung nodule requiring follow-up",
+      "expected": {
+        "action": "write_letter",
+        "content": "abnormal_with_followup",
+        "plain_language": true,
+        "includes_followup_info": true
+      }
+    },
+    {
+      "id": "critical-finding-letter",
+      "input": "Draft a letter for a patient with a critical finding requiring immediate action",
+      "expected": {
+        "action": "write_letter",
+        "content": "critical_finding",
+        "urgency": "immediate",
+        "action_required": true
+      }
+    },
+    {
+      "id": "followup-reminder",
+      "input": "Create a reminder letter for a patient who missed their lung cancer screening follow-up",
+      "expected": {
+        "action": "create_reminder",
+        "purpose": "followup_reminder",
+        "screening": true
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "plain_language": "No medical jargon",
+    "tone_appropriate": "Matches result type"
+  }
+}
