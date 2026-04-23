@@ -1,0 +1,78 @@
+{
+  "tests": [
+    {
+      "id": "medpalm-analysis",
+      "input": "Use MedPaLM to analyze this chest X-ray report",
+      "expected": {
+        "action": "analyze",
+        "llm": "medpalm",
+        "input_type": "report"
+      }
+    },
+    {
+      "id": "healthlake-query",
+      "input": "Query HealthLake for patient imaging history",
+      "expected": {
+        "action": "query",
+        "llm": "healthlake",
+        "data_type": "imaging_history"
+      }
+    },
+    {
+      "id": "azure-ai-health",
+      "input": "Use Azure AI Health for radiology insights",
+      "expected": {
+        "action": "analyze",
+        "llm": "azure_ai_health",
+        "capability": "insights"
+      }
+    },
+    {
+      "id": "structured-extraction",
+      "input": "Extract structured data from radiology report using LLM",
+      "expected": {
+        "action": "extract",
+        "output_format": "structured"
+      }
+    },
+    {
+      "id": "clinical-reasoning",
+      "input": "Get clinical reasoning for this CT finding",
+      "expected": {
+        "action": "reason",
+        "capability": "clinical_reasoning"
+      }
+    },
+    {
+      "id": "comparison-assistance",
+      "input": "Compare this CT with prior study using LLM",
+      "expected": {
+        "action": "compare",
+        "analysis_type": "prior_comparison"
+      }
+    },
+    {
+      "id": "api-configuration",
+      "input": "Configure MedPaLM API for radiology use",
+      "expected": {
+        "action": "configure",
+        "llm": "medpalm",
+        "api_setup": true
+      }
+    },
+    {
+      "id": "batch-analysis",
+      "input": "Analyze 100 chest CT reports using LLM",
+      "expected": {
+        "action": "batch_analyze",
+        "count": 100,
+        "modality": "CT"
+      }
+    }
+  ],
+  "criteria": {
+    "pass_rate": "All tests must pass",
+    "llm_identification": "Correct LLM platform",
+    "capability_mapping": "Proper capability assignment"
+  }
+}

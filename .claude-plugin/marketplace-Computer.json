@@ -1,0 +1,53 @@
+{
+  "name": "clinical-skills",
+  "owner": {
+    "name": "Corpus Analytica",
+    "url": "https://corpusanalytica.com"
+  },
+  "metadata": {
+    "description": "Clinical Skills for AI agents — radiological analytics, clinical documentation, AI integration, PACS workflows, and healthcare research. Built by Corpus Analytica.",
+    "version": "1.0.0",
+    "repository": "https://github.com/aizech/clinical-skills"
+  },
+  "plugins": [
+    {
+      "name": "clinical-skills",
+      "description": "Radiological analytics skills for AI agents: PACS workflows, clinical documentation, AI detection pipelines, LLM integration, PubMed search, structured reporting, patient communication, and more. Built by Corpus Analytica.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/core/modality-detection",
+        "./skills/core/radiology-context",
+        "./skills/clinical-documentation/radiology-report-analysis",
+        "./skills/clinical-documentation/structured-reporting",
+        "./skills/clinical-documentation/impression-generation",
+        "./skills/clinical-documentation/findings-extraction",
+        "./skills/clinical-documentation/imaging-study-review",
+        "./skills/patient-communication/patient-results-letter",
+        "./skills/patient-communication/patient-education-material",
+        "./skills/workflow-coordination/imaging-referral",
+        "./skills/workflow-coordination/followup-tracking",
+        "./skills/workflow-coordination/care-gap-closure",
+        "./skills/workflow-coordination/protocol-optimization",
+        "./skills/platform-integration/pacs-workflow",
+        "./skills/platform-integration/dicom-web-query",
+        "./skills/platform-integration/hl7-fhir-radiology",
+        "./skills/platform-integration/filesystem-imaging",
+        "./skills/ai-assistants/ai-report-assist",
+        "./skills/ai-assistants/ai-detection-pipeline",
+        "./skills/ai-assistants/llm-radiology-use",
+        "./skills/ai-assistants/ai-quality-review",
+        "./skills/research-evidence/pubmed-search",
+        "./skills/research-evidence/radiology-research",
+        "./skills/research-evidence/guideline-integration",
+        "./skills/research-evidence/cross-reference-linking",
+        "./skills/analytics-quality/radiology-metrics",
+        "./skills/analytics-quality/image-quality-audit",
+        "./skills/analytics-quality/report-quality-review",
+        "./skills/dataset/radiology-dataset-guide",
+        "./skills/dataset/dataset-preprocessing",
+        "./skills/dataset/model-validation"
+      ]
+    }
+  ]
+}
