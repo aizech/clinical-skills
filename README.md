@@ -64,37 +64,31 @@ See each skill's **Related Skills** section for the full dependency map.
 <!-- SKILLS:START -->
 | Skill | Description |
 |-------|-------------|
-| [modality-detection](skills/core/modality-detection/) | Auto-detect imaging modality (CT, MRI, X-ray, US, etc.) from user input or DICOM file analysis. Also use when the user mentions "what modality", "detect from file", or needs to identify imaging type. |
-| [radiology-context](skills/core/radiology-context/) | Establish and manage user's clinical environment configuration - PACS, EHR, modality types, and workflow settings. Also use when setting up or updating radiology workflow context. |
-| [radiology-report-analysis](skills/clinical-documentation/radiology-report-analysis/) | Analyze structured/free-text radiology reports, extract key findings, measurements, and impressions. Also use when the user provides a report for review, summary, or data extraction. |
-| [structured-reporting](skills/clinical-documentation/structured-reporting/) | Create and optimize structured radiology reports using standardized templates (RadElement, IHE, BI-RADS, LI-RADS, PI-RADS). Also use when converting free-text to structured format. |
-| [impression-generation](skills/clinical-documentation/impression-generation/) | Generate clinical impressions from radiology findings following best practices. Also use when the user wants AI-assisted impression writing or report finalization. |
-| [findings-extraction](skills/clinical-documentation/findings-extraction/) | Extract structured data from radiology reports - measurements, measurements, anatomy, pathology codes. Also use for data mining, research, or report analysis. |
-| [imaging-study-review](skills/clinical-documentation/imaging-study-review/) | Systematic review of imaging studies with structured reporting format. Also use for QA reviews, tumor boards, or comprehensive case analysis. |
-| [patient-results-letter](skills/patient-communication/patient-results-letter/) | Generate patient-friendly radiology result communications in plain language. Also use when the user needs to explain findings to patients without medical jargon. |
-| [patient-education-material](skills/patient-communication/patient-education-material/) | Create patient education materials for specific imaging procedures and findings. Also use when developing handouts, FAQs, or educational content about radiology. |
-| [imaging-referral](skills/workflow-coordination/imaging-referral/) | Create, optimize, and manage imaging referrals between providers. Also use when the user needs to improve referral quality, add relevant clinical info, or track referral status. |
-| [followup-tracking](skills/workflow-coordination/followup-tracking/) | Track incidental findings, schedule follow-up imaging, and manage reminder workflows. Also use when the user mentions "follow-up", "incidental finding", or "reminder". |
-| [care-gap-closure](skills/workflow-coordination/care-gap-closure/) | Ensure recommended imaging is completed and close care gaps in radiology. Also use when optimizing imaging completion rates or tracking screening compliance. |
-| [protocol-optimization](skills/workflow-coordination/protocol-optimization/) | Optimize imaging protocols for clinical indications. Also use when the user needs protocol selection guidance or protocol customization recommendations. |
-| [pacs-workflow](skills/platform-integration/pacs-workflow/) | Query PACS, retrieve studies, manage worklists, and integrate with PACS workflows. Also use when the user needs to interact with picture archiving systems. |
-| [dicom-web-query](skills/platform-integration/dicom-web-query/) | Query and retrieve DICOM objects via DICOMweb REST API. Also use when the user needs to work with DICOMweb servers or web-based imaging access. |
-| [hl7-fhir-radiology](skills/platform-integration/hl7-fhir-radiology/) | Work with HL7 messages and FHIR resources for radiology workflows. Also use for EHR integration, order/result exchange, or imaging-related FHIR operations. |
-| [filesystem-imaging](skills/platform-integration/filesystem-imaging/) | Handle local DICOM files and imaging folders. Also use when the user provides file paths, needs to scan directories, or work with local imaging data. |
-| [ai-report-assist](skills/ai-assistants/ai-report-assist/) | Guidance for AI-assisted structured reporting tools (RadAI, Abba, DeepRad). Also use when the user mentions AI reporting, automated templating, or speech-to-report systems. |
-| [ai-detection-pipeline](skills/ai-assistants/ai-detection-pipeline/) | Integrate AI detection into PACS workflow (Aidoc, Nvidia Clara, Zebra Medical, MaxQ AI, Qure AI). Also use when the user needs to set up, configure, or optimize AI detection systems. |
-| [llm-radiology-use](skills/ai-assistants/llm-radiology-use/) | Use LLM APIs for radiology tasks (MedPaLM, MedLM, Google Health, Amazon HealthLake). Also use when the user wants to integrate or optimize LLM-based radiology workflows. |
-| [ai-quality-review](skills/ai-assistants/ai-quality-review/) | QA AI outputs, detect false positives/negatives, and validate AI results. Also use when evaluating AI system performance or reviewing AI-assisted findings. |
-| [pubmed-search](skills/research-evidence/pubmed-search/) | Evidence-based literature search for radiology. Also use when the user needs to find relevant studies, guidelines, or clinical evidence for imaging findings. |
-| [radiology-research](skills/research-evidence/radiology-research/) | Design and conduct radiology research studies. Also use when the user wants to plan a study, extract data, or analyze imaging research. |
-| [guideline-integration](skills/research-evidence/guideline-integration/) | Apply ACR, ESR, and specialty imaging guidelines and appropriateness criteria. Also use when the user needs to verify compliance or select appropriate imaging. |
-| [cross-reference-linking](skills/research-evidence/cross-reference-linking/) | Link findings to related cases, literature, and reference materials. Also use when cross-referencing imaging with research or case databases. |
-| [radiology-metrics](skills/analytics-quality/radiology-metrics/) | Dashboard metrics for imaging - volume, turnaround times, accuracy, quality. Also use when the user needs to track, analyze, or report radiology KPIs. |
-| [image-quality-audit](skills/analytics-quality/image-quality-audit/) | QC/QA review of imaging protocols and image quality. Also use for quality assurance programs, accreditation prep, or protocol optimization. |
-| [report-quality-review](skills/analytics-quality/report-quality-review/) | Review and improve radiology reporting accuracy and consistency. Also use for QA programs, peer review, or reporting optimization. |
-| [radiology-dataset-guide](skills/dataset/radiology-dataset-guide/) | Guide to accessing public radiology datasets (RSNA, NIH, MIMIC, CheXpert, LUNA16, BraTS, etc.). Also use when the user needs to find or access imaging datasets. |
-| [dataset-preprocessing](skills/dataset/dataset-preprocessing/) | Prepare DICOM/images for AI training and analysis. Also use when the user needs to preprocess imaging data, convert formats, or prepare datasets. |
-| [model-validation](skills/dataset/model-validation/) | Validate AI model performance on local data. Also use for model testing, benchmark comparison, or clinical validation studies. |
+| [ai-detection-pipeline](skills/ai-detection-pipeline/) | Integrate AI detection into PACS workflow. Also use when setting up, configuring, or optimizing AI detection systems... |
+| [ai-quality-review](skills/ai-quality-review/) | QA AI outputs, detect false positives/negatives, and validate AI results. Also use when evaluating AI system... |
+| [ai-report-assist](skills/ai-report-assist/) | Guidance for AI-assisted structured reporting tools. Also use when the user mentions AI reporting, automated... |
+| [care-gap-closure](skills/care-gap-closure/) | Ensure recommended imaging is completed and close care gaps in radiology. Also use when optimizing imaging completion... |
+| [cross-reference-linking](skills/cross-reference-linking/) | Links current findings to priors, related literature, and correlated data. Use when user mentions "compare to priors",... |
+| [dataset-preprocessing](skills/dataset-preprocessing/) | Provides preprocessing pipelines and techniques for radiology datasets used in AI development. Use when user mentions... |
+| [dicom-web-query](skills/dicom-web-query/) | Query and retrieve DICOM objects via DICOMweb REST API. Also use when the user needs to work with DICOMweb servers,... |
+| [followup-tracking](skills/followup-tracking/) | Track incidental findings, schedule follow-up imaging, and manage reminder workflows. Also use when the user mentions... |
+| [guideline-integration](skills/guideline-integration/) | Access and apply professional radiology society guidelines. Use when user mentions "ACR criteria", "appropriateness... |
+| [image-quality-audit](skills/image-quality-audit/) | Assesses medical image quality against clinical standards and identifies optimization opportunities. Use when user... |
+| [imaging-referral](skills/imaging-referral/) | Create, optimize, and manage imaging referrals between providers. Also use when the user needs to improve referral... |
+| [imaging-study-review](skills/imaging-study-review/) | Performs comprehensive review of imaging studies for clinical, QA, tumor board, or comparison purposes. Use when user... |
+| [llm-radiology-use](skills/llm-radiology-use/) | Use LLM APIs for radiology tasks. Also use when integrating medical LLMs (MedPaLM, MedLM, Google Health, Amazon... |
+| [modality-detection](skills/modality-detection/) | Auto-detect imaging modality (CT, MRI, X-ray, US, etc.) from user input, DICOM file headers, or file analysis. Also use... |
+| [model-validation](skills/model-validation/) | Designs and executes validation studies for radiology AI models to ensure clinical reliability and regulatory... |
+| [pacs-workflow](skills/pacs-workflow/) | Query PACS, retrieve studies, manage worklists, and integrate with PACS workflows. Also use when the user needs to... |
+| [patient-education-material](skills/patient-education-material/) | Create patient education materials for imaging procedures and findings. Also use when developing handouts, FAQs, or... |
+| [patient-results-letter](skills/patient-results-letter/) | Generate patient-friendly radiology result communications in plain language. Also use when the user needs to explain... |
+| [radiology-context](skills/radiology-context/) | Establish and manage user's clinical radiology environment configuration - PACS, EHR, modality types, AI tools, and... |
+| [radiology-dataset-guide](skills/radiology-dataset-guide/) | Guides researchers and developers through radiology dataset selection, access, and utilization for AI development. Use... |
+| [radiology-metrics](skills/radiology-metrics/) | Retrieves and analyzes operational metrics from radiology information systems. Use when user mentions "radiology KPIs",... |
+| [radiology-report-analysis](skills/radiology-report-analysis/) | Analyze structured/free-text radiology reports, extract key findings, measurements, and impressions. Also use when the... |
+| [radiology-research](skills/radiology-research/) | Access and synthesize medical imaging research literature. Use when user mentions "recent research on", "literature... |
+| [report-quality-review](skills/report-quality-review/) | Monitors and improves radiology report quality through systematic audit and feedback. Use when user mentions "report... |
+| [structured-reporting](skills/structured-reporting/) | Create and optimize structured radiology reports using standardized templates. Also use when the user mentions BI-RADS,... |
 <!-- SKILLS:END -->
 
 ## Quick Start
