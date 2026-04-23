@@ -280,6 +280,10 @@ function analyzeAllSkills() {
       // Skip non-skill directories (e.g., evals, references folders inside skills)
       if (skill === 'evals' || skill === 'references') continue;
 
+      // Only process directories that contain a SKILL.md file
+      const skillMd = path.join(skillPath, 'SKILL.md');
+      if (!fs.existsSync(skillMd)) continue;
+
       const result = analyzeSkill(skillPath, category);
       results.push(result);
 
