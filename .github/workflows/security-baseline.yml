@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch_depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -56,6 +58,9 @@ jobs:
         with:
           commit_message: "ci: update security report"
           file_pattern: "security-report.json"
+          push_options: '--force-with-lease'
+          skip_dirty_check: false
+          skip_fetch: false
 
   report:
     needs: security-baseline
