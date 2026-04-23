@@ -76,38 +76,69 @@ Clinical Skills supports integration with various radiology platforms and tools.
 | Tool | Description |
 |------|-------------|
 | INTEGRATION_TEMPLATE |  |
+| aidoc-Computer |  |
 | aidoc |  |
+| amazon-healthlake-Computer |  |
 | amazon-healthlake |  |
+| brats-dataset-Computer |  |
 | brats-dataset |  |
+| cerner-powerchart-Computer |  |
 | cerner-powerchart |  |
+| chexpert-Computer |  |
 | chexpert |  |
+| chexphoto-dataset-Computer |  |
 | chexphoto-dataset |  |
+| dcm4chee-Computer |  |
 | dcm4chee |  |
+| dicom-conformance-Computer |  |
 | dicom-conformance |  |
 | dicomweb-standard |  |
+| epic-radiant-Computer |  |
 | epic-radiant |  |
+| fhir-r4-Computer |  |
 | fhir-r4 |  |
+| google-health-Computer |  |
 | google-health |  |
+| hl7-v2-Computer |  |
 | hl7-v2 |  |
+| itksnap-Computer |  |
 | itksnap |  |
+| kits-dataset-Computer |  |
 | kits-dataset |  |
+| luna16-dataset-Computer |  |
 | luna16-dataset |  |
+| maxq-ai-Computer |  |
 | maxq-ai |  |
+| medpalm-api-Computer |  |
 | medpalm-api |  |
+| monai-Computer |  |
+| monai-framework-Computer |  |
 | monai-framework |  |
 | monai |  |
+| nih-chestxray14-Computer |  |
 | nih-chestxray14 |  |
+| nvidia-clara-Computer |  |
 | nvidia-clara |  |
+| objcxr-dataset-Computer |  |
 | objcxr-dataset |  |
+| ohif-viewer-Computer |  |
 | ohif-viewer |  |
 | orthanc |  |
+| panda-dataset-Computer |  |
 | panda-dataset |  |
+| physionet-mimic-Computer |  |
 | physionet-mimic |  |
+| pubmed-ncbi-Computer |  |
 | pubmed-ncbi |  |
+| qure-ai-Computer |  |
 | qure-ai |  |
+| radai-Computer |  |
 | radai |  |
+| radiopaedia-Computer |  |
 | radiopaedia |  |
+| rsna-data-Computer |  |
 | rsna-data |  |
+| zebra-medical-Computer |  |
 | zebra-medical |  |
 
 
@@ -117,17 +148,26 @@ Command-line tools for clinical imaging operations.
 
 | Tool | Description |
 |------|-------------|
+| dataset_downloader-Computer | !/usr/bin/env python3 |
 | dataset_downloader | !/usr/bin/env python3 |
+| dicom_anonymizer-Computer | !/usr/bin/env python3 |
 | dicom_anonymizer | !/usr/bin/env python3 |
 | dicom_info | !/usr/bin/env python3 |
 | dicom_qido | !/usr/bin/env python3 |
+| dicom_wado-Computer | !/usr/bin/env python3 |
 | dicom_wado | !/usr/bin/env python3 |
+| fetch_study-Computer | !/usr/bin/env python3 |
 | fetch_study | !/usr/bin/env python3 |
+| image_qc-Computer | !/usr/bin/env python3 |
 | image_qc | !/usr/bin/env python3 |
 | pubmed_search | !/usr/bin/env python3 |
+| radiology_metrics-Computer | !/usr/bin/env python3 |
 | radiology_metrics | !/usr/bin/env python3 |
+| structured_report-Computer | !/usr/bin/env python3 |
 | structured_report | !/usr/bin/env python3 |
+| tat_analyzer-Computer | !/usr/bin/env python3 |
 | tat_analyzer | !/usr/bin/env python3 |
+| trial_matcher-Computer | !/usr/bin/env python3 |
 | trial_matcher | !/usr/bin/env python3 |
 
 
@@ -151,4 +191,4 @@ See [CHANGELOG.md](CHANGELOG.md) for version history.
 
 ---
 
-Generated: 2026-04-04T16:07:49.768Z
+Generated: 2026-04-23T20:14:20.888Z
