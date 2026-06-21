@@ -47,7 +47,9 @@ PATIENT_TAGS = [
 ]
 
 
-def anonymize_dicom(input_path: Path, output_path: Path, replace_id: Optional[str] = None) -> dict:
+def anonymize_dicom(
+    input_path: Path, output_path: Path, replace_id: Optional[str] = None
+) -> dict:
     """Anonymize a single DICOM file."""
     try:
         ds = pydicom.dcmread(input_path)
@@ -109,8 +111,15 @@ def main():
     parser.add_argument("output", type=Path, help="Output file or directory")
     parser.add_argument("--replace-id", help="Replacement patient ID")
     parser.add_argument("--report", "-r", type=Path, help="Save report to JSON file")
-    parser.add_argument("--recursive", action="store_true", default=True, help="Process subdirectories")
-    parser.add_argument("--no-recursive", dest="recursive", action="store_false", help="Don't recurse subdirectories")
+    parser.add_argument(
+        "--recursive", action="store_true", default=True, help="Process subdirectories"
+    )
+    parser.add_argument(
+        "--no-recursive",
+        dest="recursive",
+        action="store_false",
+        help="Don't recurse subdirectories",
+    )
 
     args = parser.parse_args()
 
@@ -118,7 +127,9 @@ def main():
         result = anonymize_dicom(args.input, args.output, args.replace_id)
         results = [result]
     else:
-        results = batch_anonymize(args.input, args.output, args.replace_id, args.recursive)
+        results = batch_anonymize(
+            args.input, args.output, args.replace_id, args.recursive
+        )
 
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)

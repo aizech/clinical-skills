@@ -91,8 +91,8 @@ class TestAnalyzeCTQuality:
             attr = args[1] if len(args) > 1 else args[0]
             tag_values = {
                 "00209116": {"Value": [500]},  # DLP
-                "00189915": {"Value": [25]},   # CTDI_vol
-                "00180050": {"Value": [5]},    # Slice thickness
+                "00189915": {"Value": [25]},  # CTDI_vol
+                "00180050": {"Value": [5]},  # Slice thickness
             }
             return tag_values.get(attr, {"Value": [0]})
 
@@ -136,8 +136,8 @@ class TestAnalyzeMRQuality:
             attr = args[1] if len(args) > 1 else args[0]
             tag_values = {
                 "00180050": {"Value": ["T1"]},  # Sequence name
-                "00180020": {"Value": [500]},   # TR
-                "00180021": {"Value": [20]},    # TE
+                "00180020": {"Value": [500]},  # TR
+                "00180021": {"Value": [20]},  # TE
             }
             return tag_values.get(attr, {"Value": ["UNK"]})
 
@@ -179,10 +179,10 @@ class TestAnalyzeXrayQuality:
         def mock_getattr(*args):
             attr = args[1] if len(args) > 1 else args[0]
             tag_values = {
-                "00080060": {"Value": ["XR"]},   # Modality
-                "00180060": {"Value": [120]},    # KVP
-                "00181890": {"Value": [200]},    # mA
-                "00181402": {"Value": [50]},     # Exposure
+                "00080060": {"Value": ["XR"]},  # Modality
+                "00180060": {"Value": [120]},  # KVP
+                "00181890": {"Value": [200]},  # mA
+                "00181402": {"Value": [50]},  # Exposure
             }
             return tag_values.get(attr, {"Value": ["UNK"]})
 
@@ -209,8 +209,10 @@ class TestAnalyzeFile:
         mock_ds = Mock()
         mock_ds.pixel_array = np.random.randn(100, 100) * 10 + 100
 
-        with patch("image_qc.pydicom.dcmread", return_value=mock_ds), \
-             patch("image_qc.getattr", return_value={"Value": ["CT"]}):
+        with (
+            patch("image_qc.pydicom.dcmread", return_value=mock_ds),
+            patch("image_qc.getattr", return_value={"Value": ["CT"]}),
+        ):
             test_file = tmp_path / "test.dcm"
             test_file.write_text("dummy")
 
@@ -223,8 +225,10 @@ class TestAnalyzeFile:
         mock_ds = Mock()
         mock_ds.pixel_array = np.random.randn(100, 100) * 10 + 100
 
-        with patch("image_qc.pydicom.dcmread", return_value=mock_ds), \
-             patch("image_qc.getattr", return_value={"Value": ["MR"]}):
+        with (
+            patch("image_qc.pydicom.dcmread", return_value=mock_ds),
+            patch("image_qc.getattr", return_value={"Value": ["MR"]}),
+        ):
             test_file = tmp_path / "test.dcm"
             test_file.write_text("dummy")
 
@@ -237,8 +241,10 @@ class TestAnalyzeFile:
         mock_ds = Mock()
         mock_ds.pixel_array = np.random.randn(100, 100) * 10 + 100
 
-        with patch("image_qc.pydicom.dcmread", return_value=mock_ds), \
-             patch("image_qc.getattr", return_value={"Value": ["XR"]}):
+        with (
+            patch("image_qc.pydicom.dcmread", return_value=mock_ds),
+            patch("image_qc.getattr", return_value={"Value": ["XR"]}),
+        ):
             test_file = tmp_path / "test.dcm"
             test_file.write_text("dummy")
 
@@ -263,13 +269,16 @@ class TestMainFunction:
         mock_ds = Mock()
         mock_ds.pixel_array = np.random.randn(100, 100) * 10 + 100
 
-        with patch("image_qc.pydicom.dcmread", return_value=mock_ds), \
-             patch("image_qc.getattr", return_value={"Value": ["CT"]}):
+        with (
+            patch("image_qc.pydicom.dcmread", return_value=mock_ds),
+            patch("image_qc.getattr", return_value={"Value": ["CT"]}),
+        ):
             test_file = tmp_path / "test.dcm"
             test_file.write_text("dummy")
 
             with patch("sys.argv", ["image_qc", str(test_file)]):
                 from image_qc import main
+
                 main()
                 captured = capsys.readouterr()
                 # Output includes JSON + summary line, just check JSON is present
@@ -280,8 +289,10 @@ class TestMainFunction:
         mock_ds = Mock()
         mock_ds.pixel_array = np.random.randn(100, 100) * 10 + 100
 
-        with patch("image_qc.pydicom.dcmread", return_value=mock_ds), \
-             patch("image_qc.getattr", return_value={"Value": ["CT"]}):
+        with (
+            patch("image_qc.pydicom.dcmread", return_value=mock_ds),
+            patch("image_qc.getattr", return_value={"Value": ["CT"]}),
+        ):
             test_dir = tmp_path / "images"
             test_dir.mkdir()
             (test_dir / "test1.dcm").write_text("dummy")
@@ -289,6 +300,7 @@ class TestMainFunction:
 
             with patch("sys.argv", ["image_qc", str(test_dir)]):
                 from image_qc import main
+
                 main()
                 captured = capsys.readouterr()
                 # Output includes JSON + summary line, just check JSON is present
@@ -299,14 +311,19 @@ class TestMainFunction:
         mock_ds = Mock()
         mock_ds.pixel_array = np.random.randn(100, 100) * 10 + 100
 
-        with patch("image_qc.pydicom.dcmread", return_value=mock_ds), \
-             patch("image_qc.getattr", return_value={"Value": ["CT"]}):
+        with (
+            patch("image_qc.pydicom.dcmread", return_value=mock_ds),
+            patch("image_qc.getattr", return_value={"Value": ["CT"]}),
+        ):
             test_file = tmp_path / "test.dcm"
             test_file.write_text("dummy")
             output_file = tmp_path / "output.json"
 
-            with patch("sys.argv", ["image_qc", str(test_file), "--output", str(output_file)]):
+            with patch(
+                "sys.argv", ["image_qc", str(test_file), "--output", str(output_file)]
+            ):
                 from image_qc import main
+
                 main()
                 captured = capsys.readouterr()
                 assert "Report saved to" in captured.out
@@ -316,5 +333,6 @@ class TestMainFunction:
         """Test missing input argument."""
         with patch("sys.argv", ["image_qc"]):
             from image_qc import main
+
             with pytest.raises(SystemExit):
                 main()

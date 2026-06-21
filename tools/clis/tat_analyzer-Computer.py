@@ -67,7 +67,11 @@ def analyze_studies(
             mod = study.get("00080061", {}).get("Value", ["UNK"])[0]
             by_modality[mod].append(tat)
 
-            rad = study.get("00080090", {}).get("Value", [{"Alphabetic": "Unknown"}])[0].get("Alphabetic", "Unknown")
+            rad = (
+                study.get("00080090", {})
+                .get("Value", [{"Alphabetic": "Unknown"}])[0]
+                .get("Alphabetic", "Unknown")
+            )
             by_radiologist[rad].append(tat)
 
     tat_times.sort()
@@ -117,7 +121,9 @@ def main():
     parser.add_argument("--urgency", "-u", help="Filter by urgency (STAT, ROUTINE)")
     parser.add_argument("--token", help="Bearer auth token")
     parser.add_argument("--json", "-j", action="store_true", help="Output as JSON")
-    parser.add_argument("--target", default=30, type=int, help="Target TAT in minutes (default: 30)")
+    parser.add_argument(
+        "--target", default=30, type=int, help="Target TAT in minutes (default: 30)"
+    )
 
     args = parser.parse_args()
 
@@ -146,21 +152,31 @@ def main():
             print(f"  Max:    {stats['overall']['max_minutes']:.1f} min")
 
             target_min = args.target
-            compliant = sum(1 for t in stats['overall'] if t < target_min)
-            compliance = (compliant / stats['total_studies'] * 100) if stats['total_studies'] else 0
+            compliant = sum(1 for t in stats["overall"] if t < target_min)
+            compliance = (
+                (compliant / stats["total_studies"] * 100)
+                if stats["total_studies"]
+                else 0
+            )
             print(f"\nCompliance (within {target_min} min): {compliance:.1f}%")
 
             if stats["by_modality"]:
                 print("\nBy Modality:")
                 for mod, data in stats["by_modality"].items():
-                    print(f"  {mod:6}: {data['count']:4} studies, "
-                          f"mean {data['mean_minutes']:6.1f} min, "
-                          f"p90 {data['p90_minutes']:6.1f} min")
+                    print(
+                        f"  {mod:6}: {data['count']:4} studies, "
+                        f"mean {data['mean_minutes']:6.1f} min, "
+                        f"p90 {data['p90_minutes']:6.1f} min"
+                    )
 
             if stats["by_radiologist"]:
                 print("\nBy Radiologist:")
-                for rad, data in sorted(stats["by_radiologist"].items(), key=lambda x: x[1]["mean_minutes"]):
-                    print(f"  {rad[:20]:20}: {data['count']:4} studies, mean {data['mean_minutes']:6.1f} min")
+                for rad, data in sorted(
+                    stats["by_radiologist"].items(), key=lambda x: x[1]["mean_minutes"]
+                ):
+                    print(
+                        f"  {rad[:20]:20}: {data['count']:4} studies, mean {data['mean_minutes']:6.1f} min"
+                    )
 
     except requests.RequestException as e:
         print(f"Error: {e}", file=sys.stderr)

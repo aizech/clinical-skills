@@ -23,7 +23,9 @@ def format_value(value) -> str:
     return str(value)
 
 
-def print_dicom_info(file_path: Path, show_private: bool = False, tag_filter: Optional[str] = None) -> None:
+def print_dicom_info(
+    file_path: Path, show_private: bool = False, tag_filter: Optional[str] = None
+) -> None:
     """Display DICOM file information."""
     try:
         ds = pydicom.dcmread(file_path)
@@ -103,7 +105,9 @@ def main():
     parser = argparse.ArgumentParser(description="DICOM Header Viewer")
     parser.add_argument("file", type=Path, help="DICOM file to view")
     parser.add_argument("--all", "-a", action="store_true", help="Show all tags")
-    parser.add_argument("--private", "-p", action="store_true", help="Show private tags")
+    parser.add_argument(
+        "--private", "-p", action="store_true", help="Show private tags"
+    )
     parser.add_argument("--search", "-s", help="Search for tag keyword")
     parser.add_argument("--json", "-j", action="store_true", help="Output as JSON")
 
@@ -113,13 +117,20 @@ def main():
         ds = pydicom.dcmread(args.file)
         for elem in ds:
             keyword = getattr(elem, "keyword", "").lower()
-            if args.search.lower() in keyword or args.search.lower() in str(elem.value).lower():
+            if (
+                args.search.lower() in keyword
+                or args.search.lower() in str(elem.value).lower()
+            ):
                 print(f"{elem.tag} {keyword}: {elem.value}")
     elif args.all:
         ds = pydicom.dcmread(args.file)
         if args.json:
             import json
-            data = {str(elem.tag): {"keyword": elem.keyword, "value": str(elem.value)} for elem in ds}
+
+            data = {
+                str(elem.tag): {"keyword": elem.keyword, "value": str(elem.value)}
+                for elem in ds
+            }
             print(json.dumps(data, indent=2))
         else:
             for elem in ds:

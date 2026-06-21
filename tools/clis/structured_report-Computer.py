@@ -137,14 +137,19 @@ def parse_free_text_findings(
     for section in template["findings_template"]:
         section_lower = section.lower()
         matched_sentences = [
-            s for s in sentences
+            s
+            for s in sentences
             if any(word in s.lower() for word in section_lower.split())
         ]
 
         if matched_sentences:
             structured_report["findings"][section] = " ".join(matched_sentences).strip()
 
-            if any(critical in s.lower() for s in matched_sentences for critical in ["acute", "critical", "emergency", "immediate"]):
+            if any(
+                critical in s.lower()
+                for s in matched_sentences
+                for critical in ["acute", "critical", "emergency", "immediate"]
+            ):
                 structured_report["critical_findings"].append(section)
 
     structured_report["impression"] = template["impression_template"]
@@ -174,14 +179,18 @@ def generate_birads_report(
         "assessment_description": birads_codes.get(assessment, "Unknown"),
         "findings": breast_imaging,
         "recommendations": recommendations,
-        "follow_up": f"Short-interval follow-up in {6 if assessment == '3' else 0} months" if assessment == "3" else "As indicated",
+        "follow_up": f"Short-interval follow-up in {6 if assessment == '3' else 0} months"
+        if assessment == "3"
+        else "As indicated",
     }
 
 
 def main():
     parser = argparse.ArgumentParser(description="Structured Report Generator")
     parser.add_argument("--text", help="Free-text findings to structure")
-    parser.add_argument("--file", type=argparse.FileType("r"), help="File with findings")
+    parser.add_argument(
+        "--file", type=argparse.FileType("r"), help="File with findings"
+    )
     parser.add_argument("--modality", "-m", default="CT", help="Imaging modality")
     parser.add_argument("--body", "-b", default="chest", help="Body part examined")
     parser.add_argument("--api-key", help="AI API key for advanced parsing")
@@ -200,7 +209,7 @@ def main():
         result = generate_birads_report(
             {"placeholder": "Clinical findings here"},
             "2",
-            "Routine screening recommended"
+            "Routine screening recommended",
         )
     else:
         result = parse_free_text_findings(text, args.modality, args.body, args.api_key)

@@ -92,11 +92,17 @@ def main():
     parser.add_argument("--series", help="Series UID")
     parser.add_argument("--instance", "-i", help="Instance UID")
     parser.add_argument("--output", "-o", type=Path, help="Output file path")
-    parser.add_argument("--rendered", "-r", action="store_true", help="Retrieve rendered image")
-    parser.add_argument("--metadata", action="store_true", help="Retrieve metadata only")
+    parser.add_argument(
+        "--rendered", "-r", action="store_true", help="Retrieve rendered image"
+    )
+    parser.add_argument(
+        "--metadata", action="store_true", help="Retrieve metadata only"
+    )
     parser.add_argument("--viewport", help="Viewport params (e.g., window=40,400)")
     parser.add_argument("--token", help="Bearer auth token")
-    parser.add_argument("--json", "-j", action="store_true", help="Output metadata as JSON")
+    parser.add_argument(
+        "--json", "-j", action="store_true", help="Output metadata as JSON"
+    )
 
     args = parser.parse_args()
 
@@ -109,15 +115,24 @@ def main():
                 print(json.dumps(results, indent=2))
             else:
                 for item in results:
-                    print(f"{item.get('00080018', {}).get('vr', '?')}: {item.get('00080018', {}).get('Value', ['N/A'])[0]}")
+                    print(
+                        f"{item.get('00080018', {}).get('vr', '?')}: {item.get('00080018', {}).get('Value', ['N/A'])[0]}"
+                    )
 
         elif args.rendered:
             if not args.series or not args.instance or not args.output:
-                print("Error: --series, --instance, and --output required for rendered retrieval")
+                print(
+                    "Error: --series, --instance, and --output required for rendered retrieval"
+                )
                 sys.exit(1)
             output = retrieve_rendered(
-                args.base_url, args.study, args.series, args.instance,
-                args.output, args.viewport, args.token
+                args.base_url,
+                args.study,
+                args.series,
+                args.instance,
+                args.output,
+                args.viewport,
+                args.token,
             )
             print(f"Retrieved rendered image: {output}")
 
@@ -125,13 +140,19 @@ def main():
             if not args.output:
                 args.output = Path(f"{args.instance}.dcm")
             output = retrieve_instance(
-                args.base_url, args.study, args.series, args.instance,
-                args.output, args.token
+                args.base_url,
+                args.study,
+                args.series,
+                args.instance,
+                args.output,
+                args.token,
             )
             print(f"Retrieved DICOM instance: {output} ({output.stat().st_size} bytes)")
 
         else:
-            print("Error: Specify --metadata, --rendered, or provide --series and --instance")
+            print(
+                "Error: Specify --metadata, --rendered, or provide --series and --instance"
+            )
             sys.exit(1)
 
     except requests.RequestException as e:
