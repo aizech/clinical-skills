@@ -7,13 +7,10 @@ Check image quality metrics for CT, MRI, and X-ray studies.
 
 import argparse
 import json
-import sys
 from pathlib import Path
-from typing import Optional
 
 import numpy as np
 import pydicom
-import requests
 
 
 def analyze_ct_quality(ds: pydicom.Dataset) -> dict:

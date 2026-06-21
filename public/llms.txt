@@ -75,7 +75,6 @@ Clinical Skills supports integration with various radiology platforms and tools.
 
 | Tool | Description |
 |------|-------------|
-| INTEGRATION_TEMPLATE |  |
 | aidoc-Computer |  |
 | aidoc |  |
 | amazon-healthlake-Computer |  |
@@ -101,6 +100,7 @@ Clinical Skills supports integration with various radiology platforms and tools.
 | google-health |  |
 | hl7-v2-Computer |  |
 | hl7-v2 |  |
+| INTEGRATION_TEMPLATE |  |
 | itksnap-Computer |  |
 | itksnap |  |
 | kits-dataset-Computer |  |
@@ -191,4 +191,4 @@ See [CHANGELOG.md](CHANGELOG.md) for version history.
 
 ---
 
-Generated: 2026-04-23T20:14:20.888Z
+Generated: 2026-06-21T19:46:47.425Z

@@ -7,10 +7,7 @@ Match radiology patients to clinical trial eligibility criteria.
 
 import argparse
 import json
-import re
 import sys
-from typing import Optional
-
 
 TRIAL_CRITERIA = {
     "oncology_ct": {

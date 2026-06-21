@@ -5,7 +5,6 @@ DICOM QIDO-RS Search Tool
 Query DICOMweb servers for studies, series, and instances.
 """
 
-import sys
 from typing import Optional
 
 from tools.clis.shared.api_client import APIClient, BearerTokenAuth

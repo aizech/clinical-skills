@@ -2,7 +2,6 @@
 Unit tests for DICOM QIDO-RS CLI tool
 """
 
-import json
 from unittest.mock import Mock, patch
 
 import pytest

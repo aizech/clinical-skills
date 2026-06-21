@@ -3,9 +3,8 @@
 
 import json
 import sys
-from io import StringIO
 from pathlib import Path
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch
 
 import pytest
 
@@ -130,7 +129,7 @@ class TestMainFunction:
                 from dicom_info import main
 
                 main()
-                captured = capsys.readouterr()
+                capsys.readouterr()
                 # Should iterate through all tags
 
     def test_main_json_output(self, capsys, tmp_path):

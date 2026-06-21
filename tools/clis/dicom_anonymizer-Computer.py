@@ -7,14 +7,11 @@ Remove PHI from DICOM files for research sharing.
 
 import argparse
 import json
-import re
-import sys
 from pathlib import Path
 from typing import Optional
 
 import pydicom
 from pydicom.tag import Tag
-
 
 PATIENT_TAGS = [
     Tag(0x0010, 0x0010),  # PatientName

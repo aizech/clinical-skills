@@ -56,9 +56,7 @@ def analyze_studies(
     by_radiologist = defaultdict(list)
 
     for study in studies:
-        study_date = study.get("00080020", {}).get("Value", [""])[0]
         created = parse_datetime(study.get("00080013", {}).get("Value", [""])[0])
-        interpreted = parse_datetime(study.get("00080035", {}).get("Value", [""])[0])
         signed = parse_datetime(study.get("00080032", {}).get("Value", [""])[0])
 
         if created and signed:
@@ -144,7 +142,7 @@ def main():
             print(f"RADIOLOGY TAT ANALYSIS: {stats['date_range']}")
             print("=" * 60)
             print(f"\nTotal Studies: {stats['total_studies']}")
-            print(f"\nOverall Performance:")
+            print("\nOverall Performance:")
             print(f"  Mean:   {stats['overall']['mean_minutes']:.1f} min")
             print(f"  Median: {stats['overall']['median_minutes']:.1f} min")
             print(f"  P90:    {stats['overall']['p90_minutes']:.1f} min")

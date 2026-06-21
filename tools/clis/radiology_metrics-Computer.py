@@ -7,12 +7,8 @@ Generate productivity and quality metrics from RIS/PACS data.
 
 import argparse
 import json
-import sys
-from collections import defaultdict
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Optional
-
-import requests
 
 
 def generate_sample_metrics(

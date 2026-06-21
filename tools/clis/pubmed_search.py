@@ -11,7 +11,6 @@ from tools.clis.shared.api_client import APIClient
 from tools.clis.shared.base_cli import create_base_parser, handle_error, setup_logging
 from tools.clis.shared.json_formatter import print_json
 
-
 PUBMED_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 
 

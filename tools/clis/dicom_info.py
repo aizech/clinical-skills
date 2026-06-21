@@ -6,12 +6,10 @@ Display DICOM metadata in human-readable format.
 """
 
 import argparse
-import sys
 from pathlib import Path
 from typing import Optional
 
 import pydicom
-from pydicom.tag import Tag
 
 
 def format_value(value) -> str:

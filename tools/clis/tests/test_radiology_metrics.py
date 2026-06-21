@@ -3,8 +3,6 @@
 
 import json
 import sys
-from datetime import datetime
-from io import StringIO
 from pathlib import Path
 from unittest.mock import patch
 

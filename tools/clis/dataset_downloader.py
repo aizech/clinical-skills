@@ -6,13 +6,9 @@ Download common radiology datasets for AI development.
 """
 
 import argparse
-import os
 import sys
 from pathlib import Path
 from typing import Optional
-
-import requests
-
 
 DATASETS = {
     "nih-chestxray": {
@@ -85,9 +81,9 @@ def download_luna16(output_dir: Path) -> None:
 def setup_nih_access(output_dir: Path) -> None:
     """Setup instructions for NIH ChestX-ray dataset."""
     print("NIH ChestX-ray14 access via Google Cloud:")
-    print(f"  Install gcloud: https://cloud.google.com/sdk/install")
-    print(f"  Authenticate: gcloud auth login")
-    print(f"  List files: gsutil ls gs://nlm-nihcc-chest/")
+    print("  Install gcloud: https://cloud.google.com/sdk/install")
+    print("  Authenticate: gcloud auth login")
+    print("  List files: gsutil ls gs://nlm-nihcc-chest/")
     print(f"  Download: gsutil -m cp -r gs://nlm-nihcc-chest/ {output_dir}")
     print("\nAlternatively download from Box:")
     print("  https://nihcc.app.box.com/v/ChestXray-NIHCC")

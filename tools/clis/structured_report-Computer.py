@@ -10,9 +10,6 @@ import json
 import sys
 from typing import Optional
 
-import requests
-
-
 MODALITY_TEMPLATES = {
     "CT": {
         "chest": {
@@ -179,9 +176,11 @@ def generate_birads_report(
         "assessment_description": birads_codes.get(assessment, "Unknown"),
         "findings": breast_imaging,
         "recommendations": recommendations,
-        "follow_up": f"Short-interval follow-up in {6 if assessment == '3' else 0} months"
-        if assessment == "3"
-        else "As indicated",
+        "follow_up": (
+            f"Short-interval follow-up in {6 if assessment == '3' else 0} months"
+            if assessment == "3"
+            else "As indicated"
+        ),
     }
 
 
@@ -229,7 +228,7 @@ def main():
                 print(f"    {finding}")
 
         if "impression" in result:
-            print(f"\nIMPRESSION:")
+            print("\nIMPRESSION:")
             print(f"  {result['impression']}")
 
         if result.get("critical_findings"):

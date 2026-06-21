@@ -9,8 +9,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-import pytest
-
 
 class TestRadiologyMetricsCLI:
     """Integration tests for radiology_metrics CLI."""
