@@ -119,7 +119,9 @@ def match_trial(
             match_result["exclusion_present"].append(exc)
             match_result["eligible"] = False
 
-    match_result["match_status"] = "eligible" if match_result["eligible"] else "not_eligible"
+    match_result["match_status"] = (
+        "eligible" if match_result["eligible"] else "not_eligible"
+    )
 
     return match_result
 
@@ -136,13 +138,19 @@ def find_matching_trials(patient_data: dict) -> list[dict]:
 
 def main():
     parser = argparse.ArgumentParser(description="Clinical Trial Matcher")
-    parser.add_argument("--list", "-l", action="store_true", help="List available trials")
+    parser.add_argument(
+        "--list", "-l", action="store_true", help="List available trials"
+    )
     parser.add_argument("--trial", "-t", help="Trial ID to check")
     parser.add_argument("--modality", "-m", default="CT", help="Study modality")
     parser.add_argument("--findings", "-f", help="Clinical findings text")
     parser.add_argument("--age", "-a", type=int, help="Patient age")
-    parser.add_argument("--file", type=argparse.FileType("r"), help="Patient data JSON file")
-    parser.add_argument("--all", action="store_true", help="Match all applicable trials")
+    parser.add_argument(
+        "--file", type=argparse.FileType("r"), help="Patient data JSON file"
+    )
+    parser.add_argument(
+        "--all", action="store_true", help="Match all applicable trials"
+    )
     parser.add_argument("--json", "-j", action="store_true", help="Output as JSON")
 
     args = parser.parse_args()
@@ -158,6 +166,7 @@ def main():
 
     if args.file:
         import json as json_lib
+
         patient_data = json_lib.load(args.file)
     else:
         patient_data = {

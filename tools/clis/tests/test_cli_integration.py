@@ -18,10 +18,17 @@ class TestRadiologyMetricsCLI:
     def test_cli_basic_execution(self):
         """Test basic CLI execution."""
         result = subprocess.run(
-            [sys.executable, "tools/clis/radiology_metrics.py", "--from", "20240101", "--to", "20240107"],
+            [
+                sys.executable,
+                "tools/clis/radiology_metrics.py",
+                "--from",
+                "20240101",
+                "--to",
+                "20240107",
+            ],
             capture_output=True,
             text=True,
-            cwd=Path(__file__).parent.parent.parent.parent
+            cwd=Path(__file__).parent.parent.parent.parent,
         )
         assert result.returncode == 0
         assert "RADIOLOGY DEPARTMENT METRICS REPORT" in result.stdout
@@ -29,10 +36,18 @@ class TestRadiologyMetricsCLI:
     def test_cli_json_output(self):
         """Test JSON output mode."""
         result = subprocess.run(
-            [sys.executable, "tools/clis/radiology_metrics.py", "--from", "20240101", "--to", "20240107", "--json"],
+            [
+                sys.executable,
+                "tools/clis/radiology_metrics.py",
+                "--from",
+                "20240101",
+                "--to",
+                "20240107",
+                "--json",
+            ],
             capture_output=True,
             text=True,
-            cwd=Path(__file__).parent.parent.parent.parent
+            cwd=Path(__file__).parent.parent.parent.parent,
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -45,7 +60,7 @@ class TestRadiologyMetricsCLI:
             [sys.executable, "tools/clis/radiology_metrics.py"],
             capture_output=True,
             text=True,
-            cwd=Path(__file__).parent.parent.parent.parent
+            cwd=Path(__file__).parent.parent.parent.parent,
         )
         assert result.returncode != 0
 
@@ -59,7 +74,7 @@ class TestDicomInfoCLI:
             [sys.executable, "tools/clis/dicom_info.py", "--help"],
             capture_output=True,
             text=True,
-            cwd=Path(__file__).parent.parent.parent.parent
+            cwd=Path(__file__).parent.parent.parent.parent,
         )
         assert result.returncode == 0
         assert "DICOM Header Viewer" in result.stdout
@@ -70,7 +85,7 @@ class TestDicomInfoCLI:
             [sys.executable, "tools/clis/dicom_info.py", "nonexistent.dcm"],
             capture_output=True,
             text=True,
-            cwd=Path(__file__).parent.parent.parent.parent
+            cwd=Path(__file__).parent.parent.parent.parent,
         )
         assert result.returncode == 0  # Error is handled gracefully
         assert "Error reading file" in result.stdout
@@ -85,7 +100,7 @@ class TestImageQcCLI:
             [sys.executable, "tools/clis/image_qc.py", "--help"],
             capture_output=True,
             text=True,
-            cwd=Path(__file__).parent.parent.parent.parent
+            cwd=Path(__file__).parent.parent.parent.parent,
         )
         assert result.returncode == 0
         assert "Radiology Image QC Tool" in result.stdout
@@ -96,6 +111,6 @@ class TestImageQcCLI:
             [sys.executable, "tools/clis/image_qc.py"],
             capture_output=True,
             text=True,
-            cwd=Path(__file__).parent.parent.parent.parent
+            cwd=Path(__file__).parent.parent.parent.parent,
         )
         assert result.returncode != 0

@@ -39,7 +39,9 @@ def generate_sample_metrics(
     radiologists = ["Dr. Smith", "Dr. Jones", "Dr. Chen", "Dr. Patel", "Dr. Kim"]
 
     for mod in modalities:
-        count = max(0, int((days * 15 + (hash(mod) % 100)) * (0.8 + hash(mod) % 40 / 100)))
+        count = max(
+            0, int((days * 15 + (hash(mod) % 100)) * (0.8 + hash(mod) % 40 / 100))
+        )
         metrics["by_modality"][mod] = {
             "count": count,
             "percentage": 0,
@@ -89,8 +91,12 @@ def print_metrics(metrics: dict, verbose: bool = False) -> None:
     print("-" * 40)
     print(f"{'Modality':<8} {'Count':>8} {'%':>6} {'Avg TAT':>10}")
     print("-" * 40)
-    for mod, data in sorted(metrics["by_modality"].items(), key=lambda x: -x[1]["count"]):
-        print(f"{mod:<8} {data['count']:>8} {data['percentage']:>5.1f}% {data['avg_tat_minutes']:>9.0f}m")
+    for mod, data in sorted(
+        metrics["by_modality"].items(), key=lambda x: -x[1]["count"]
+    ):
+        print(
+            f"{mod:<8} {data['count']:>8} {data['percentage']:>5.1f}% {data['avg_tat_minutes']:>9.0f}m"
+        )
 
     if verbose:
         print("\n" + "-" * 40)
@@ -98,8 +104,12 @@ def print_metrics(metrics: dict, verbose: bool = False) -> None:
         print("-" * 40)
         print(f"{'Radiologist':<20} {'Studies':>8} {'Avg TAT':>10} {'Critical':>10}")
         print("-" * 40)
-        for rad, data in sorted(metrics["by_radiologist"].items(), key=lambda x: -x[1]["studies_read"]):
-            print(f"{rad:<20} {data['studies_read']:>8} {data['avg_tat_minutes']:>9.0f}m {data['critical_findings']:>10}")
+        for rad, data in sorted(
+            metrics["by_radiologist"].items(), key=lambda x: -x[1]["studies_read"]
+        ):
+            print(
+                f"{rad:<20} {data['studies_read']:>8} {data['avg_tat_minutes']:>9.0f}m {data['critical_findings']:>10}"
+            )
 
     print("\n" + "-" * 40)
     print("TURNAROUND TIME PERFORMANCE")

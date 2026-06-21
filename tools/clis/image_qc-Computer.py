@@ -25,11 +25,17 @@ def analyze_ct_quality(ds: pydicom.Dataset) -> dict:
             "modality": "CT",
             "dlp": getattr(ds, "00209116", {"Value": [0]}).get("Value", [0])[0],
             "ctdi_vol": getattr(ds, "00189915", {"Value": [0]}).get("Value", [0])[0],
-            "slice_thickness": getattr(ds, "00180050", {"Value": [0]}).get("Value", [0]),
+            "slice_thickness": getattr(ds, "00180050", {"Value": [0]}).get(
+                "Value", [0]
+            ),
         }
 
         metrics["noise_estimate"] = np.std(pixel_data)
-        metrics["cnr"] = (np.mean(pixel_data) - 100) / metrics["noise_estimate"] if metrics["noise_estimate"] > 0 else 0
+        metrics["cnr"] = (
+            (np.mean(pixel_data) - 100) / metrics["noise_estimate"]
+            if metrics["noise_estimate"] > 0
+            else 0
+        )
 
         return metrics
 
@@ -44,12 +50,16 @@ def analyze_mr_quality(ds: pydicom.Dataset) -> dict:
 
         metrics = {
             "modality": "MR",
-            "sequence_name": getattr(ds, "00180050", {"Value": ["UNK"]}).get("Value", ["UNK"])[0],
+            "sequence_name": getattr(ds, "00180050", {"Value": ["UNK"]}).get(
+                "Value", ["UNK"]
+            )[0],
             "tr": getattr(ds, "00180020", {"Value": [0]}).get("Value", [0]),
             "te": getattr(ds, "00180021", {"Value": [0]}).get("Value", [0]),
         }
 
-        metrics["snr"] = np.mean(pixel_data) / np.std(pixel_data) if np.std(pixel_data) > 0 else 0
+        metrics["snr"] = (
+            np.mean(pixel_data) / np.std(pixel_data) if np.std(pixel_data) > 0 else 0
+        )
         metrics["uniformity"] = calculate_uniformity(pixel_data)
 
         return metrics
@@ -64,7 +74,9 @@ def analyze_xray_quality(ds: pydicom.Dataset) -> dict:
         pixel_data = ds.pixel_array.astype(float)
 
         metrics = {
-            "modality": getattr(ds, "00080060", {"Value": ["UNK"]}).get("Value", ["UNK"])[0],
+            "modality": getattr(ds, "00080060", {"Value": ["UNK"]}).get(
+                "Value", ["UNK"]
+            )[0],
             "kvp": getattr(ds, "00180060", {"Value": [0]}).get("Value", [0]),
             "ma": getattr(ds, "00181890", {"Value": [0]}).get("Value", [0]),
             "exposure": getattr(ds, "00181402", {"Value": [0]}).get("Value", [0]),

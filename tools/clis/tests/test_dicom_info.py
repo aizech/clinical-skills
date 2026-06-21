@@ -110,6 +110,7 @@ class TestMainFunction:
 
             with patch("sys.argv", ["dicom_info", str(test_file)]):
                 from dicom_info import main
+
                 main()
                 captured = capsys.readouterr()
                 assert "FILE:" in captured.out
@@ -127,6 +128,7 @@ class TestMainFunction:
 
             with patch("sys.argv", ["dicom_info", "--all", str(test_file)]):
                 from dicom_info import main
+
                 main()
                 captured = capsys.readouterr()
                 # Should iterate through all tags
@@ -150,6 +152,7 @@ class TestMainFunction:
 
             with patch("sys.argv", ["dicom_info", "--all", "--json", str(test_file)]):
                 from dicom_info import main
+
                 main()
                 captured = capsys.readouterr()
                 data = json.loads(captured.out)
@@ -172,8 +175,11 @@ class TestMainFunction:
             test_file = tmp_path / "test.dcm"
             test_file.write_text("dummy content")
 
-            with patch("sys.argv", ["dicom_info", "--search", "patient", str(test_file)]):
+            with patch(
+                "sys.argv", ["dicom_info", "--search", "patient", str(test_file)]
+            ):
                 from dicom_info import main
+
                 main()
                 captured = capsys.readouterr()
                 # Keyword is lowercased in output
@@ -185,6 +191,7 @@ class TestMainFunction:
 
         with patch("sys.argv", ["dicom_info", str(non_existent)]):
             from dicom_info import main
+
             main()
             captured = capsys.readouterr()
             assert "Error reading file" in captured.out
@@ -193,5 +200,6 @@ class TestMainFunction:
         """Test missing file argument."""
         with patch("sys.argv", ["dicom_info"]):
             from dicom_info import main
+
             with pytest.raises(SystemExit):
                 main()

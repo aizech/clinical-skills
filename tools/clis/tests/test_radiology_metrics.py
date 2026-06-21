@@ -74,7 +74,7 @@ class TestGenerateSampleMetrics:
             "20240101",
             "20240107",
             base_url="https://pacs.example.com",
-            auth_token="test_token"
+            auth_token="test_token",
         )
         # Base URL and token are accepted but not used in current implementation
         assert metrics is not None
@@ -127,8 +127,12 @@ class TestMainFunction:
 
     def test_main_json_output(self, capsys):
         """Test JSON output mode."""
-        with patch("sys.argv", ["radiology_metrics", "--from", "20240101", "--to", "20240107", "--json"]):
+        with patch(
+            "sys.argv",
+            ["radiology_metrics", "--from", "20240101", "--to", "20240107", "--json"],
+        ):
             from radiology_metrics import main
+
             main()
             captured = capsys.readouterr()
             data = json.loads(captured.out)
@@ -136,8 +140,12 @@ class TestMainFunction:
 
     def test_main_verbose_flag(self, capsys):
         """Test verbose flag."""
-        with patch("sys.argv", ["radiology_metrics", "--from", "20240101", "--to", "20240107", "-v"]):
+        with patch(
+            "sys.argv",
+            ["radiology_metrics", "--from", "20240101", "--to", "20240107", "-v"],
+        ):
             from radiology_metrics import main
+
             main()
             captured = capsys.readouterr()
             assert "PRODUCTIVITY BY RADIOLOGIST" in captured.out
@@ -146,14 +154,19 @@ class TestMainFunction:
         """Test missing required arguments."""
         with patch("sys.argv", ["radiology_metrics", "--from", "20240101"]):
             from radiology_metrics import main
+
             with pytest.raises(SystemExit):
                 main()
 
     def test_main_date_format_validation(self, capsys):
         """Test date format handling."""
         # Valid dates should work
-        with patch("sys.argv", ["radiology_metrics", "--from", "20240101", "--to", "20240107", "--json"]):
+        with patch(
+            "sys.argv",
+            ["radiology_metrics", "--from", "20240101", "--to", "20240107", "--json"],
+        ):
             from radiology_metrics import main
+
             main()
             captured = capsys.readouterr()
             json.loads(captured.out)  # Should parse without error

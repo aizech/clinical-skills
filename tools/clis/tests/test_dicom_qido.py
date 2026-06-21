@@ -70,10 +70,7 @@ class TestSearchStudies:
         mock_instance.get.return_value = mock_response
         mock_client.return_value = mock_instance
 
-        result = search_studies(
-            "https://example.com/dicomweb",
-            auth_token="test-token"
-        )
+        result = search_studies("https://example.com/dicomweb", auth_token="test-token")
 
         assert isinstance(result, list)
 
@@ -124,9 +121,7 @@ class TestGetStudyDetails:
         mock_client.return_value = mock_instance
 
         result = get_study_details(
-            "https://example.com/dicomweb",
-            "1.2.3.4.5",
-            auth_token="test-token"
+            "https://example.com/dicomweb", "1.2.3.4.5", auth_token="test-token"
         )
 
         assert isinstance(result, list)
@@ -154,9 +149,7 @@ class TestSearchSeries:
         mock_client.return_value = mock_instance
 
         result = search_series(
-            "https://example.com/dicomweb",
-            "1.2.3.4.5",
-            modality="CT"
+            "https://example.com/dicomweb", "1.2.3.4.5", modality="CT"
         )
 
         assert isinstance(result, list)

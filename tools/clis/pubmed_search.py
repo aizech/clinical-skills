@@ -105,14 +105,16 @@ def get_article_summary(
         for uid, article in data.get("result", {}).items():
             if uid == "uids":
                 continue
-            results.append({
-                "pmid": uid,
-                "title": article.get("title", "N/A"),
-                "authors": [a.get("name", "") for a in article.get("authors", [])],
-                "journal": article.get("fulljournalname", "N/A"),
-                "pub_date": article.get("pubdate", "N/A"),
-                "doi": article.get("elocationid", "").replace("doi: ", ""),
-            })
+            results.append(
+                {
+                    "pmid": uid,
+                    "title": article.get("title", "N/A"),
+                    "authors": [a.get("name", "") for a in article.get("authors", [])],
+                    "journal": article.get("fulljournalname", "N/A"),
+                    "pub_date": article.get("pubdate", "N/A"),
+                    "doi": article.get("elocationid", "").replace("doi: ", ""),
+                }
+            )
 
         return results
     finally:
@@ -124,7 +126,9 @@ def main():
     parser.add_argument("query", help="Search query")
     parser.add_argument("--max", "-n", type=int, default=20, help="Maximum results")
     parser.add_argument("--api-key", help="NCBI API key")
-    parser.add_argument("--type", "-t", help="Article type (clinical-trial, meta-analysis, review)")
+    parser.add_argument(
+        "--type", "-t", help="Article type (clinical-trial, meta-analysis, review)"
+    )
     parser.add_argument("--days", "-d", type=int, help="Results from last N days")
     parser.add_argument("--fetch", "-f", action="store_true", help="Fetch full details")
     parser.add_argument("--json", "-j", action="store_true", help="Output as JSON")
@@ -155,12 +159,12 @@ def main():
                 for i, article in enumerate(summaries, 1):
                     print(f"\n[{i}] PMID: {article['pmid']}")
                     print(f"    {article['title']}")
-                    authors = ", ".join(article['authors'][:3])
-                    if len(article['authors']) > 3:
+                    authors = ", ".join(article["authors"][:3])
+                    if len(article["authors"]) > 3:
                         authors += " et al."
                     print(f"    {authors}")
                     print(f"    {article['journal']} ({article['pub_date']})")
-                    if article['doi']:
+                    if article["doi"]:
                         print(f"    DOI: {article['doi']}")
 
     except Exception as e:

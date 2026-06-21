@@ -43,7 +43,9 @@ def search_studies(
         client.close()
 
 
-def get_study_details(base_url: str, study_uid: str, auth_token: Optional[str] = None) -> dict:
+def get_study_details(
+    base_url: str, study_uid: str, auth_token: Optional[str] = None
+) -> dict:
     """Get detailed metadata for a study."""
     headers = {"Accept": "application/dicom+json"}
     if auth_token:
@@ -76,7 +78,9 @@ def search_series(
 
     client = APIClient(base_url, timeout=30)
     try:
-        response = client.get(f"studies/{study_uid}/series", params=params, headers=headers)
+        response = client.get(
+            f"studies/{study_uid}/series", params=params, headers=headers
+        )
         return response.json()
     finally:
         client.close()
@@ -123,7 +127,11 @@ def main():
                 print(f"Found {len(results)} studies:")
                 for study in results:
                     pid = study.get("00100020", {}).get("Value", ["N/A"])[0]
-                    pname = study.get("00100010", {}).get("Value", [{"Alphabetic": "N/A"}])[0].get("Alphabetic", "N/A")
+                    pname = (
+                        study.get("00100010", {})
+                        .get("Value", [{"Alphabetic": "N/A"}])[0]
+                        .get("Alphabetic", "N/A")
+                    )
                     date = study.get("00080020", {}).get("Value", ["N/A"])[0]
                     mods = study.get("00080061", {}).get("Value", [])
                     print(f"  {pid} | {pname} | {date} | {','.join(mods)}")

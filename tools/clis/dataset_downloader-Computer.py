@@ -95,7 +95,9 @@ def setup_nih_access(output_dir: Path) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Radiology Dataset Downloader")
-    parser.add_argument("--list", "-l", action="store_true", help="List available datasets")
+    parser.add_argument(
+        "--list", "-l", action="store_true", help="List available datasets"
+    )
     parser.add_argument("--dataset", "-d", help="Dataset to download")
     parser.add_argument("--output", "-o", type=Path, help="Output directory")
 

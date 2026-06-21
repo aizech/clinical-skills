@@ -49,7 +49,9 @@ def fetch_study(
             instance_uid = instance["00080018"]["Value"][0]
             dicom_url = f"{base_url}/studies/{study_uid}/series/{series_uid}/instances/{instance_uid}"
 
-            dicom_response = requests.get(dicom_url, headers={"Accept": "application/dicom"})
+            dicom_response = requests.get(
+                dicom_url, headers={"Accept": "application/dicom"}
+            )
             dicom_response.raise_for_status()
 
             output_file = series_dir / f"{instance_uid}.dcm"
@@ -101,7 +103,9 @@ def list_study_contents(
         inst_response.raise_for_status()
         instance_count = len(inst_response.json())
 
-        print(f"  [{i+1}] Series {series_uid[:20]}... ({modality}): {instance_count} instances")
+        print(
+            f"  [{i + 1}] Series {series_uid[:20]}... ({modality}): {instance_count} instances"
+        )
 
 
 def main():
@@ -109,8 +113,12 @@ def main():
     parser.add_argument("base_url", help="DICOMweb base URL")
     parser.add_argument("--study", "-s", required=True, help="Study UID")
     parser.add_argument("--output", "-o", type=Path, help="Output directory")
-    parser.add_argument("--list", "-l", action="store_true", help="List study contents only")
-    parser.add_argument("--metadata", "-m", action="store_true", help="Fetch metadata only")
+    parser.add_argument(
+        "--list", "-l", action="store_true", help="List study contents only"
+    )
+    parser.add_argument(
+        "--metadata", "-m", action="store_true", help="Fetch metadata only"
+    )
     parser.add_argument("--token", help="Bearer auth token")
     parser.add_argument("--json", "-j", action="store_true", help="Output as JSON")
 
@@ -122,6 +130,7 @@ def main():
 
         elif args.metadata:
             import json
+
             results = fetch_study_metadata(args.base_url, args.study, args.token)
             if args.json:
                 print(json.dumps(results, indent=2))
@@ -130,8 +139,12 @@ def main():
                     print(item)
 
         elif args.output:
-            results = fetch_study(args.base_url, args.study, args.output, auth_token=args.token)
-            print(f"Fetched {results['instance_count']} instances in {results['series_count']} series")
+            results = fetch_study(
+                args.base_url, args.study, args.output, auth_token=args.token
+            )
+            print(
+                f"Fetched {results['instance_count']} instances in {results['series_count']} series"
+            )
             print(f"Saved to: {args.output / results['study_uid']}")
 
         else:

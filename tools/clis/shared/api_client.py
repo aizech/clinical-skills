@@ -34,7 +34,9 @@ class APIClient:
         """
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
-        self.session = self._create_session(max_retries, backoff_factor, status_forcelist)
+        self.session = self._create_session(
+            max_retries, backoff_factor, status_forcelist
+        )
 
     def _create_session(
         self,
