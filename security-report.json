@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-21T19:46:22.159Z",
+  "generated": "2026-06-21T20:10:52.235Z",
   "repo": "aizech/clinical-skills",
   "version": "1.0.0",
   "skillsAudited": 26,
@@ -34,7 +34,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 2,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "ai-quality-review",
@@ -48,7 +48,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "ai-report-assist",
@@ -62,7 +62,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 1,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "llm-radiology-use",
@@ -76,7 +76,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 3,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "image-quality-audit",
@@ -90,7 +90,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "radiology-metrics",
@@ -104,7 +104,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "report-quality-review",
@@ -118,7 +118,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "imaging-study-review",
@@ -132,7 +132,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "radiology-report-analysis",
@@ -146,7 +146,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "structured-reporting",
@@ -160,7 +160,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "modality-detection",
@@ -174,7 +174,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "radiology-context",
@@ -195,7 +195,7 @@
         }
       ],
       "externalLinks": 5,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "dataset-preprocessing",
@@ -209,7 +209,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "model-validation",
@@ -223,7 +223,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "radiology-dataset-guide",
@@ -237,7 +237,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "patient-education-material",
@@ -251,7 +251,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "patient-results-letter",
@@ -265,7 +265,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.248Z"
     },
     {
       "name": "dicom-web-query",
@@ -286,7 +286,7 @@
         }
       ],
       "externalLinks": 1,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.249Z"
     },
     {
       "name": "pacs-workflow",
@@ -300,7 +300,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.249Z"
     },
     {
       "name": "pubmed-search",
@@ -314,7 +314,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 3,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.249Z"
     },
     {
       "name": "cross-reference-linking",
@@ -328,7 +328,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.249Z"
     },
     {
       "name": "guideline-integration",
@@ -342,7 +342,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.249Z"
     },
     {
       "name": "radiology-research",
@@ -356,7 +356,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.249Z"
     },
     {
       "name": "care-gap-closure",
@@ -370,7 +370,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.249Z"
     },
     {
       "name": "followup-tracking",
@@ -384,7 +384,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.249Z"
     },
     {
       "name": "imaging-referral",
@@ -398,7 +398,7 @@
       "issueCount": 0,
       "issues": [],
       "externalLinks": 0,
-      "lastAudit": "2026-06-21T19:46:22.167Z"
+      "lastAudit": "2026-06-21T20:10:52.249Z"
     }
   ]
 }
