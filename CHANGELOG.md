@@ -5,6 +5,26 @@ All notable changes to clinical-skills are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-06-21
+
+### Fixed
+
+#### Workflow Fixes
+- Fixed invalid `ubuntu-slim` runner in `validate-skill.yml` and `sync-skills.yml` → `ubuntu-latest`
+- Fixed non-existent `actions/checkout@v6` in `validate-skill.yml` and `sync-skills.yml` → `actions/checkout@v4`
+- Fixed non-existent `actions/setup-node@v5` in `sync-skills.yml` → `actions/setup-node@v4`
+- Simplified CLI test matrix to Python 3.12 only (was `3.11`, `3.12`, `3.13`)
+
+#### Code Quality
+- Removed 50 unused imports across CLI tools and tests (`requests`, `time`, `re`, `Optional`, `json`, `StringIO`, `MagicMock`, `datetime`, `pytest`)
+- Removed 5 unused local variables in `tat_analyzer.py`, `tat_analyzer-Computer.py`, and `test_dicom_info.py`
+- Reformatted 13 Python files with `black` for consistent style
+- All 85 tests passing, ruff and black clean
+
+### Changed
+- Regenerated `security-report.json` (26 skills analyzed, 0 errors, 0 warnings)
+- Regenerated `public/llms.txt` with updated integration template ordering
+
 ## [1.0.1]
 
 ### Added
